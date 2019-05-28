@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { styled } from 'baseui';
 import { StatefulInput } from 'baseui/input';
+import PropTypes from 'prop-types';
 
 const input = {
 	InputContainer: {
@@ -35,10 +36,10 @@ const Label = styled('span', {
 
 export default class FormInput extends React.Component {
 	render() {
-		const { lable, placeholder, type } = this.props;
+		const { label, placeholder, type } = this.props;
 		return (
 			<FormInputBlock>
-				<Label> {lable} </Label>
+				<Label> {label} </Label>
 				<StatefulInput
 					type={type}
 					overrides={input}
@@ -48,3 +49,14 @@ export default class FormInput extends React.Component {
 		);
 	}
 }
+
+FormInput.defaultProps = {
+	placeholder: '',
+	type: 'text'
+};
+
+FormInput.propTypes = {
+	label: PropTypes.string.isRequire,
+	placeholder: PropTypes.string,
+	type: PropTypes.string
+};

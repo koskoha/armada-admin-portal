@@ -3,7 +3,7 @@ import { styled } from 'baseui';
 import { Button } from 'baseui/button';
 import { Link } from 'react-router-dom';
 
-import FormInput from '../elements/FormInput';
+import FormInput from '../form/FormInput';
 
 const btnStyles = {
 	background: '#dc176c',
@@ -72,9 +72,9 @@ export default class Login extends React.Component {
 						{/* BODY FORM */}
 						<div className="login-form-body">
 							<LoginForm>
-								<FormInput lable="Email Address" placeholder="Email Address" />
+								<FormInput label="Email Address" placeholder="Email Address" />
 								<FormInput
-									lable="Password"
+									label="Password"
 									type="password"
 									placeholder="Password"
 								/>
@@ -82,7 +82,6 @@ export default class Login extends React.Component {
 							<Span>
 								Forgot password?
 								<Link className="link" to="/agents">
-									{' '}
 									Click here.
 								</Link>
 							</Span>
@@ -96,7 +95,7 @@ export default class Login extends React.Component {
 
 						{/* FOOTER FORM */}
 						<div className="login-form-footer">
-							<Span> Don't have an account? </Span>
+							<Span> Don&lsquo;t have an account? </Span>
 							<Link className="link" to="/agents">
 								<Button
 									overrides={{
