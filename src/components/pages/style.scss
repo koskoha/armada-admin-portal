@@ -1,34 +1,102 @@
 .wrapper {
-  max-width: 1500px;  
-  padding: 0 1rem;
+	max-width: 1500px;
+	padding: 0 1rem;
 
-  [role='rowgroup'] {
-    [role='row']:nth-child(even) {
-      background: lightgray;
-    }
-  }
-  li {
-    padding-bottom: calc(1rem - 3px);
-    border-bottom: 3px solid transparent;
-    margin-right: 1rem;
-    &.active {
-      border-bottom-color: black;
-    }
-  }
-  .loginbox {
-    flex-direction: column;
-    padding: 1rem;
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      & > * {
-        margin-left: 1rem;
-      }
-    }
-    p {
-      text-align: right;
-    }
-  }
+	[role='rowgroup'] {
+		[role='row']:nth-child(even) {
+			background: lightgray;
+		}
+	}
+	li {
+		padding-bottom: calc(1rem - 3px);
+		border-bottom: 3px solid transparent;
+		margin-right: 1rem;
+		&.active {
+			border-bottom-color: black;
+		}
+	}
+	// .loginbox {
+	// 	background: url('../../images/login-bg-right.png'),
+	// 		url('../../images/login-bg-left.png');
+	// 	background-position: right bottom, left top;
+	// 	background-repeat: no-repeat, no-repeat;
+	// 	flex-direction: column;
+	// 	padding: 1rem;
+	// 	ul {
+	// 		margin: 0;
+	// 		padding: 0;
+	// 		list-style: none;
+	// 		display: flex;
+	// 		& > * {
+	// 			margin-left: 1rem;
+	// 		}
+	// 	}
+	// 	p {
+	// 		text-align: right;
+	// 	}
+	// }
+}
+
+.loginbox {
+	.layer {
+		background-image: url('../../images/formpage-bg.png');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		min-height: 100vh;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		z-index: 1;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.login-form-wrap {
+		display: flex;
+		flex-direction: column;
+		width: 550px;
+		overflow: hidden;
+		background-color: rgba(0, 68, 122, 0.9);
+		border-radius: 10px;
+		position: relative;
+
+		.login-form-body,
+		.login-form-footer,
+		.login-form-header {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			align-items: center;
+			overflow: hidden;
+			padding: 20px 90px 20px 90px;
+			border-radius: 10px;
+			position: relative;
+		}
+
+		.login-form-header {
+			padding-top: 40px;
+			display: grid;
+			grid-template-columns: auto 1fr;
+			grid-gap: 10px;
+			.company-title {
+				display: grid;
+				grid-template-columns: 1fr;
+				justify-items: end;
+				.title {
+					font-size: 23px;
+				}
+				.sub-title {
+					font-size: 8px;
+				}
+			}
+		}
+	}
+}
+
+.link {
+	text-decoration: none;
+	color: white;
 }

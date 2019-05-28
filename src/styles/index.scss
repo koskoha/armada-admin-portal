@@ -1,15 +1,13 @@
 @import 'theme';
-$theme-font:    verdana, sans-serif;
+$theme-font: Montserrat, sans-serif;
 
-
-body {    
-    font-family: $theme-font;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: $themeColor-Dark    ;
-    h1, h2 {
-        color: $themeColor-Light
-    }
-  }
-  
-  
+body {
+	font-family: $theme-font;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	// background-color: $themeColor-Dark;
+	h1,
+	h2 {
+		color: $themeColor-Light;
+	}
+}
