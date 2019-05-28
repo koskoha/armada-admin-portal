@@ -1,7 +1,21 @@
 import * as React from 'react';
 import { styled } from 'baseui';
-import { StatefulInput } from 'baseui/input';
+import { StatefulInput, StyledInputContainer } from 'baseui/input';
 import PropTypes from 'prop-types';
+
+const RootWithStyle = styled(StyledInputContainer, props => {
+	return {
+		borderColor: 'none',
+		border: 'none',
+		background: 'none',
+		borderRadius: '0',
+		marginTop: '15px',
+		marginBottom: '20px',
+		color: 'white',
+		borderBottom: '1px solid white',
+		boxShadow: 'none'
+	};
+});
 
 const input = {
 	InputContainer: {
@@ -15,22 +29,16 @@ const input = {
 		style: {
 			padding: '13px 0px',
 			color: 'white',
-			fontSize: '18px'
+			fontSize: '19px'
 		}
 	}
 };
 
-const FormInputBlock = styled('div', {
-	display: 'flex',
-	flexDirection: 'column',
-	width: '100%',
-	borderBottom: '1px solid white',
-	marginBottom: '23px'
-});
+const FormInputBlock = styled('div', {});
 
 const Label = styled('span', {
-	color: 'white',
-	fontSize: '13px',
+	fontSize: '15px',
+	fontWeight: '600',
 	margin: '10px 0'
 });
 
@@ -42,7 +50,10 @@ export default class FormInput extends React.Component {
 				<Label> {label} </Label>
 				<StatefulInput
 					type={type}
-					overrides={input}
+					overrides={{
+						InputContainer: { component: RootWithStyle },
+						Input: input.Input
+					}}
 					placeholder={placeholder}
 				/>
 			</FormInputBlock>

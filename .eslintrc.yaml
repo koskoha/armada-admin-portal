@@ -17,7 +17,7 @@ plugins:
   - '@typescript-eslint'
 rules:
   '@typescript-eslint/explicit-function-return-type': ['off']
-  '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }]
+  # '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }]
   default-case: ['off']
   consistent-return: ['off']
   import/export: ['off']
