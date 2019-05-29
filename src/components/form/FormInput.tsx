@@ -37,8 +37,9 @@ const input = {
 const FormInputBlock = styled('div', {});
 
 const Label = styled('span', {
-	fontSize: '15px',
-	fontWeight: '600',
+	fontSize: '14px',
+	color: 'rgba(255, 255, 255, 1)',
+	fontWeissWeght: '600',
 	margin: '10px 0'
 });
 

@@ -6,7 +6,8 @@ import UserContext from '../context/UserContext';
 
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
-import Agents from './pages/Agents';
+// import Agents from './pages/Accounts';
+import AdminLayout from './pages/AdminLayout';
 
 interface PrivateRouteProps {
 	component: React.ComponentType;
@@ -39,15 +40,15 @@ PrivateRoute.propTypes = {
 };
 
 const Routes: React.FC = () => {
-  return (
-    <div>
-      <Switch>
-        <PrivateRoute path="/" exact component={Dashboard} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/agents" exact component={Agents} />
-      </Switch>
-    </div>
-  );
+	return (
+		<div>
+			<Switch>
+				<PrivateRoute path="/" exact component={Dashboard} />
+				<Route path="/login" exact component={Login} />
+				<Route path="/admin" exact component={AdminLayout} />
+			</Switch>
+		</div>
+	);
 };
 
 export default Routes;
