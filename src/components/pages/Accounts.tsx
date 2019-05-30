@@ -150,7 +150,7 @@ class Accounts extends React.Component {
 							onChange={event => console.log(event)}
 						/>
 					</SearchBlock>
-					<Link className="link" to="/agents">
+					<Link className="link" to="/login">
 						<SyncAccountsBtn>Sync Accounts</SyncAccountsBtn>
 					</Link>
 				</TableHeader>

@@ -85,7 +85,7 @@ export default class Login extends React.Component {
 								Click here.
 							</Link>
 						</Label>
-						<Link className="link" to="/agents">
+						<Link className="link" to="/admin">
 							<ButtonLogin>Login</ButtonLogin>
 						</Link>
 					</div>
@@ -96,7 +96,7 @@ export default class Login extends React.Component {
 					{/* FOOTER FORM */}
 					<div className="login-form-footer">
 						<Label> Don&lsquo;t have an account? </Label>
-						<Link className="link" to="/agents">
+						<Link className="link" to="/admin">
 							<ButtonSignup>Create Account</ButtonSignup>
 						</Link>
 					</div>
