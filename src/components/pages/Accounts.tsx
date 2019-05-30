@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { styled } from 'baseui';
-import { Input, StatefulInput } from 'baseui/input';
+import { StatefulSelect, TYPE } from 'baseui/select';
 import { Button, KIND } from 'baseui/button';
 import { Link } from 'react-router-dom';
 import { Table } from 'baseui/table';
 import { Pagination } from 'baseui/pagination';
 import { Block } from 'baseui/block';
-import { Search } from 'baseui/icon';
 import { StatefulPopover, PLACEMENT } from 'baseui/popover';
 import { StatefulMenu } from 'baseui/menu';
 import TriangleDown from 'baseui/icon/triangle-down';
@@ -32,13 +31,6 @@ const TableHeader = styled('div', {
 	display: 'flex',
 	justifyContent: 'space-between',
 	margin: '1rem 0'
-});
-
-const BlockSrch = styled('div', {
-	display: 'flex',
-	alignItems: 'center',
-	paddingLeft: '10px',
-	color: 'red'
 });
 
 const SearchBlock = styled('div', {
@@ -82,21 +74,29 @@ class Accounts extends React.Component {
 			<div>
 				<TableHeader className="search-block">
 					<SearchBlock>
-						<StatefulInput
-							overrides={{
-								Before: () => (
-									<BlockSrch>
-										<Search size="18px" />
-									</BlockSrch>
-								)
-							}}
+						<StatefulSelect
+							options={[
+								{ id: 'Healthy Company', value: 'healthyCompany' },
+								{ id: 'Armada Health', value: 'armadaHealth' },
+								{ id: 'Armada Admin', value: 'armadaAdmin' },
+								{ id: 'Armada User', value: 'armadaUser' }
+							]}
+							labelKey="id"
+							valueKey="value"
 							placeholder="Search Accounts..."
+							maxDropdownHeight="300px"
+							type={TYPE.search}
+							overrides={{
+								DropdownListItem: {
+									style: props => ({
+										backgroundColor: props['aria-selected']
+											? 'rgba(220, 23, 108, 0.2)'
+											: 'white'
+									})
+								}
+							}}
+							onChange={event => console.log(event)}
 						/>
-						{/* <Input
-							onChange={event => this.setState({ search: event.target.value })}
-							placeholder="Search"
-							value={this.state.search}
-						/> */}
 					</SearchBlock>
 					<Link className="link" to="/agents">
 						<SyncAccountsBtn>Sync Accounts</SyncAccountsBtn>

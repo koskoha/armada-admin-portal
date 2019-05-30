@@ -11,8 +11,6 @@ $wrapper-width: 1500px;
 .wrapper {
 	display: grid;
 	grid-template-rows: 90px 80px 1fr;
-	// grid-template-columns: 1500px;
-	// justify-content: center;
 	font-family: 'Montserrat';
 	height: 100vh;
 
@@ -116,10 +114,19 @@ $wrapper-width: 1500px;
 	}
 
 	.search-block {
-		[data-baseweb='base-input'] {
+		[data-baseweb='select']:first-child {
 			border-radius: 6px;
 			border: 1px solid rgba(206, 212, 218, 1);
 			background-color: #fff;
+		}
+		[data-baseweb='icon'] {
+			color: #dc176c;
+		}
+
+		[role='option'] {
+			[aria-selected='true'] {
+				background-color: #dc176c;
+			}
 		}
 	}
 

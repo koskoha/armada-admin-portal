@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { styled } from 'baseui';
 import { StatefulInput, StyledInputContainer } from 'baseui/input';
-import PropTypes from 'prop-types';
 
 const RootWithStyle = styled(StyledInputContainer, props => {
 	return {
@@ -43,7 +42,11 @@ const Label = styled('span', {
 	margin: '10px 0'
 });
 
-export default class FormInput extends React.Component {
+export default class FormInput extends React.Component<{
+	label: string;
+	placeholder: string;
+	type: string;
+}> {
 	render() {
 		const { label, placeholder, type } = this.props;
 		return (
@@ -61,14 +64,3 @@ export default class FormInput extends React.Component {
 		);
 	}
 }
-
-FormInput.defaultProps = {
-	placeholder: '',
-	type: 'text'
-};
-
-FormInput.propTypes = {
-	label: PropTypes.string.isRequire,
-	placeholder: PropTypes.string,
-	type: PropTypes.string
-};

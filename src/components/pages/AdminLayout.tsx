@@ -1,43 +1,16 @@
 import * as React from 'react';
 import { styled } from 'baseui';
-import { Input } from 'baseui/input';
-import { Button } from 'baseui/button';
 import { Link } from 'react-router-dom';
-import { Table } from 'baseui/table';
-import { Pagination } from 'baseui/pagination';
-import { Block } from 'baseui/block';
 import { Tabs, Tab } from 'baseui/tabs';
 
 import './style.scss';
 
 import Accounts from './Accounts';
 
-const Wrapper = styled('div', {
-	// margin: '0 auto'
-});
-const Header = styled('div', {
-	// maxWidth: '1500px',
-});
-const PageNav = styled('div', {
-	backgroundColor: 'lightgray'
-	// display: 'flex',
-	// justifyContent: 'space-between'
-});
+const Wrapper = styled('div', {});
+const Header = styled('div', {});
 
-const Nav = styled('ul', {
-	margin: 0,
-	padding: 0,
-	listStyle: 'none',
-	display: 'flex'
-});
-
-const Item = styled('li', {
-	padding: '1rem'
-});
-
-const LoginBox = styled('div', {
-	// display: 'flex'
-});
+const LoginBox = styled('div', {});
 
 const A = styled(Link, {
 	display: 'block',
@@ -51,9 +24,7 @@ const P = styled('p', {});
 
 const Pages = styled('div', {});
 
-const NavBar = styled('div', {
-	// maxWidth: '1500px'
-});
+const NavBar = styled('div', {});
 
 class AdminLayout extends React.Component {
 	state = {
@@ -65,7 +36,11 @@ class AdminLayout extends React.Component {
 	};
 
 	render() {
-		const tabs = [<Accounts />, 'Agents', 'System Admins'];
+		const tabs = [
+			<Accounts key="1" />,
+			<span key="2">Agents</span>,
+			<span key="3">System Admins</span>
+		];
 		return (
 			<Wrapper className="wrapper">
 				<LoginBox className="header">
