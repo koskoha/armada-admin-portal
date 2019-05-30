@@ -17,6 +17,9 @@ $wrapper-width: 1500px;
 	height: 100vh;
 
 	[role='rowgroup'] {
+		[role='row'] {
+			height: 50px;
+		}
 		[role='row']:nth-child(even) {
 			background: #f5fafd;
 		}
@@ -112,6 +115,14 @@ $wrapper-width: 1500px;
 		}
 	}
 
+	.search-block {
+		[data-baseweb='base-input'] {
+			border-radius: 6px;
+			border: 1px solid rgba(206, 212, 218, 1);
+			background-color: #fff;
+		}
+	}
+
 	.pages {
 		width: 100%;
 		.pages-wrapper {
@@ -119,6 +130,17 @@ $wrapper-width: 1500px;
 			max-width: $wrapper-width;
 			margin-left: auto;
 			margin-right: auto;
+			.table-pagination {
+				[aria-label='pagination'] {
+					[data-baseweb='button'] {
+						color: rgba(0, 87, 155, 1);
+						line-height: 14px;
+						font-size: 16px;
+						background-color: rgba(248, 249, 250, 1);
+						border-radius: 19px;
+					}
+				}
+			}
 		}
 	}
 }
