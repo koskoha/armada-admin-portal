@@ -69,39 +69,46 @@ const ActionsBtns: React.FC = () => (
 
 const DATA = [
 	[
-		'Sarah Brown',
-		'test@email.com',
-		'(410) 123-1524',
-		'Active',
+		<span key="1">Sarah Brown</span>,
+		<span key="2">test@email.com</span>,
+		<span key="3">(410) 123-1524</span>,
+		<span key="4">Active</span>,
 		<ActionsBtns key="sdfads" />
 	],
 	[
-		'Sarah Brown',
-		'test@email.com',
-		'(410) 123-1524',
-		'Active',
-		<ActionsBtns key="sdfads1" />
+		<span key="1">Sarah Brown</span>,
+		<span key="2">test@email.com</span>,
+		<span key="3">(410) 123-1524</span>,
+		<span key="4">Active</span>,
+		<ActionsBtns key="sdfads" />
 	],
 	[
-		'Sarah Brown',
-		'test@email.com',
-		'(410) 123-1524',
-		'Active',
-		<ActionsBtns key="sdfads2" />
+		<span key="1">Sarah Brown</span>,
+		<span key="2">test@email.com</span>,
+		<span key="3">(410) 123-1524</span>,
+		<span key="4">Active</span>,
+		<ActionsBtns key="sdfads" />
 	],
 	[
-		'Sarah Brown',
-		'test@email.com',
-		'(410) 123-1524',
-		'Active',
-		<ActionsBtns key="sdfads3" />
+		<span key="1">Sarah Brown</span>,
+		<span key="2">test@email.com</span>,
+		<span key="3">(410) 123-1524</span>,
+		<span key="4">Active</span>,
+		<ActionsBtns key="sdfads" />
 	],
 	[
-		'Sarah Brown',
-		'test@email.com',
-		'(410) 123-1524',
-		'Active',
-		<ActionsBtns key="sdfads4" />
+		<span key="1">Sarah Brown</span>,
+		<span key="2">test@email.com</span>,
+		<span key="3">(410) 123-1524</span>,
+		<span key="4">Active</span>,
+		<ActionsBtns key="sdfads" />
+	],
+	[
+		<span key="1">Sarah Brown</span>,
+		<span key="2">test@email.com</span>,
+		<span key="3">(410) 123-1524</span>,
+		<span key="4">Active</span>,
+		<ActionsBtns key="sdfads" />
 	]
 ];
 
