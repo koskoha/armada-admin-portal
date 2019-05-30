@@ -43,8 +43,7 @@ const ActionBtn = styled('div', {
 	background: 'none',
 	paddingLeft: '5px',
 	paddingRight: '5px',
-	color: '#dc176c',
-	fontSize: '18px',
+	fontSize: '15px',
 	fontWeight: 'bold',
 	cursor: 'pointer'
 });
@@ -52,9 +51,7 @@ const ActionBtn = styled('div', {
 const ActionBtnsContainer = styled('div', {
 	display: 'flex',
 	flexDirection: 'row',
-	color: '#dc176c',
-	fontSize: '18px',
-	fontWeight: 'bold'
+	color: '#dc176c'
 });
 
 const SyncAccountsBtn = styled('button', {
