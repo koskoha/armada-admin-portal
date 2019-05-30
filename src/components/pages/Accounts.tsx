@@ -38,6 +38,25 @@ const SearchBlock = styled('div', {
 	height: '45px'
 });
 
+const ActionBtn = styled('div', {
+	border: 'none',
+	background: 'none',
+	paddingLeft: '5px',
+	paddingRight: '5px',
+	color: '#dc176c',
+	fontSize: '18px',
+	fontWeight: 'bold',
+	cursor: 'pointer'
+});
+
+const ActionBtnsContainer = styled('div', {
+	display: 'flex',
+	flexDirection: 'row',
+	color: '#dc176c',
+	fontSize: '18px',
+	fontWeight: 'bold'
+});
+
 const SyncAccountsBtn = styled('button', {
 	...btnStyles,
 	':hover': {
@@ -45,15 +64,48 @@ const SyncAccountsBtn = styled('button', {
 	}
 });
 
+const ActionsBtns: React.FC = () => (
+	<ActionBtnsContainer>
+		<ActionBtn>Remove</ActionBtn>/<ActionBtn>Edit</ActionBtn>
+	</ActionBtnsContainer>
+);
+
 const DATA = [
-	['Sarah Brown', 'test@email.com', '(410) 123-1524', 'Active', 'View/Edit'],
-	['Sarah Brown', 'test@email.com', '(410) 123-1524', 'Active', 'View/Edit'],
-	['Sarah Brown', 'test@email.com', '(410) 123-1524', 'Active', 'View/Edit'],
-	['Sarah Brown', 'test@email.com', '(410) 123-1524', 'Active', 'View/Edit'],
-	['Sarah Brown', 'test@email.com', '(410) 123-1524', 'Active', 'View/Edit'],
-	['Sarah Brown', 'test@email.com', '(410) 123-1524', 'Active', 'View/Edit'],
-	['Sarah Brown', 'test@email.com', '(410) 123-1524', 'Active', 'View/Edit'],
-	['Sarah Brown', 'test@email.com', '(410) 123-1524', 'Active', 'View/Edit']
+	[
+		'Sarah Brown',
+		'test@email.com',
+		'(410) 123-1524',
+		'Active',
+		<ActionsBtns key="sdfads" />
+	],
+	[
+		'Sarah Brown',
+		'test@email.com',
+		'(410) 123-1524',
+		'Active',
+		<ActionsBtns key="sdfads1" />
+	],
+	[
+		'Sarah Brown',
+		'test@email.com',
+		'(410) 123-1524',
+		'Active',
+		<ActionsBtns key="sdfads2" />
+	],
+	[
+		'Sarah Brown',
+		'test@email.com',
+		'(410) 123-1524',
+		'Active',
+		<ActionsBtns key="sdfads3" />
+	],
+	[
+		'Sarah Brown',
+		'test@email.com',
+		'(410) 123-1524',
+		'Active',
+		<ActionsBtns key="sdfads4" />
+	]
 ];
 
 const COLUMNS = ['Account Name', 'Email Address', 'Phone Number', 'Status', ''];
