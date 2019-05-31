@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styled } from 'baseui';
 import { Link } from 'react-router-dom';
 
-import FormInput from '../form/FormInput';
+import FormInput from '../elements/LoginInput';
 
 const btnStyles = {
 	background: '#dc176c',
@@ -28,15 +28,11 @@ const LoginForm = styled('div', {
 const Label = styled('div', {
 	fontWeight: '600',
 	fontStyle: 'normal',
-	fontSize: '20px',
+	fontSize: '18px',
 	lineHeight: '1',
 	letterSpacing: '0px',
 	marginTop: '15px',
 	marginBottom: '30px'
-});
-
-const Line = styled('hr', {
-	width: '100%'
 });
 
 const ButtonLogin = styled('button', {
@@ -46,20 +42,18 @@ const ButtonLogin = styled('button', {
 	}
 });
 
-const ButtonSignup = styled('button', {
-	...btnStyles,
-	background: 'rgba(0,0,0,0)',
-	border: '1px solid white',
-	':hover': {
-		background: '#337ab7'
-	}
+const FormTitle = styled('span', {
+	fontSize: '22px',
+	fontWeight: 'bold',
+	marginTop: '20px',
+	marginBottom: '40px'
 });
 
 export default class Login extends React.Component {
 	render() {
 		return (
 			<div className="login-page">
-				<div className="login-form-wrap">
+				<div className="login-form">
 					{/* HEADER FORM */}
 					<div className="login-form-header">
 						<div>logo</div>
@@ -71,6 +65,7 @@ export default class Login extends React.Component {
 
 					{/* BODY FORM */}
 					<div className="login-form-body">
+						<FormTitle>Sign in to Admin Portal</FormTitle>
 						<LoginForm>
 							<FormInput label="Email Address" placeholder="Email Address" />
 							<FormInput
@@ -85,19 +80,10 @@ export default class Login extends React.Component {
 								Click here.
 							</Link>
 						</Label>
-						<Link className="link" to="/admin">
-							<ButtonLogin>Login</ButtonLogin>
-						</Link>
-					</div>
-
-					{/* line */}
-					<Line />
-
-					{/* FOOTER FORM */}
-					<div className="login-form-footer">
-						<Label> Don&lsquo;t have an account? </Label>
-						<Link className="link" to="/admin">
-							<ButtonSignup>Create Account</ButtonSignup>
+						<Link className="link" to="/admin" style={{ width: '100%' }}>
+							<ButtonLogin style={{ width: '100%', fontSize: '16px' }}>
+								Login
+							</ButtonLogin>
 						</Link>
 					</div>
 				</div>

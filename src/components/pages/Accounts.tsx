@@ -10,22 +10,9 @@ import { StatefulPopover, PLACEMENT } from 'baseui/popover';
 import { StatefulMenu } from 'baseui/menu';
 import TriangleDown from 'baseui/icon/triangle-down';
 
-import './style.scss';
+import SyncButton from '../elements/Button';
 
-const btnStyles = {
-	background: 'rgba(220, 23, 108, 1)',
-	border: 'none',
-	borderTopLeftRadius: '19px',
-	borderTopRightRadius: '19px',
-	borderBottomRightRadius: '19px',
-	borderBottomLeftRadius: '19px',
-	color: 'rgba(255, 255, 255, 1)',
-	cursor: 'pointer',
-	position: 'relative',
-	padding: '10px 45px',
-	fontSize: '16px',
-	fontWeight: '500'
-};
+import './style.scss';
 
 const TableHeader = styled('div', {
 	display: 'flex',
@@ -52,13 +39,6 @@ const ActionBtnsContainer = styled('div', {
 	display: 'flex',
 	flexDirection: 'row',
 	color: '#dc176c'
-});
-
-const SyncAccountsBtn = styled('button', {
-	...btnStyles,
-	':hover': {
-		background: '#f968a7'
-	}
 });
 
 const ActionsBtns: React.FC = () => (
@@ -114,18 +94,22 @@ const DATA = [
 
 const COLUMNS = ['Account Name', 'Email Address', 'Phone Number', 'Status', ''];
 
-class Accounts extends React.Component {
+class Accounts extends React.Component<
+	any,
+	{
+		search: string;
+		page: number;
+		limit: number;
+	}
+> {
 	state = {
 		search: '',
 		page: 1,
 		limit: 12
 	};
 
-	handlePageChange = nextPage => {};
-
-	handleLimitChange = (nextLimit: number) => {};
-
 	render() {
+		const { page, limit } = this.state;
 		return (
 			<div>
 				<TableHeader className="search-block">
@@ -155,7 +139,7 @@ class Accounts extends React.Component {
 						/>
 					</SearchBlock>
 					<Link className="link" to="/login">
-						<SyncAccountsBtn>Sync Accounts</SyncAccountsBtn>
+						<SyncButton title="Sync Accounts" onClick={() => {}} />
 					</Link>
 				</TableHeader>
 				<Table columns={COLUMNS} data={DATA} className="table" />
@@ -168,13 +152,10 @@ class Accounts extends React.Component {
 					justifyContent="space-between"
 				>
 					<StatefulPopover
-						content={({ close }) => (
+						content={() => (
 							<StatefulMenu
 								items={[...new Array(100)].map((_, i) => ({ label: i + 1 }))}
-								onItemSelect={({ item }) => {
-									this.handleLimitChange(item.label);
-									close();
-								}}
+								onItemSelect={() => {}}
 								overrides={{
 									List: { style: { height: '150px', width: '100px' } }
 								}}
@@ -183,13 +164,13 @@ class Accounts extends React.Component {
 						placement={PLACEMENT.bottom}
 					>
 						<Button kind={KIND.tertiary} endEnhancer={TriangleDown}>
-							{`${this.state.limit} Rows`}
+							{`${limit} Rows`}
 						</Button>
 					</StatefulPopover>
 
 					<Pagination
 						numPages={2}
-						currentPage={this.state.page}
+						currentPage={page}
 						onPageChange={({ nextPage }) =>
 							this.setState({ currentPage: nextPage })
 						}

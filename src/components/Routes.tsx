@@ -6,8 +6,7 @@ import UserContext from '../context/UserContext';
 
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
-// import Agents from './pages/Accounts';
-import AdminLayout from './pages/AdminLayout';
+import AdminLayout from './layouts/AdminLayout';
 
 interface PrivateRouteProps {
 	component: React.ComponentType;

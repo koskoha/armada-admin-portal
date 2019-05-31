@@ -1,3 +1,5 @@
+@import '../../styles/theme';
+
 @mixin sys_font($weight: 700, $size: 10px, $line: 1.1, $spacing: 1px) {
 	font-weight: $weight;
 	font-style: normal;
@@ -6,7 +8,7 @@
 	letter-spacing: $spacing;
 }
 
-$wrapper-width: 1500px;
+// $page-wrapper-width: 1490px;
 
 .wrapper {
 	display: grid;
@@ -25,7 +27,7 @@ $wrapper-width: 1500px;
 
 	[role='row'] {
 		[role='columnheader'] {
-			background: #00579b;
+			background: $themeColor-Dark;
 			color: white;
 			border: none;
 			text-transform: uppercase;
@@ -46,7 +48,9 @@ $wrapper-width: 1500px;
 			display: grid;
 			grid-gap: 30px;
 			grid-template-columns: 40px auto;
-			max-width: $wrapper-width;
+			max-width: $page-wrapper-width;
+			padding-left: 10px;
+			padding-right: 10px;
 			.header-title {
 				padding-top: 20px;
 				display: grid;
@@ -87,27 +91,29 @@ $wrapper-width: 1500px;
 	}
 
 	.nav-bar {
-		// max-width: $wrapper-width;
+		// max-width: $page-wrapper-width;
 		width: 100%;
 		height: 80px;
 		background-color: #f5fafd;
 		border-bottom: 1px solid rgba(220, 23, 108, 0.2);
 		.nav-bar-wrapper {
-			max-width: $wrapper-width;
+			max-width: $page-wrapper-width;
+			padding-left: 10px;
+			padding-right: 10px;
 			margin-left: auto;
 			margin-right: auto;
 			[role='tablist'] {
 				height: 80px;
 				border-bottom: 1px solid rgba(220, 23, 108, 0.2);
 				[role='tab'] {
-					@include sys_font(normal, 22px, 50px, 0px);
+					@include sys_font(600, 22px, 50px, 0px);
 					margin-right: 1.5em;
-					color: rgba(220, 23, 108, 1);
+					color: $red-dark;
 				}
 				[aria-selected='true'] {
 					border-left: 0px solid white;
-					font-weight: bold;
-					border-bottom: 3px solid rgba(220, 23, 108, 1);
+					font-weight: 700;
+					border-bottom: 3px solid $red-dark;
 				}
 			}
 		}
@@ -120,12 +126,12 @@ $wrapper-width: 1500px;
 			background-color: #fff;
 		}
 		[data-baseweb='icon'] {
-			color: #dc176c;
+			color: $red-dark;
 		}
 
 		[role='option'] {
 			[aria-selected='true'] {
-				background-color: #dc176c;
+				background-color: $red-dark;
 			}
 		}
 	}
@@ -134,7 +140,9 @@ $wrapper-width: 1500px;
 		width: 100%;
 		.pages-wrapper {
 			margin-top: 2.5em;
-			max-width: $wrapper-width;
+			max-width: $page-wrapper-width;
+			padding-left: 10px;
+			padding-right: 10px;
 			margin-left: auto;
 			margin-right: auto;
 			.table-pagination {
@@ -158,46 +166,43 @@ $wrapper-width: 1500px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	width: 100%;
 	min-height: 100vh;
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	z-index: 1;
-	position: absolute;
-	top: 0;
-	left: 0;
 }
-.login-form-wrap {
+.login-form {
 	display: flex;
 	flex-direction: column;
-	width: 550px;
+	width: 430px;
 	overflow: hidden;
-	background-color: rgba(0, 68, 122, 0.8);
 	border-radius: 10px;
 	position: relative;
-	box-shadow: 0px 0px 28px 2px rgba(0, 68, 122, 0.8);
 	::placeholder {
 		color: white;
 		font-size: 1.1em;
 		font-size: 18px;
 	}
-
+	
+	
 	.login-form-body,
-	.login-form-footer,
 	.login-form-header {
+		background-color: rgba(26, 57, 101, 1);
+		border-radius: 10px;
+		box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
 		align-items: center;
 		overflow: hidden;
-		padding: 20px 90px 20px 90px;
-		border-radius: 10px;
+		padding: 20px 60px 20px 60px;
 		position: relative;
 	}
 
 	.login-form-header {
+		box-shadow: none;
+		background-color: transparent;
+		background: none;
 		padding-top: 40px;
 		display: grid;
 		grid-template-columns: auto 1fr;
@@ -207,7 +212,7 @@ $wrapper-width: 1500px;
 			grid-template-columns: 1fr;
 			justify-items: end;
 			.title {
-				@include sys_font(400, 33px, 1, -1px);
+				@include sys_font(400, 25px, 1, -1px);
 			}
 			.sub-title {
 				@include sys_font(500, 9px, 1, 2px);
