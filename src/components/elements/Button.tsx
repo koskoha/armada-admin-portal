@@ -12,7 +12,7 @@ const ActionBtn = styled('button', {
 	cursor: 'pointer',
 	padding: '10px 45px',
 	fontSize: '16px',
-	fontWeight: '500',
+	fontWeight: '700',
 	':hover': {
 		background: '#f968a7'
 	}

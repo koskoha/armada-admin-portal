@@ -6,7 +6,7 @@ const RootWithStyle = styled(StyledInputContainer, ({ $isFocused }) => {
 	// debugger;
 	return {
 		borderColor: 'rgba(0,0,0,0)',
-		borderBottom: !$isFocused ? '1px solid #0e0e0e' : '3px solid #12c1d7',
+		borderBottom: !$isFocused ? '1px solid #ced4da' : '3px solid #12c1d7',
 		// boxShadow: 'none',
 		borderBottomRightRadius: '0px',
 		borderTopRightRadius: '0px',
