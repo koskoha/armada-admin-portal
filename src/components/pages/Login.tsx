@@ -54,7 +54,7 @@ export default class Login extends React.Component {
 						</LoginForm>
 						<Label>
 							Forgot password?
-							<Link className="link" to="/agents">
+							<Link className="link" to="/admin">
 								Click here.
 							</Link>
 						</Label>

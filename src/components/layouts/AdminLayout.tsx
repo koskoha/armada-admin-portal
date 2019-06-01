@@ -8,9 +8,25 @@ import SysAdminsNavBar from '../header/SysAdminsNavBar';
 import ProfileOverview from '../pages/ProfileOverview';
 import Accounts from '../pages/Accounts';
 
-const Wrapper = styled('div', {});
+const Wrapper = styled('div', {
+	display: 'grid',
+	gridTemplateRows: '90px 80px 1fr',
+	fontFamily: 'Montserrat',
+	height: '100vh'
+});
 
-const Pages = styled('div', {});
+const Pages = styled('div', {
+	width: '100%'
+});
+
+const PagesWrapper = styled('div', {
+	marginTop: '2.5em',
+	maxWidth: '1300px',
+	paddingLeft: '20px',
+	paddingRight: '20px',
+	marginLeft: 'auto',
+	marginRight: 'auto'
+});
 
 class AdminLayout extends React.Component<
 	any,
@@ -72,12 +88,12 @@ class AdminLayout extends React.Component<
 					/>
 				)}
 
-				<Pages className="pages">
-					<div className="pages-wrapper">
+				<Pages>
+					<PagesWrapper className="pages-wrapper">
 						{adminNavActive
 							? adminPages[Number(sysAdminActivePageKey) - 2]
 							: rootPages[Number(rootActivePageKey)]}
-					</div>
+					</PagesWrapper>
 				</Pages>
 			</Wrapper>
 		);
