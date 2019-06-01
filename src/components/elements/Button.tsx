@@ -2,13 +2,13 @@ import * as React from 'react';
 import { styled } from 'baseui';
 
 const ActionBtn = styled('button', {
-	background: 'rgba(220, 23, 108, 1)',
+	background: '#dc176c',
 	border: 'none',
 	borderTopLeftRadius: '19px',
 	borderTopRightRadius: '19px',
 	borderBottomRightRadius: '19px',
 	borderBottomLeftRadius: '19px',
-	color: 'rgba(255, 255, 255, 1)',
+	color: '#ffffff',
 	cursor: 'pointer',
 	padding: '10px 45px',
 	fontSize: '16px',
@@ -21,10 +21,15 @@ const ActionBtn = styled('button', {
 class ProfileOverview extends React.Component<{
 	title: string;
 	onClick: () => void;
+	style?: {};
 }> {
 	render() {
-		const { title, onClick } = this.props;
-		return <ActionBtn onClick={onClick}>{title}</ActionBtn>;
+		const { title, onClick, style } = this.props;
+		return (
+			<ActionBtn style={style} onClick={onClick}>
+				{title}
+			</ActionBtn>
+		);
 	}
 }
 

@@ -4,31 +4,30 @@ import { StatefulInput, StyledInputContainer } from 'baseui/input';
 
 const RootWithStyle = styled(StyledInputContainer, () => {
 	return {
-		borderColor: 'none',
-		border: 'none',
-		background: 'none',
-		borderRadius: '0',
-		marginTop: '15px',
-		marginBottom: '20px',
-		color: 'white',
-		borderBottom: '1px solid white',
-		boxShadow: 'none'
+		marginTop: '5px',
+		marginBottom: '30px',
+
+		borderColor: 'rgba(0,0,0,0)',
+		borderBottom: '1px solid #ffff',
+		boxShadow: 'none',
+		borderBottomRightRadius: '0px',
+		borderTopRightRadius: '0px',
+		borderLeftRightRadius: '0px',
+		borderRightRightRadius: '0px',
+		backgroundColor: 'rgba(0,0,0,0)'
 	};
 });
 
 const input = {
-	InputContainer: {
-		style: {
-			background: 'none',
-			border: 'none',
-			boxShadow: 'none'
-		}
-	},
 	Input: {
 		style: {
-			padding: '13px 0px',
-			color: 'white',
-			fontSize: '19px'
+			paddingTop: '13px',
+			paddingBottom: '13px',
+			paddingLeft: '0px',
+			paddingRight: '0px',
+			fontSize: '19px',
+			lineHeight: '0px',
+			color: '#ffff'
 		}
 	}
 };

@@ -49,8 +49,8 @@
 			grid-gap: 30px;
 			grid-template-columns: 40px auto;
 			max-width: $page-wrapper-width;
-			padding-left: 10px;
-			padding-right: 10px;
+			padding-left: 20px;
+			padding-right: 20px;
 			.header-title {
 				padding-top: 20px;
 				display: grid;
@@ -98,8 +98,8 @@
 		border-bottom: 1px solid rgba(220, 23, 108, 0.2);
 		.nav-bar-wrapper {
 			max-width: $page-wrapper-width;
-			padding-left: 10px;
-			padding-right: 10px;
+			padding-left: 20px;
+			padding-right: 20px;
 			margin-left: auto;
 			margin-right: auto;
 			[role='tablist'] {
@@ -141,8 +141,8 @@
 		.pages-wrapper {
 			margin-top: 2.5em;
 			max-width: $page-wrapper-width;
-			padding-left: 10px;
-			padding-right: 10px;
+			padding-left: 20px;
+			padding-right: 20px;
 			margin-left: auto;
 			margin-right: auto;
 			.table-pagination {
@@ -179,12 +179,11 @@
 	border-radius: 10px;
 	position: relative;
 	::placeholder {
-		color: white;
+		color: #ceced6;
 		font-size: 1.1em;
-		font-size: 18px;
+		font-size: 21px;
 	}
-	
-	
+
 	.login-form-body,
 	.login-form-header {
 		background-color: rgba(26, 57, 101, 1);
@@ -215,7 +214,7 @@
 				@include sys_font(400, 25px, 1, -1px);
 			}
 			.sub-title {
-				@include sys_font(500, 9px, 1, 2px);
+				@include sys_font(700, 7px, 2, 2px);
 			}
 		}
 	}

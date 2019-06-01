@@ -3,22 +3,7 @@ import { styled } from 'baseui';
 import { Link } from 'react-router-dom';
 
 import FormInput from '../elements/LoginInput';
-
-const btnStyles = {
-	background: '#dc176c',
-	border: 'none',
-	borderTopLeftRadius: '30px',
-	borderTopRightRadius: '30px',
-	borderBottomRightRadius: '30px',
-	borderBottomLeftRadius: '30px',
-	color: 'white',
-	cursor: 'pointer',
-	position: 'relative',
-	padding: '10px 45px',
-	marginBottom: '30px',
-	fontSize: '20px',
-	fontWeight: '500'
-};
+import LoginButton from '../elements/Button';
 
 const LoginForm = styled('div', {
 	minWidth: '100%',
@@ -33,13 +18,6 @@ const Label = styled('div', {
 	letterSpacing: '0px',
 	marginTop: '15px',
 	marginBottom: '30px'
-});
-
-const ButtonLogin = styled('button', {
-	...btnStyles,
-	':hover': {
-		background: '#f968a7'
-	}
 });
 
 const FormTitle = styled('span', {
@@ -81,9 +59,13 @@ export default class Login extends React.Component {
 							</Link>
 						</Label>
 						<Link className="link" to="/admin" style={{ width: '100%' }}>
-							<ButtonLogin style={{ width: '100%', fontSize: '16px' }}>
-								Login
-							</ButtonLogin>
+							<LoginButton
+								title="Login"
+								onClick={() => {}}
+								style={{ width: '100%', fontSize: '16px' }}
+							/>
+							{/* Login
+							</LoginButton> */}
 						</Link>
 					</div>
 				</div>

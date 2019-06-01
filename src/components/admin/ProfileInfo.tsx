@@ -13,14 +13,14 @@ const AdminName = styled('span', {
 	fontSize: '44px',
 	fontWeight: '300',
 	color: 'rgb(0, 87, 155)',
-	marginBottom: '30px'
+	marginBottom: '40px'
 });
 
 const DetailsTitle = styled('span', {
-	fontWeight: 'bold',
+	fontWeight: '900',
 	fontSize: '30px',
 	color: 'rgb(18, 156, 125)',
-	marginTop: '30px',
+	marginTop: '40px',
 	marginBottom: '15px'
 });
 
