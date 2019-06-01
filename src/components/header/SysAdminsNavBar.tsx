@@ -2,10 +2,13 @@ import * as React from 'react';
 import { styled } from 'baseui';
 import { Tabs, Tab } from 'baseui/tabs';
 import { Block } from 'baseui/block';
-import TriangleDown from 'baseui/icon/triangle-down';
 import ChevronRight from 'baseui/icon/chevron-right';
 
-const NavBar = styled('div', {});
+import homeIcon from '../../images/home.png';
+
+const HomeNav = styled('div', {
+	marginTop: '9px'
+});
 
 interface AdminNavBarNavBar {
 	onTabChange: (page: any) => void;
@@ -22,29 +25,32 @@ class SysAdminsNavBar extends React.Component<AdminNavBarNavBar> {
 		</Block>
 	);
 
-	renderHomeTab = () => <TriangleDown size={40} />;
+	// renderHomeTab = () => <TriangleDown size={40} />;
+	renderHomeTab = () => (
+		<HomeNav>
+			<img src={homeIcon} />
+		</HomeNav>
+	);
 
 	render() {
 		const { onTabChange, activePageKey } = this.props;
 		return (
 			<div className="nav-bar">
 				<div className="nav-bar-wrapper">
-					<NavBar>
-						<Tabs activeKey={activePageKey} onChange={onTabChange}>
-							<Tab title={this.renderHomeTab()} />
-							<Tab
-								disabled={true}
-								overrides={{
-									Tab: {
-										style: { cursor: 'context-menu' }
-									}
-								}}
-								title={this.renderAdminTab()}
-							/>
-							<Tab title="Profile Overview" />
-							<Tab title="Activity" />
-						</Tabs>
-					</NavBar>
+					<Tabs activeKey={activePageKey} onChange={onTabChange}>
+						<Tab title={this.renderHomeTab()} />
+						<Tab
+							disabled={true}
+							overrides={{
+								Tab: {
+									style: { cursor: 'context-menu' }
+								}
+							}}
+							title={this.renderAdminTab()}
+						/>
+						<Tab title="Profile Overview" />
+						<Tab title="Activity" />
+					</Tabs>
 				</div>
 			</div>
 		);
