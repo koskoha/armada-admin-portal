@@ -2,49 +2,78 @@ import * as React from 'react';
 import { styled } from 'baseui';
 import { Link } from 'react-router-dom';
 
-const HeaderWrapper = styled('div', {});
+import logoIcon from '../../images/logo.png';
 
-const LoginBox = styled('div', {});
+const HeaderWrapper = styled('div', {
+	marginLeft: 'auto',
+	marginRight: 'auto',
+	display: 'grid',
+	gridGap: '30px',
+	gridTemplateColumns: '40px auto',
+	maxWidth: '1300px',
+	paddingLeft: '20px',
+	paddingRight: '20px'
+});
+
+const HeaderTitle = styled('div', {
+	paddingTop: '20px',
+	display: 'grid',
+	gridTemplateColumns: 'auto auto'
+});
+
+const UserMenu = styled('div', {
+	display: 'flex',
+	flexDirection: 'row',
+	justifyContent: 'flex-end'
+});
+
+const HeaderBlock = styled('div', {
+	width: '100%',
+	backgroundColor: '#00579b',
+	color: '#fff'
+});
 
 const A = styled(Link, {
+	marginLeft: '30px',
 	display: 'block',
-	color: 'white',
+	color: '#fff',
 	fontSize: '18px',
 	fontWeight: 'bold',
 	textDecoration: 'none'
 });
 
-const P = styled('p', {});
+const P = styled('p', {
+	fontFamily: 'Lato-Regular',
+	fontSize: '14px',
+	color: '#fff',
+	textAlign: 'right',
+	letterSpacing: '0.02em',
+	lineHeight: '24px'
+});
 
 class Header extends React.Component {
 	render() {
 		return (
-			<LoginBox className="header">
-				<HeaderWrapper className="header-wrapper">
-					<div className="header-title">
+			<HeaderBlock>
+				<HeaderWrapper>
+					<HeaderTitle>
 						<div>
-							<img src="https://via.placeholder.com/40x40" alt="" />
+							<img src={logoIcon} alt="logo" />
 						</div>
 						<div className="company-title">
 							<div className="title">SpecialtyCare Connect</div>
 							<div className="sub-title">POWERED BY ARMADAHEALTH</div>
 						</div>
+					</HeaderTitle>
+					<div>
+						<P>FirstName LastName</P>
+						<UserMenu>
+							<A to="#">My Profile</A>
+							<A to="#">Log Out</A>
+						</UserMenu>
 					</div>
-					<LoginBox>
-						<div className="user-name">
-							<P>FirstName LastName</P>
-						</div>
-						<div className="user-menu">
-							<div id="link">
-								<A to="#">My Profile</A>
-							</div>
-							<div id="link">
-								<A to="#">Log Out</A>
-							</div>
-						</div>
-					</LoginBox>
 				</HeaderWrapper>
-			</LoginBox>
+			</HeaderBlock>
 		);
 	}
 }

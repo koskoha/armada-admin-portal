@@ -20,7 +20,7 @@ const ActionBtn = styled('button', {
 
 class ProfileOverview extends React.Component<{
 	title: string;
-	onClick: () => void;
+	onClick?: () => void;
 	style?: {};
 }> {
 	render() {

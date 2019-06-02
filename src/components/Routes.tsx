@@ -6,7 +6,8 @@ import UserContext from '../context/UserContext';
 
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
-import AdminLayout from './layouts/AdminLayout';
+import BaseLayout from './layouts/DashboardLayout';
+import PageNotFound from './pages/NotFoundPage';
 
 interface PrivateRouteProps {
 	component: React.ComponentType;
@@ -44,7 +45,8 @@ const Routes: React.FC = () => {
 			<Switch>
 				<PrivateRoute path="/" exact component={Dashboard} />
 				<Route path="/login" exact component={Login} />
-				<Route path="/admin" exact component={AdminLayout} />
+				<Route path="/dashboard" component={BaseLayout} />
+				<Route component={PageNotFound} />
 			</Switch>
 		</div>
 	);

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { styled } from 'baseui';
-import { Tabs, Tab } from 'baseui/tabs';
+import { StatefulTabs, Tab } from 'baseui/tabs';
 import { Block } from 'baseui/block';
 import ChevronRight from 'baseui/icon/chevron-right';
 
@@ -25,13 +25,12 @@ const NavBarWrapper = styled('div', {
 	marginRight: 'auto'
 });
 
-interface AdminNavBarNavBar {
-	onTabChange: (page: any) => void;
-	activePageKey: string;
+interface AdminNavBar {
+	history: { push: (string) => void };
 }
 
-class SysAdminsNavBar extends React.Component<AdminNavBarNavBar> {
-	renderAdminTab = () => (
+class SysAdminsNavBar extends React.Component<AdminNavBar> {
+	renderAdminNavTab = () => (
 		<Block style={{ display: 'flex' }}>
 			<span>System Admin</span>
 			<Block style={{ paddingTop: '10px' }}>
@@ -40,20 +39,22 @@ class SysAdminsNavBar extends React.Component<AdminNavBarNavBar> {
 		</Block>
 	);
 
-	// renderHomeTab = () => <TriangleDown size={40} />;
-	renderHomeTab = () => (
+	renderHomeNavTab = () => (
 		<HomeNav>
 			<img src={homeIcon} />
 		</HomeNav>
 	);
 
 	render() {
-		const { onTabChange, activePageKey } = this.props;
+		const { history } = this.props;
 		return (
 			<NavBarRoot>
 				<NavBarWrapper className="nav-bar-wrapper">
-					<Tabs activeKey={activePageKey} onChange={onTabChange}>
-						<Tab title={this.renderHomeTab()} />
+					<StatefulTabs initialState={{ activeKey: '2' }}>
+						<Tab
+							title={this.renderHomeNavTab()}
+							onClick={() => history.push(`/dashboard/accounts`)}
+						/>
 						<Tab
 							disabled={true}
 							overrides={{
@@ -61,11 +62,17 @@ class SysAdminsNavBar extends React.Component<AdminNavBarNavBar> {
 									style: { cursor: 'context-menu' }
 								}
 							}}
-							title={this.renderAdminTab()}
+							title={this.renderAdminNavTab()}
 						/>
-						<Tab title="Profile Overview" />
-						<Tab title="Activity" />
-					</Tabs>
+						<Tab
+							title="Profile Overview"
+							onClick={() => history.push(`/dashboard/adminid/info`)}
+						/>
+						<Tab
+							title="Activity"
+							onClick={() => history.push(`/dashboard/adminid/activity`)}
+						/>
+					</StatefulTabs>
 				</NavBarWrapper>
 			</NavBarRoot>
 		);

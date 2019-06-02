@@ -3,7 +3,7 @@ import { styled } from 'baseui';
 
 import EditButton from '../elements/Button';
 import ProfileInfo from '../admin/ProfileInfo';
-import EditProfile from '../admin/EditProfile';
+import EditProfile from '../admin/ProfileEdit';
 
 const Base = styled('div', {
 	display: 'grid',
@@ -38,6 +38,7 @@ class ProfileOverview extends React.Component<
 		return (
 			<Base>
 				{edit ? <EditProfile /> : <ProfileInfo />}
+
 				<ActionsWrapper>
 					{!edit ? (
 						<div>

@@ -9,8 +9,8 @@ import { StatefulPopover, PLACEMENT } from 'baseui/popover';
 import { StatefulMenu } from 'baseui/menu';
 import TriangleDown from 'baseui/icon/triangle-down';
 
-import SearchDropdown from '../elements/SearchDropdown';
 import SyncButton from '../elements/Button';
+import SearchDropdown from '../elements/SearchDropdown';
 
 import './style.scss';
 
@@ -38,56 +38,51 @@ const ActionBtnsContainer = styled('div', {
 
 const ActionsBtns: React.FC = () => (
 	<ActionBtnsContainer>
-		<ActionBtn>Remove</ActionBtn>/<ActionBtn>Edit</ActionBtn>
+		<ActionBtn>View</ActionBtn>/<ActionBtn>Edit</ActionBtn>
+	</ActionBtnsContainer>
+);
+
+const RemoveBtn: React.FC = () => (
+	<ActionBtnsContainer>
+		<ActionBtn>Remove</ActionBtn>
 	</ActionBtnsContainer>
 );
 
 const DATA = [
 	[
-		<span key="1">Sarah Brown</span>,
+		<span key="1">First Name, LastName</span>,
 		<span key="2">test@email.com</span>,
-		<span key="3">(410) 123-1524</span>,
-		<span key="4">Active</span>,
-		<ActionsBtns key="sdfads" />
+		<span key="3">Implementation</span>,
+		<span key="4">05-13-2019</span>,
+		<ActionsBtns key="sdfads" />,
+		<RemoveBtn key="sdfaddsfsadf" />
 	],
 	[
-		<span key="1">Sarah Brown</span>,
+		<span key="1">First Name, LastName</span>,
 		<span key="2">test@email.com</span>,
-		<span key="3">(410) 123-1524</span>,
-		<span key="4">Active</span>,
-		<ActionsBtns key="sdfads" />
+		<span key="3">Implementation</span>,
+		<span key="4">05-13-2019</span>,
+		<ActionsBtns key="sdfads" />,
+		<RemoveBtn key="sdfaddsfsadf" />
 	],
 	[
-		<span key="1">Sarah Brown</span>,
+		<span key="1">First Name, LastName</span>,
 		<span key="2">test@email.com</span>,
-		<span key="3">(410) 123-1524</span>,
-		<span key="4">Active</span>,
-		<ActionsBtns key="sdfads" />
-	],
-	[
-		<span key="1">Sarah Brown</span>,
-		<span key="2">test@email.com</span>,
-		<span key="3">(410) 123-1524</span>,
-		<span key="4">Active</span>,
-		<ActionsBtns key="sdfads" />
-	],
-	[
-		<span key="1">Sarah Brown</span>,
-		<span key="2">test@email.com</span>,
-		<span key="3">(410) 123-1524</span>,
-		<span key="4">Active</span>,
-		<ActionsBtns key="sdfads" />
-	],
-	[
-		<span key="1">Sarah Brown</span>,
-		<span key="2">test@email.com</span>,
-		<span key="3">(410) 123-1524</span>,
-		<span key="4">Active</span>,
-		<ActionsBtns key="sdfads" />
+		<span key="3">Implementation</span>,
+		<span key="4">05-13-2019</span>,
+		<ActionsBtns key="sdfads" />,
+		<RemoveBtn key="sdfaddsfsadf" />
 	]
 ];
 
-const COLUMNS = ['Account Name', 'Email Address', 'Phone Number', 'Status', ''];
+const COLUMNS = [
+	'Admin Name',
+	'Email Address',
+	'Admin Type',
+	'Last Active',
+	'',
+	''
+];
 
 class Accounts extends React.Component<
 	any,
@@ -109,16 +104,15 @@ class Accounts extends React.Component<
 			<div>
 				<TableHeader className="search-block">
 					<SearchDropdown
-						placeholder="Search Accounts..."
+						placeholder="Search Admins..."
 						options={[
-							{ id: 'Healthy Company', value: 'healthyCompany' },
-							{ id: 'Armada Health', value: 'armadaHealth' },
-							{ id: 'Armada Admin', value: 'armadaAdmin' },
-							{ id: 'Armada User', value: 'armadaUser' }
+							{ id: 'Admin Name', value: '1' },
+							{ id: 'Second Admin', value: '2' },
+							{ id: 'Third Admin', value: '3' }
 						]}
 					/>
 					<Link className="link" to="/login">
-						<SyncButton title="Sync Accounts" onClick={() => {}} />
+						<SyncButton title="Add New Admin" onClick={() => {}} />
 					</Link>
 				</TableHeader>
 				<Table columns={COLUMNS} data={DATA} className="table" />
