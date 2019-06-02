@@ -40,6 +40,7 @@ const LoginWrapper = styled('div', {
 	borderRadius: '10px',
 	position: 'relative'
 });
+
 const LoginFormBody = styled('div', {
 	boxShadow: '0px 0px 11px 0px #1a3965',
 	backgroundColor: '#1a3965',
@@ -52,11 +53,13 @@ const LoginFormBody = styled('div', {
 	padding: '40px 60px 40px 60px',
 	margin: '10px'
 });
+
 const LinkElem = styled(Link, {
 	marginLeft: '5px',
 	textDecoration: 'none',
 	color: '#fff'
 });
+
 const LoginHeader = styled('div', {
 	padding: '20px 60px 20px 60px',
 	background: 'none',

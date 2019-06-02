@@ -30,6 +30,12 @@ const ActionBtn = styled('div', {
 	cursor: 'pointer'
 });
 
+const LinkElem = styled(Link, {
+	marginLeft: '5px',
+	textDecoration: 'none',
+	color: '#dc176c'
+});
+
 const ActionBtnsContainer = styled('div', {
 	display: 'flex',
 	flexDirection: 'row',
@@ -38,7 +44,10 @@ const ActionBtnsContainer = styled('div', {
 
 const ActionsBtns: React.FC = () => (
 	<ActionBtnsContainer>
-		<ActionBtn>View</ActionBtn>/<ActionBtn>Edit</ActionBtn>
+		<LinkElem to="adminid/info">
+			<ActionBtn>View</ActionBtn>
+		</LinkElem>
+		/<ActionBtn>Edit</ActionBtn>
 	</ActionBtnsContainer>
 );
 
