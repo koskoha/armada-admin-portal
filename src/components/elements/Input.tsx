@@ -3,11 +3,9 @@ import { styled } from 'baseui';
 import { StatefulInput, StyledInputContainer } from 'baseui/input';
 
 const RootWithStyle = styled(StyledInputContainer, ({ $isFocused }) => {
-	// debugger;
 	return {
 		borderColor: 'rgba(0,0,0,0)',
-		borderBottom: !$isFocused ? '1px solid #ced4da' : '3px solid #12c1d7',
-		// boxShadow: 'none',
+		borderBottom: '1px solid #ced4da',
 		borderBottomRightRadius: '0px',
 		borderTopRightRadius: '0px',
 		borderLeftRightRadius: '0px',
@@ -17,9 +15,10 @@ const RootWithStyle = styled(StyledInputContainer, ({ $isFocused }) => {
 	};
 });
 
-const input = {
+const inputStyles = {
 	Input: {
 		style: {
+			fontFamily: 'Lato',
 			paddingTop: '13px',
 			paddingBottom: '13px',
 			paddingLeft: '0px',
@@ -31,7 +30,9 @@ const input = {
 };
 
 const FormInputBlock = styled('div', {
-	display: 'block'
+	display: 'block',
+	marginTop: '20px',
+	marginBottom: '10px'
 });
 
 const Label = styled('span', {
@@ -56,9 +57,8 @@ export default class FormInput extends React.Component<{
 					value={value}
 					type={type}
 					overrides={{
-						InputContainer: style ? { style } : { component: RootWithStyle },
-						// InputContainer: input.InputContainer,
-						Input: input.Input
+						InputContainer: { component: RootWithStyle },
+						Input: { style: { ...inputStyles.Input.style, ...style } }
 					}}
 					placeholder={placeholder}
 				/>

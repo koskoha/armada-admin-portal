@@ -1,18 +1,9 @@
 import * as React from 'react';
 import { styled } from 'baseui';
-import { FormControl } from 'baseui/form-control';
-import { StatefulRadioGroup, Radio } from 'baseui/radio';
 
 import RemoveButton from '../elements/Button';
 import Input from '../elements/Input';
-
-const adminTypeInput = {
-	Label: { style: { marginTop: '40px', fontSize: '14px', fontWeight: 'bold' } }
-};
-
-const checkBox = {
-	Label: { style: { fontSize: '14px', color: '#212529' } }
-};
+import AdminTypeCheckbox from '../elements/CheckBox';
 
 const InfoWrapper = styled('div', {
 	display: 'grid'
@@ -50,7 +41,7 @@ const Email = styled('span', {
 	marginTop: '30px'
 });
 
-class ProfileInfo extends React.Component {
+class ProfileEdit extends React.Component {
 	render() {
 		return (
 			<InfoWrapper>
@@ -70,19 +61,7 @@ class ProfileInfo extends React.Component {
 
 				<Email>email@test.com</Email>
 
-				<FormControl overrides={adminTypeInput} label="ADMIN TYPE">
-					<StatefulRadioGroup
-						onChange={() => {}}
-						initialState={{ value: 'implementation' }}
-					>
-						<Radio overrides={checkBox} value="implementation">
-							Implementation
-						</Radio>
-						<Radio overrides={checkBox} value="superAdmin">
-							Super Admin
-						</Radio>
-					</StatefulRadioGroup>
-				</FormControl>
+				<AdminTypeCheckbox style={{ marginTop: '40px' }} />
 
 				<DetailsTitle>Password</DetailsTitle>
 				<FormBlock>
@@ -97,4 +76,4 @@ class ProfileInfo extends React.Component {
 	}
 }
 
-export default ProfileInfo;
+export default ProfileEdit;

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { styled } from 'baseui';
 import { Button, KIND } from 'baseui/button';
-import { Link } from 'react-router-dom';
 import { Table } from 'baseui/table';
 import { Pagination } from 'baseui/pagination';
 import { Block } from 'baseui/block';
@@ -11,8 +10,6 @@ import TriangleDown from 'baseui/icon/triangle-down';
 
 import SearchDropdown from '../elements/SearchDropdown';
 import SyncButton from '../elements/Button';
-
-import './style.scss';
 
 const TableHeader = styled('div', {
 	display: 'flex',
@@ -117,9 +114,7 @@ class Accounts extends React.Component<
 							{ id: 'Armada User', value: 'armadaUser' }
 						]}
 					/>
-					<Link className="link" to="/login">
-						<SyncButton title="Sync Accounts" onClick={() => {}} />
-					</Link>
+					<SyncButton title="Sync Accounts" onClick={() => {}} />
 				</TableHeader>
 				<Table columns={COLUMNS} data={DATA} className="table" />
 				<Block height="20px" />

@@ -1,18 +1,16 @@
 import * as React from 'react';
 import { styled } from 'baseui';
 
-const ActionBtn = styled('button', {
+const Button = styled('button', {
 	background: '#dc176c',
 	border: 'none',
-	borderTopLeftRadius: '19px',
-	borderTopRightRadius: '19px',
-	borderBottomRightRadius: '19px',
-	borderBottomLeftRadius: '19px',
+	borderRadius: '19px',
 	color: '#ffffff',
+	maxHeight: '38px',
 	cursor: 'pointer',
-	padding: '10px 45px',
+	padding: '11px 23px',
 	fontSize: '16px',
-	fontWeight: '700',
+	fontWeight: '500',
 	':hover': {
 		background: '#f968a7'
 	}
@@ -20,15 +18,15 @@ const ActionBtn = styled('button', {
 
 class ProfileOverview extends React.Component<{
 	title: string;
-	onClick?: () => void;
+	onClick?: (arg?: any) => void;
 	style?: {};
 }> {
 	render() {
 		const { title, onClick, style } = this.props;
 		return (
-			<ActionBtn style={style} onClick={onClick}>
+			<Button style={style} onClick={onClick}>
 				{title}
-			</ActionBtn>
+			</Button>
 		);
 	}
 }

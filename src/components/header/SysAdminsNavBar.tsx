@@ -10,20 +10,13 @@ const HomeNav = styled('div', {
 	marginTop: '9px'
 });
 
-const NavBarRoot = styled('div', {
-	width: '100%',
-	height: '80px',
-	backgroundColor: '#f7f7f7',
-	boxShadow: '0px 1px 4px 0px rgba(0, 0, 0, 0.16)'
-});
+const NavBarRoot = styled('div', ({ $theme: { navBar } }) => ({
+	...navBar.base
+}));
 
-const NavBarWrapper = styled('div', {
-	maxWidth: '1300px',
-	paddingLeft: '20px',
-	paddingRight: '20px',
-	marginLeft: 'auto',
-	marginRight: 'auto'
-});
+const NavBarWrapper = styled('div', ({ $theme: { navBar } }) => ({
+	...navBar.wrapper
+}));
 
 interface AdminNavBar {
 	history: { push: (string) => void };

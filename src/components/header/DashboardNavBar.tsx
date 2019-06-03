@@ -2,25 +2,19 @@ import * as React from 'react';
 import { styled } from 'baseui';
 import { StatefulTabs, Tab } from 'baseui/tabs';
 
-const NavBarRoot = styled('div', {
-	width: '100%',
-	backgroundColor: '#f7f7f7',
-	boxShadow: '0px 1px 4px 0px #00000029'
-});
+const NavBarRoot = styled('div', ({ $theme: { navBar } }) => ({
+	...navBar.base
+}));
 
-const NavBarWrapper = styled('div', {
-	maxWidth: '1300px',
-	paddingLeft: '20px',
-	paddingRight: '20px',
-	marginLeft: 'auto',
-	marginRight: 'auto'
-});
+const NavBarWrapper = styled('div', ({ $theme: { navBar } }) => ({
+	...navBar.wrapper
+}));
 
 interface DashboardNavBar {
 	history: { push: (string) => void };
 }
 
-class DashboardNavBar extends React.Component<DashboardNavBar, any> {
+class DashboardNavBar extends React.Component<DashboardNavBar> {
 	render() {
 		const { history } = this.props;
 		return (

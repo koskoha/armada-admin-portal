@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styled } from 'baseui';
 import { Link } from 'react-router-dom';
 
-import FormInput from '../elements/LoginInput';
+import Input from '../elements/Input';
 import LoginButton from '../elements/Button';
 import logoIcon from '../../images/logo.png';
 
@@ -12,6 +12,7 @@ const LoginForm = styled('div', {
 });
 
 const Label = styled('div', {
+	fontFamily: 'Lato',
 	fontWeight: '600',
 	fontStyle: 'normal',
 	fontSize: '18px',
@@ -35,10 +36,8 @@ const LoginPage = styled('div', {
 const LoginWrapper = styled('div', {
 	display: 'flex',
 	flexDirection: 'column',
-	width: '440px',
-	overflow: 'hidden',
-	borderRadius: '10px',
-	position: 'relative'
+	width: '460px',
+	borderRadius: '10px'
 });
 
 const LoginFormBody = styled('div', {
@@ -63,17 +62,18 @@ const LinkElem = styled(Link, {
 const LoginHeader = styled('div', {
 	padding: '20px 60px 20px 60px',
 	background: 'none',
-	paddingTop: '40px',
+	paddingTop: '20px',
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
 	gridGap: '10px'
 });
 
 const FormTitle = styled('span', {
+	fontFamily: 'Montserrat',
 	fontSize: '22px',
 	fontWeight: 'bold',
 	marginTop: '20px',
-	marginBottom: '40px'
+	marginBottom: '20px'
 });
 
 export default class Login extends React.Component {
@@ -94,13 +94,18 @@ export default class Login extends React.Component {
 
 					{/* BODY FORM */}
 					<LoginFormBody>
-						<FormTitle>Sign in to Admin Portal</FormTitle>
+						<FormTitle>Sign in to the Admin Portal</FormTitle>
 						<LoginForm>
-							<FormInput label="Email Address" placeholder="Email Address" />
-							<FormInput
+							<Input
+								label="Email Address"
+								placeholder="Email Address"
+								style={{ color: '#ffff' }}
+							/>
+							<Input
 								label="Password"
-								type="password"
 								placeholder="Password"
+								type="password"
+								style={{ color: '#ffff' }}
 							/>
 						</LoginForm>
 						<Label>

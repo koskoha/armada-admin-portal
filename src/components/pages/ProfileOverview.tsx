@@ -1,9 +1,22 @@
 import * as React from 'react';
 import { styled } from 'baseui';
+import { Link } from 'react-router-dom';
 
-import EditButton from '../elements/Button';
+import Button from '../elements/Button';
 import ProfileInfo from '../admin/ProfileInfo';
 import EditProfile from '../admin/ProfileEdit';
+
+const actionsBtn = {
+	background: '#4fc79d',
+	color: '#1a3965'
+};
+
+const cancelEditBtn = {
+	background: 'white',
+	border: '1px solid #00579b',
+	color: '#00579b',
+	marginRight: '20px'
+};
 
 const Base = styled('div', {
 	display: 'grid',
@@ -18,59 +31,32 @@ const ActionsWrapper = styled('div', {
 class ProfileOverview extends React.Component<
 	any,
 	{
-		edit: boolean;
+		match: { path: string };
 	}
 > {
-	state = {
-		edit: false
-	};
-
-	onEditClick = () => {
-		this.setState({ edit: !this.state.edit });
-	};
-
-	onSaveClick = () => {
-		this.setState({ edit: !this.state.edit });
-	};
-
 	render() {
-		const { edit } = this.state;
+		const {
+			match: { path }
+		} = this.props;
 		return (
 			<Base>
-				{edit ? <EditProfile /> : <ProfileInfo />}
+				{path === '/dashboard/:id/edit' ? <EditProfile /> : <ProfileInfo />}
 
 				<ActionsWrapper>
-					{!edit ? (
+					{path === '/dashboard/:id/edit' ? (
 						<div>
-							<EditButton
-								style={{
-									background: '#4fc79d',
-									color: '#1a3965'
-								}}
-								title="Edit"
-								onClick={this.onEditClick}
-							/>
+							<Link to="/dashboard/adminid/info">
+								<Button style={cancelEditBtn} title="Cancel" />
+							</Link>
+							<Link to="/dashboard/adminid/info">
+								<Button style={actionsBtn} title="Save Changes" />
+							</Link>
 						</div>
 					) : (
 						<div>
-							<EditButton
-								style={{
-									background: 'white',
-									border: '1px solid #00579b',
-									color: '#00579b',
-									marginRight: '20px'
-								}}
-								title="Cancel"
-								onClick={this.onEditClick}
-							/>
-							<EditButton
-								style={{
-									background: 'rgba(79, 199, 157, 1)',
-									color: '  rgba(26, 57, 101, 1)'
-								}}
-								title="Save Changes"
-								onClick={this.onSaveClick}
-							/>
+							<Link to="/dashboard/adminid/edit">
+								<Button style={actionsBtn} title="Edit" />
+							</Link>
 						</div>
 					)}
 				</ActionsWrapper>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { styled } from 'baseui';
 import { Button, KIND } from 'baseui/button';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { Table } from 'baseui/table';
 import { Pagination } from 'baseui/pagination';
 import { Block } from 'baseui/block';
@@ -9,10 +9,9 @@ import { StatefulPopover, PLACEMENT } from 'baseui/popover';
 import { StatefulMenu } from 'baseui/menu';
 import TriangleDown from 'baseui/icon/triangle-down';
 
-import SyncButton from '../elements/Button';
+import AddAdminButton from '../elements/Button';
 import SearchDropdown from '../elements/SearchDropdown';
-
-import './style.scss';
+import AddAdminModal from '../admin/AddAdminModal';
 
 const TableHeader = styled('div', {
 	display: 'flex',
@@ -30,8 +29,7 @@ const ActionBtn = styled('div', {
 	cursor: 'pointer'
 });
 
-const LinkElem = styled(Link, {
-	marginLeft: '5px',
+const Link = styled(RouterLink, {
 	textDecoration: 'none',
 	color: '#dc176c'
 });
@@ -44,10 +42,13 @@ const ActionBtnsContainer = styled('div', {
 
 const ActionsBtns: React.FC = () => (
 	<ActionBtnsContainer>
-		<LinkElem to="adminid/info">
+		<Link to="adminid/info">
 			<ActionBtn>View</ActionBtn>
-		</LinkElem>
-		/<ActionBtn>Edit</ActionBtn>
+		</Link>
+		<span>/</span>
+		<Link to="adminid/edit">
+			<ActionBtn>Edit</ActionBtn>
+		</Link>
 	</ActionBtnsContainer>
 );
 
@@ -99,18 +100,38 @@ class Accounts extends React.Component<
 		search: string;
 		page: number;
 		limit: number;
+		addAdminModalIsOpen: boolean;
 	}
 > {
 	state = {
 		search: '',
 		page: 1,
-		limit: 12
+		limit: 12,
+		addAdminModalIsOpen: false
+	};
+
+	toggleAddAdmin = (open = !this.state.addAdminModalIsOpen) => {
+		this.setState({
+			addAdminModalIsOpen: !!open
+		});
+	};
+
+	openAddAdminModal = () => {
+		this.toggleAddAdmin(true);
+	};
+
+	closeAddAdminModal = () => {
+		this.toggleAddAdmin(false);
 	};
 
 	render() {
-		const { page, limit } = this.state;
+		const { page, limit, addAdminModalIsOpen } = this.state;
 		return (
 			<div>
+				<AddAdminModal
+					close={this.closeAddAdminModal}
+					isOpen={addAdminModalIsOpen}
+				/>
 				<TableHeader className="search-block">
 					<SearchDropdown
 						placeholder="Search Admins..."
@@ -120,9 +141,10 @@ class Accounts extends React.Component<
 							{ id: 'Third Admin', value: '3' }
 						]}
 					/>
-					<Link className="link" to="/login">
-						<SyncButton title="Add New Admin" onClick={() => {}} />
-					</Link>
+					<AddAdminButton
+						title="Add New Admin"
+						onClick={() => this.openAddAdminModal(true)}
+					/>
 				</TableHeader>
 				<Table columns={COLUMNS} data={DATA} className="table" />
 				<Block height="20px" />

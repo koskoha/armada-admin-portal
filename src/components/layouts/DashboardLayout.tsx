@@ -19,15 +19,16 @@ const Wrapper = styled('div', {
 	height: '100vh'
 });
 
-const PagesWrapper = styled('div', {
+const PagesWrapper = styled('div', ({ $theme: { baseWidth } }) => ({
 	marginTop: '2.5em',
-	width: '100vw',
-	maxWidth: '1300px',
+	width: '100%',
+	maxWidth: baseWidth,
 	paddingLeft: '20px',
 	paddingRight: '20px',
 	marginLeft: 'auto',
-	marginRight: 'auto'
-});
+	marginRight: 'auto',
+	boxSizing: 'border-box'
+}));
 
 class BaseLayout extends React.Component<
 	any,
@@ -57,7 +58,6 @@ class BaseLayout extends React.Component<
 			},
 			history
 		} = this.props;
-		// debugger;
 		return (
 			<Wrapper className="wrapper">
 				{/* HEADER */}
@@ -78,6 +78,7 @@ class BaseLayout extends React.Component<
 					<Route path={`${path}/agents`} component={AgentsPage} />
 					<Route path={`${path}/sysadmins`} component={SysAdminsPage} />
 					<Route path={`${path}/:id/info`} component={ProfileOverviewPage} />
+					<Route path={`${path}/:id/edit`} component={ProfileOverviewPage} />
 					<Route path={`${path}/:id/activity`} component={AdminActivity} />
 				</PagesWrapper>
 			</Wrapper>
