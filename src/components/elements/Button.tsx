@@ -27,6 +27,11 @@ const PlusIcon = styled('div', {
 	marginTop: '2px'
 });
 
+const ButtonLabel = styled('span', {
+	marginLeft: 'auto',
+	marginRight: 'auto'
+});
+
 class ProfileOverview extends React.Component<{
 	title: string;
 	onClick?: (arg?: any) => void;
@@ -42,7 +47,7 @@ class ProfileOverview extends React.Component<{
 						<img src={addIcon} />
 					</PlusIcon>
 				)}
-				{title}
+				<ButtonLabel>{title}</ButtonLabel>
 			</Button>
 		);
 	}
