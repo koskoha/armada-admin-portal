@@ -14,6 +14,7 @@ import AddAdminButton from '../elements/Button';
 import SearchDropdown from '../elements/SearchDropdown';
 import Modal from '../elements/Modal';
 import AddAdminForm from '../admin/AddAdminForm';
+import removeIcon from '../../images/trashcan.png';
 
 const TableHeader = styled('div', {
 	display: 'flex',
@@ -50,6 +51,12 @@ const RemoveAdminConfirm = styled('div', {
 	textAlign: 'center'
 });
 
+const RemoveIconComponen = styled('img', {
+	width: 'auto',
+	height: '16px',
+	paddingTop: '3px'
+});
+
 const ActionsBtns: React.FC = () => (
 	<ActionBtnsContainer>
 		<Link to="adminid/info">
@@ -68,6 +75,7 @@ interface RemoveBtnProps {
 
 const RemoveBtn: React.FC<RemoveBtnProps> = ({ onClick }) => (
 	<ActionBtnsContainer>
+		<RemoveIconComponen src={removeIcon} />
 		<ActionBtn onClick={onClick}>Remove</ActionBtn>
 	</ActionBtnsContainer>
 );
@@ -207,6 +215,7 @@ class Accounts extends React.Component<
 					/>
 					<AddAdminButton
 						title="Add New Admin"
+						icon
 						onClick={() => this.openAddAdminModal(true)}
 					/>
 				</TableHeader>

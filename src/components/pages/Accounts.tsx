@@ -35,7 +35,7 @@ const ActionBtnsContainer = styled('div', {
 
 const ActionsBtns: React.FC = () => (
 	<ActionBtnsContainer>
-		<ActionBtn>Remove</ActionBtn>/<ActionBtn>Edit</ActionBtn>
+		<ActionBtn>View</ActionBtn>/<ActionBtn>Edit</ActionBtn>
 	</ActionBtnsContainer>
 );
 
