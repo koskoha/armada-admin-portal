@@ -7,7 +7,7 @@ import ChevronRight from 'baseui/icon/chevron-right';
 import homeIcon from '../../images/home.png';
 
 const HomeNav = styled('div', {
-	marginTop: '9px'
+	marginTop: '3px'
 });
 
 const NavBarRoot = styled('div', ({ $theme: { navBar } }) => ({
