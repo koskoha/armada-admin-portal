@@ -10,6 +10,8 @@ const NavBarWrapper = styled('div', ({ $theme: { navBar } }) => ({
 	...navBar.wrapper
 }));
 
+const tabOutlineColor = { Tab: { style: { outlineColor: '#ffffff00' } } };
+
 interface DashboardNavBar {
 	history: { push: (string) => void };
 }
@@ -22,14 +24,17 @@ class DashboardNavBar extends React.Component<DashboardNavBar> {
 				<NavBarWrapper className="nav-bar-wrapper">
 					<StatefulTabs initialState={{ activeKey: '0' }}>
 						<Tab
+							overrides={tabOutlineColor}
 							title="Accounts"
 							onClick={() => history.push('/dashboard/accounts')}
 						/>
 						<Tab
+							overrides={tabOutlineColor}
 							title="Agents"
 							onClick={() => history.push('/dashboard/agents')}
 						/>
 						<Tab
+							overrides={tabOutlineColor}
 							title="System Admins"
 							onClick={() => history.push('/dashboard/sysadmins')}
 						/>

@@ -18,6 +18,8 @@ const NavBarWrapper = styled('div', ({ $theme: { navBar } }) => ({
 	...navBar.wrapper
 }));
 
+const tabOutlineColor = { Tab: { style: { outlineColor: '#ffffff00' } } };
+
 interface AdminNavBar {
 	history: { push: (string) => void };
 }
@@ -45,6 +47,7 @@ class SysAdminsNavBar extends React.Component<AdminNavBar> {
 				<NavBarWrapper className="nav-bar-wrapper">
 					<StatefulTabs initialState={{ activeKey: '2' }}>
 						<Tab
+							overrides={tabOutlineColor}
 							title={this.renderHomeNavTab()}
 							onClick={() => history.push(`/dashboard/accounts`)}
 						/>
@@ -52,16 +55,18 @@ class SysAdminsNavBar extends React.Component<AdminNavBar> {
 							disabled={true}
 							overrides={{
 								Tab: {
-									style: { cursor: 'context-menu' }
+									style: { cursor: 'context-menu', outlineColor: '#ffffff00' }
 								}
 							}}
 							title={this.renderAdminNavTab()}
 						/>
 						<Tab
+							overrides={tabOutlineColor}
 							title="Profile Overview"
 							onClick={() => history.push(`/dashboard/adminid/info`)}
 						/>
 						<Tab
+							overrides={tabOutlineColor}
 							title="Activity"
 							onClick={() => history.push(`/dashboard/adminid/activity`)}
 						/>
