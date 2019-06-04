@@ -8,10 +8,12 @@ import { Block } from 'baseui/block';
 import { StatefulPopover, PLACEMENT } from 'baseui/popover';
 import { StatefulMenu } from 'baseui/menu';
 import TriangleDown from 'baseui/icon/triangle-down';
+import * as PropTypes from 'prop-types';
 
 import AddAdminButton from '../elements/Button';
 import SearchDropdown from '../elements/SearchDropdown';
-import AddAdminModal from '../admin/AddAdminModal';
+import Modal from '../elements/Modal';
+import AddAdminForm from '../admin/AddAdminForm';
 
 const TableHeader = styled('div', {
 	display: 'flex',
@@ -40,6 +42,14 @@ const ActionBtnsContainer = styled('div', {
 	color: '#dc176c'
 });
 
+const RemoveAdminConfirm = styled('div', {
+	fontFamily: 'Lato',
+	fontSize: '18px',
+	fontWeight: '300',
+	color: '#212529',
+	textAlign: 'center'
+});
+
 const ActionsBtns: React.FC = () => (
 	<ActionBtnsContainer>
 		<Link to="adminid/info">
@@ -52,47 +62,19 @@ const ActionsBtns: React.FC = () => (
 	</ActionBtnsContainer>
 );
 
-const RemoveBtn: React.FC = () => (
+interface RemoveBtnProps {
+	onClick: () => void;
+}
+
+const RemoveBtn: React.FC<RemoveBtnProps> = ({ onClick }) => (
 	<ActionBtnsContainer>
-		<ActionBtn>Remove</ActionBtn>
+		<ActionBtn onClick={onClick}>Remove</ActionBtn>
 	</ActionBtnsContainer>
 );
 
-const DATA = [
-	[
-		<span key="1">First Name, LastName</span>,
-		<span key="2">test@email.com</span>,
-		<span key="3">Implementation</span>,
-		<span key="4">05-13-2019</span>,
-		<ActionsBtns key="sdfads" />,
-		<RemoveBtn key="sdfaddsfsadf" />
-	],
-	[
-		<span key="1">First Name, LastName</span>,
-		<span key="2">test@email.com</span>,
-		<span key="3">Implementation</span>,
-		<span key="4">05-13-2019</span>,
-		<ActionsBtns key="sdfads" />,
-		<RemoveBtn key="sdfaddsfsadf" />
-	],
-	[
-		<span key="1">First Name, LastName</span>,
-		<span key="2">test@email.com</span>,
-		<span key="3">Implementation</span>,
-		<span key="4">05-13-2019</span>,
-		<ActionsBtns key="sdfads" />,
-		<RemoveBtn key="sdfaddsfsadf" />
-	]
-];
-
-const COLUMNS = [
-	'Admin Name',
-	'Email Address',
-	'Admin Type',
-	'Last Active',
-	'',
-	''
-];
+RemoveBtn.propTypes = {
+	onClick: PropTypes.func.isRequired
+};
 
 class Accounts extends React.Component<
 	any,
@@ -101,18 +83,26 @@ class Accounts extends React.Component<
 		page: number;
 		limit: number;
 		addAdminModalIsOpen: boolean;
+		removeAdminModalIsOpen: boolean;
 	}
 > {
 	state = {
 		search: '',
 		page: 1,
 		limit: 12,
-		addAdminModalIsOpen: false
+		addAdminModalIsOpen: false,
+		removeAdminModalIsOpen: false
 	};
 
 	toggleAddAdmin = (open = !this.state.addAdminModalIsOpen) => {
 		this.setState({
 			addAdminModalIsOpen: !!open
+		});
+	};
+
+	toggleRemoveAdmin = (open = !this.state.removeAdminModalIsOpen) => {
+		this.setState({
+			removeAdminModalIsOpen: !!open
 		});
 	};
 
@@ -124,14 +114,88 @@ class Accounts extends React.Component<
 		this.toggleAddAdmin(false);
 	};
 
+	openRemoveAdminModal = () => {
+		this.toggleRemoveAdmin(true);
+	};
+
+	closeRemoveAdminModal = () => {
+		this.toggleRemoveAdmin(false);
+	};
+
 	render() {
-		const { page, limit, addAdminModalIsOpen } = this.state;
+		const {
+			page,
+			limit,
+			addAdminModalIsOpen,
+			removeAdminModalIsOpen
+		} = this.state;
+
+		const DATA = [
+			[
+				<span key="1">First Name, LastName</span>,
+				<span key="2">test@email.com</span>,
+				<span key="3">Implementation</span>,
+				<span key="4">05-13-2019</span>,
+				<ActionsBtns key="sdfads" />,
+				<RemoveBtn
+					onClick={() => this.openRemoveAdminModal(true)}
+					key="sdfaddsfsadf"
+				/>
+			],
+			[
+				<span key="1">First Name, LastName</span>,
+				<span key="2">test@email.com</span>,
+				<span key="3">Implementation</span>,
+				<span key="4">05-13-2019</span>,
+				<ActionsBtns key="sdfads" />,
+				<RemoveBtn
+					onClick={() => this.openRemoveAdminModal(true)}
+					key="sdfaddsfsadf"
+				/>
+			],
+			[
+				<span key="1">First Name, LastName</span>,
+				<span key="2">test@email.com</span>,
+				<span key="3">Implementation</span>,
+				<span key="4">05-13-2019</span>,
+				<ActionsBtns key="sdfads" />,
+				<RemoveBtn
+					onClick={() => this.openRemoveAdminModal(true)}
+					key="sdfaddsfsadf"
+				/>
+			]
+		];
+
+		const COLUMNS = [
+			'Admin Name',
+			'Email Address',
+			'Admin Type',
+			'Last Active',
+			'',
+			''
+		];
+
 		return (
 			<div>
-				<AddAdminModal
+				<Modal
 					close={this.closeAddAdminModal}
 					isOpen={addAdminModalIsOpen}
-				/>
+					title="Add New Admin"
+					buttonLabel="Add Admin"
+				>
+					<AddAdminForm />
+				</Modal>
+				<Modal
+					close={this.closeRemoveAdminModal}
+					isOpen={removeAdminModalIsOpen}
+					title="Remove Admin"
+					buttonLabel="Remove"
+				>
+					<RemoveAdminConfirm>
+						Are you sure you want to remove the admin FirstName LastName from
+						the system?
+					</RemoveAdminConfirm>
+				</Modal>
 				<TableHeader className="search-block">
 					<SearchDropdown
 						placeholder="Search Admins..."
