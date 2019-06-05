@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { styled } from 'baseui';
 import { Button, KIND } from 'baseui/button';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Table } from 'baseui/table';
 import { Pagination } from 'baseui/pagination';
 import { StatefulPopover, PLACEMENT } from 'baseui/popover';
@@ -9,71 +8,22 @@ import { StatefulMenu } from 'baseui/menu';
 import TriangleDown from 'baseui/icon/triangle-down';
 import * as PropTypes from 'prop-types';
 
-import AddAdminButton from '../elements/Button';
-import SearchDropdown from '../elements/SearchDropdown';
-import Modal from '../elements/Modal';
-import AddAdminForm from '../dashboard/admin/components/AddAdminForm';
-import removeIcon from '../../images/trashcan.png';
+import SearchDropdown from '../../elements/SearchDropdown';
+import Modal from '../../elements/Modal';
+import removeIcon from '../../../images/trashcan.png';
 
-const TableHeader = styled('div', {
-	display: 'flex',
-	justifyContent: 'space-between',
-	margin: '1rem 0'
-});
-
-const TableFooter = styled('div', {
-	paddingTop: '6px',
-	marginTop: '20px',
-	paddingBottom: '16px',
-	display: 'flex',
-	justifyContent: 'space-between'
-});
-
-const ActionBtn = styled('div', {
-	border: 'none',
-	background: 'none',
-	paddingLeft: '5px',
-	paddingRight: '5px',
-	fontSize: '15px',
-	fontWeight: 'bold',
-	cursor: 'pointer'
-});
-
-const Link = styled(RouterLink, {
-	textDecoration: 'none',
-	color: '#dc176c'
-});
-
-const ActionBtnsContainer = styled('div', {
-	display: 'flex',
-	flexDirection: 'row',
-	color: '#dc176c'
-});
-
-const RemoveAdminConfirm = styled('div', {
-	fontFamily: 'Lato',
-	fontSize: '18px',
-	fontWeight: '300',
-	color: '#212529',
-	textAlign: 'center'
-});
-
-const RemoveIconComponen = styled('img', {
-	width: 'auto',
-	height: '16px',
-	paddingTop: '3px'
-});
+import AddAdminForm from './components/AddAdminForm';
 
 const ActionsBtns: React.FC = () => (
-	<ActionBtnsContainer>
+	<div className="action-btn-container">
 		<Link to="adminid/info">
-			<ActionBtn>View</ActionBtn>
+			<button className="action-btn">View</button>
 		</Link>
 		<span>/</span>
 		<Link to="adminid/edit">
-			<ActionBtn>Edit</ActionBtn>
+			<button className="action-btn">Edit</button>
 		</Link>
-	</ActionBtnsContainer>
+	</div>
 );
 
 interface RemoveBtnProps {
@@ -81,18 +31,20 @@ interface RemoveBtnProps {
 }
 
 const RemoveBtn: React.FC<RemoveBtnProps> = ({ onClick }) => (
-	<ActionBtnsContainer>
-		<RemoveIconComponen src={removeIcon} />
-		<ActionBtn onClick={onClick}>Remove</ActionBtn>
-	</ActionBtnsContainer>
+	<div className="action-btn-container">
+		<img src={removeIcon} />
+		<button className="action-btn" onClick={onClick}>
+			Remove
+		</button>
+	</div>
 );
 
 RemoveBtn.propTypes = {
 	onClick: PropTypes.func.isRequired
 };
 
-class Accounts extends React.Component<
-	any,
+class AdminsList extends React.Component<
+	{},
 	{
 		search: string;
 		page: number;
@@ -206,12 +158,12 @@ class Accounts extends React.Component<
 					title="Remove Admin"
 					buttonLabel="Remove"
 				>
-					<RemoveAdminConfirm>
+					<p className="confirm-text">
 						Are you sure you want to remove the admin FirstName LastName from
 						the system?
-					</RemoveAdminConfirm>
+					</p>
 				</Modal>
-				<TableHeader className="search-block">
+				<div className="search-block">
 					<SearchDropdown
 						placeholder="Search Admins..."
 						options={[
@@ -220,14 +172,15 @@ class Accounts extends React.Component<
 							{ id: 'Third Admin', value: '3' }
 						]}
 					/>
-					<AddAdminButton
-						title="Add New Admin"
-						icon
+					<button
 						onClick={() => this.openAddAdminModal(true)}
-					/>
-				</TableHeader>
+						className="button"
+					>
+						Add New Admin
+					</button>
+				</div>
 				<Table columns={COLUMNS} data={DATA} className="table" />
-				<TableFooter className="table-footer">
+				<div className="table-footer">
 					<StatefulPopover
 						content={() => (
 							<StatefulMenu
@@ -250,10 +203,10 @@ class Accounts extends React.Component<
 						currentPage={page}
 						onPageChange={({ nextPage }) => this.setState({ page: nextPage })}
 					/>
-				</TableFooter>
+				</div>
 			</div>
 		);
 	}
 }
 
-export default Accounts;
+export default AdminsList;

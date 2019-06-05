@@ -1,7 +1,33 @@
-.table {
-	[data-baseweb='select']:first-child {
-		border-radius: 6px;
-		border: 1px solid $light-grey;
-		background-color: $white;
+[data-baseweb='table'] {
+	box-shadow: $base-shadow;
+
+	[role='row'] {
+		[role='columnheader'] {
+			background: $blue;
+			color: $white;
+			border: none;
+			text-transform: uppercase;
+		}
+	}
+
+	[role='rowgroup'] {
+		[role='row'] {
+			height: 50px;
+		}
+		[role='row']:nth-child(even) {
+			background: #f5fafd;
+		}
+	}
+}
+
+.table-footer {
+	[aria-label='pagination'] {
+		[data-baseweb='button'] {
+			color: $blue;
+			line-height: 14px;
+			font-size: 16px;
+			background-color: $light-grey;
+			border-radius: 19px;
+		}
 	}
 }

@@ -1,36 +1,17 @@
 import * as React from 'react';
-import { styled } from 'baseui';
 import { Route } from 'react-router-dom';
 
-import Header from '../common/header/Header';
-import RootNavBar from '../common/header/DashboardNavBar';
-import SysAdminsNavBar from '../common/header/SysAdminsNavBar';
-import SysAdminsPage from '../pages/SysAdmins';
-import AdminActivity from '../pages/AdminActivity';
+import Header from '../common/Header';
+import NavBar from '../common/NavBar';
 
-import ProfileOverviewPage from './admin/ProfileOverview';
+import SysAdminsPage from './admins/AdminsList';
+import AdminActivity from './admins/AdminActivity';
+import AdminProfilePage from './admins/AdminProfile';
 import AccountsPage from './accounts/Accounts';
 import AgentsPage from './agents/Agents';
 
-const Wrapper = styled('div', {
-	display: 'grid',
-	gridTemplateRows: '90px 80px 1fr',
-	height: '100vh'
-});
-
-const PagesWrapper = styled('div', ({ $theme: { baseWidth } }) => ({
-	marginTop: '40px',
-	width: '100%',
-	maxWidth: baseWidth,
-	paddingLeft: '20px',
-	paddingRight: '20px',
-	marginLeft: 'auto',
-	marginRight: 'auto',
-	boxSizing: 'border-box'
-}));
-
-class BaseLayout extends React.Component<
-	any,
+class DashboardLayout extends React.Component<
+	{},
 	{
 		rootActivePageKey: string;
 		sysAdminActivePageKey: string;
@@ -52,49 +33,32 @@ class BaseLayout extends React.Component<
 	render() {
 		const {
 			match: { path },
-			history: {
-				location: { pathname }
-			},
 			history
 		} = this.props;
 		return (
-			<Wrapper className="wrapper">
+			<div className="wrapper">
 				{/* HEADER */}
 				<Header />
 
 				{/* NAVIGATION BAR */}
-				{pathname === '/dashboard/accounts' ||
-				pathname === '/dashboard/agents' ||
-				pathname === '/dashboard/sysadmins' ? (
-					<RootNavBar history={history} />
-				) : (
-					<SysAdminsNavBar history={history} />
-				)}
+				<NavBar history={history} />
 
 				{/* BODY */}
-				<PagesWrapper className="pages-wrapper">
+				<div className="pages-wrapper">
 					<Route exact path={`${path}/accounts`} component={AccountsPage} />
 					<Route exact path={`${path}/agents`} component={AgentsPage} />
 					<Route exact path={`${path}/sysadmins`} component={SysAdminsPage} />
-					<Route
-						exact
-						path={`${path}/:id/info`}
-						component={ProfileOverviewPage}
-					/>
-					<Route
-						exact
-						path={`${path}/:id/edit`}
-						component={ProfileOverviewPage}
-					/>
+					<Route exact path={`${path}/:id/info`} component={AdminProfilePage} />
+					<Route exact path={`${path}/:id/edit`} component={AdminProfilePage} />
 					<Route
 						exact
 						path={`${path}/:id/activity`}
 						component={AdminActivity}
 					/>
-				</PagesWrapper>
-			</Wrapper>
+				</div>
+			</div>
 		);
 	}
 }
 
-export default BaseLayout;
+export default DashboardLayout;

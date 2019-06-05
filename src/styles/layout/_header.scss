@@ -1,0 +1,49 @@
+.header {
+	width: 100%;
+	background-color: $blue;
+	color: $white;
+	.company-title {
+		display: grid;
+		grid-template-columns: 270px;
+		.title {
+			@include sys_font(500, 25px, 1, -1px);
+			text-align: end;
+		}
+		.sub-title {
+			@include sys_font(800, 8px, 1, 2px);
+			text-align: end;
+		}
+	}
+	.header-wrapper {
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		justify-content: space-between;
+		max-width: $base-width;
+		padding: 0px 20px;
+		.header-title {
+			padding-top: 20px;
+			display: grid;
+			grid-template-columns: auto auto;
+		}
+		.user-menu {
+			display: flex;
+			flex-direction: row;
+			.menu-link {
+				margin-left: 30px;
+				color: $white;
+				font-size: 1.1em;
+				font-weight: 700;
+				text-decoration: none;
+			}
+		}
+		.admin-name {
+			font-family: $font-lato;
+			font-size: 0.9em;
+			color: $white;
+			text-align: right;
+			letter-spacing: 0.02em;
+			line-height: 24px;
+		}
+	}
+}

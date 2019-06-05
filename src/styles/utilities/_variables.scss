@@ -1,12 +1,18 @@
-$baseWidth: 1300px;
+$base-width: 1300px;
 $theme-font: Montserrat, sans-serif;
-$lato-font: Lato, sans-serif;
+$font-lato: Lato, sans-serif;
 
 //Colors
-$themeColor-Dark: #00579b;
+$blue: #00579b;
 $themeColor-Light: #f3e2c7;
 $red: #dc176c;
 $pink: #f968a7;
 $dark-blue: #1a3965;
 $white: #ffffff;
-$light-grey: #ced4da;
+$light-grey: #f8f9fa;
+$light-green: #4fc79d;
+$green-hover: #7fe2bf;
+$brown: #6d6f79;
+
+// shadow
+$base-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.16);

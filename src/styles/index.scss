@@ -3,7 +3,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
 
 //CSS normalizer
-@import 'normalize/variables', 'normalize/vertical-rhythm', 'normalize/normalize-mixins';
+@import 'normalize/variables', 'normalize/vertical-rhythm',
+	'normalize/normalize-mixins';
 
 //Variables, mixins
 @import 'utilities/variables';
@@ -12,30 +13,22 @@
 //Components
 @import 'components/button';
 @import 'components/table';
+@import 'components/modal';
+@import 'components/input';
 
 //Layouts
+@import 'layout/header';
+@import 'layout/nav-bar';
 @import 'layout/dashboard';
 
 //Pages
 @import 'pages/login';
 @import 'pages/accounts';
+@import 'pages/admin';
 
-
-
-
-
-
-
-
-
-.company-title {
-	display: grid;
-	grid-template-columns: 1fr;
-	justify-items: end;
-	.title {
-		@include sys_font(400, 24px, 1, -1px);
-	}
-	.sub-title {
-		@include sys_font(900, 9px, 2, 2px);
-	}
+body {
+	margin: 0px;
+	font-family: $theme-font;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }

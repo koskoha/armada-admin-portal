@@ -1,77 +1,14 @@
-body {
-	margin: 0px;
-	font-family: $theme-font;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	h1,
-	h2 {
-		color: $themeColor-Light;
-	}
-}
-
 .wrapper {
-	[role='rowgroup'] {
-		[role='row'] {
-			height: 50px;
-		}
-		[role='row']:nth-child(even) {
-			background: #f5fafd;
-		}
-	}
-
-	[role='row'] {
-		[role='columnheader'] {
-			background: $themeColor-Dark;
-			color: white;
-			border: none;
-			text-transform: uppercase;
-		}
-	}
-
-	[role='grid'] {
-		box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
-	}
-
-	.company-title {
-		display: grid;
-		grid-template-columns: 270px;
-		.title {
-			@include sys_font(500, 25px, 1, -1px);
-			text-align: end;
-		}
-		.sub-title {
-			@include sys_font(800, 8px, 1, 2px);
-			text-align: end;
-		}
-	}
-
-	.nav-bar-wrapper {
-		[role='tablist'] {
-			height: 80px;
-			[role='tab'] {
-				@include sys_font(600, 22px, 50px, 0px);
-				margin-right: 1.5em;
-				color: $red;
-			}
-			[aria-selected='true'] {
-				border-left: 0px solid white;
-				font-weight: 700;
-				border-bottom: 3px solid $red;
-			}
-		}
-	}
-
+	display: grid;
+	grid-template-rows: 90px 80px 1fr;
+	height: 100vh;
 	.pages-wrapper {
-		.table-footer {
-			[aria-label='pagination'] {
-				[data-baseweb='button'] {
-					color: rgba(0, 87, 155, 1);
-					line-height: 14px;
-					font-size: 16px;
-					background-color: rgba(248, 249, 250, 1);
-					border-radius: 19px;
-				}
-			}
-		}
+		margin-top: 40px;
+		width: 100%;
+		max-width: $base-width;
+		padding: 0px 20px;
+		margin-left: auto;
+		margin-right: auto;
+		box-sizing: border-box;
 	}
 }

@@ -1,28 +1,7 @@
 import * as React from 'react';
-import { styled } from 'baseui';
-import { Modal, ModalHeader, ModalBody } from 'baseui/modal';
+import { Modal, ModalBody } from 'baseui/modal';
 import * as PropTypes from 'prop-types';
 
-import Button from './Button';
-
-const modalHeader = {
-	textAlign: 'center',
-	color: '#00579b',
-	marginTop: '0px',
-	marginBottom: '30px'
-};
-
-const modalCancel = {
-	background: '#f8f9fa',
-	color: '#1a3965',
-	marginRight: '20px'
-};
-
-const ModalFooter = styled('div', {
-	display: 'flex',
-	justifyContent: 'center',
-	paddingTop: '30px'
-});
 const modalOverrides = {
 	Dialog: {
 		style: {
@@ -37,7 +16,7 @@ interface AddAdminModalProps {
 	isOpen: boolean;
 	title: string;
 	buttonLabel: string;
-	children: React.ComponentType;
+	children: React.ReactNode;
 }
 
 const ModalComponent: React.FC<AddAdminModalProps> = ({
@@ -49,12 +28,16 @@ const ModalComponent: React.FC<AddAdminModalProps> = ({
 }) => (
 	<React.Fragment>
 		<Modal onClose={close} isOpen={isOpen} overrides={modalOverrides}>
-			<ModalHeader style={modalHeader}>{title}</ModalHeader>
+			<p className="modal-header">{title}</p>
 			<ModalBody>{children}</ModalBody>
-			<ModalFooter>
-				<Button onClick={close} style={modalCancel} title="cancel" />
-				<Button onClick={close} title={buttonLabel} />
-			</ModalFooter>
+			<div className="modal-footer">
+				<button className="button white-btn" onClick={close}>
+					cancel
+				</button>
+				<button className="button" onClick={close}>
+					{buttonLabel}
+				</button>
+			</div>
 		</Modal>
 	</React.Fragment>
 );

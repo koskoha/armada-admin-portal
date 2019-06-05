@@ -2,20 +2,23 @@ import * as React from 'react';
 import { styled } from 'baseui';
 import { StatefulInput, StyledInputContainer } from 'baseui/input';
 
-const RootWithStyle = styled(StyledInputContainer, ({ $isFocused }) => {
-	return {
-		borderColor: 'rgba(0,0,0,0)',
-		borderBottom: '1px solid #ced4da',
-		borderBottomRightRadius: '0px',
-		borderTopRightRadius: '0px',
-		borderLeftRightRadius: '0px',
-		borderRightRightRadius: '0px',
-		backgroundColor: 'rgba(0,0,0,0)',
-		boxShadow: $isFocused ? '0 4px 6px -7px #12c1d7' : 'none'
-	};
-});
+const InputContainerOverrides = styled(
+	StyledInputContainer,
+	({ $isFocused }) => {
+		return {
+			borderColor: 'rgba(0,0,0,0)',
+			borderBottom: '1px solid #ced4da',
+			borderBottomRightRadius: '0px',
+			borderTopRightRadius: '0px',
+			borderLeftRightRadius: '0px',
+			borderRightRightRadius: '0px',
+			backgroundColor: 'rgba(0,0,0,0)',
+			boxShadow: $isFocused ? '0 4px 6px -7px #12c1d7' : 'none'
+		};
+	}
+);
 
-const inputStyles = {
+const inputOverrides = {
 	Input: {
 		style: {
 			fontFamily: 'Lato',
@@ -32,18 +35,6 @@ const inputStyles = {
 	}
 };
 
-const FormInputBlock = styled('div', {
-	display: 'block',
-	marginTop: '20px',
-	marginBottom: '10px'
-});
-
-const Label = styled('span', {
-	fontSize: '14px',
-	fontWeight: '600',
-	margin: '10px 0'
-});
-
 export default class FormInput extends React.Component<{
 	label: string;
 	placeholder: string;
@@ -54,18 +45,18 @@ export default class FormInput extends React.Component<{
 	render() {
 		const { label, placeholder, type, style, value } = this.props;
 		return (
-			<FormInputBlock className="input-container">
-				<Label> {label} </Label>
+			<div className="input-wrapper">
+				<p className="input-label"> {label} </p>
 				<StatefulInput
 					value={value}
 					type={type}
 					overrides={{
-						InputContainer: { component: RootWithStyle },
-						Input: { style: { ...inputStyles.Input.style, ...style } }
+						InputContainer: { component: InputContainerOverrides },
+						Input: { style: { ...inputOverrides.Input.style, ...style } }
 					}}
 					placeholder={placeholder}
 				/>
-			</FormInputBlock>
+			</div>
 		);
 	}
 }

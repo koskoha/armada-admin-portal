@@ -1,5 +1,5 @@
 .button {
-	font-family: $lato-font;
+	font-family: $font-lato;
 	background: $red;
 	border: none;
 	border-radius: 19px;
@@ -9,7 +9,6 @@
 	padding: 11px 23px;
 	font-size: 1em;
 	font-weight: 500;
-	// display: inline-flex;
 	text-decoration: none;
 	text-align: center;
 	&:hover {
@@ -20,11 +19,6 @@
 		display: flex;
 		margin-top: 2px;
 	}
-	//TODO: remove class after refactoring all buttnos code
-	// .btn-label {
-	// 	margin-left: auto;
-	// 	margin-right: auto;
-	// }
 }
 
 .action-btn-container {
@@ -39,5 +33,24 @@
 		font-size: 1.1em;
 		font-weight: 700;
 		cursor: pointer;
+	}
+}
+
+.green-btn {
+	background: $light-green;
+	color: $blue;
+	&:hover {
+		background: $green-hover;
+	}
+}
+
+.white-btn {
+	background: $white;
+	border: 1px solid $blue;
+	color: $blue;
+	margin-right: 20px;
+	&:hover {
+		background: $light-grey;
+		color: $white;
 	}
 }

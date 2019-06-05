@@ -13,6 +13,17 @@
 		flex-direction: column;
 		width: 460px;
 		border-radius: 10px;
+		.company-title {
+			display: grid;
+			grid-template-columns: 1fr;
+			justify-items: end;
+			.title {
+				@include sys_font(400, 24px, 1, -1px);
+			}
+			.sub-title {
+				@include sys_font(900, 9px, 2, 2px);
+			}
+		}
 		.login-header {
 			padding: 20px 60px;
 			display: grid;
