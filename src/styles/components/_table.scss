@@ -1,0 +1,7 @@
+.table {
+	[data-baseweb='select']:first-child {
+		border-radius: 6px;
+		border: 1px solid $light-grey;
+		background-color: $white;
+	}
+}

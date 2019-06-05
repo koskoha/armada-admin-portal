@@ -1,0 +1,7 @@
+@mixin sys_font($weight: 700, $size: 10px, $line: 1.1, $spacing: 1px) {
+	font-weight: $weight;
+	font-style: normal;
+	font-size: $size;
+	line-height: $line;
+	letter-spacing: $spacing;
+}

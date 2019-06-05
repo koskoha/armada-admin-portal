@@ -2,25 +2,24 @@ import * as React from 'react';
 import { styled } from 'baseui';
 import { Route } from 'react-router-dom';
 
-import '../pages/style.scss';
-import Header from '../header/Header';
-import RootNavBar from '../header/DashboardNavBar';
-import SysAdminsNavBar from '../header/SysAdminsNavBar';
-import ProfileOverviewPage from '../pages/ProfileOverview';
-import AccountsPage from '../pages/Accounts';
+import Header from '../common/header/Header';
+import RootNavBar from '../common/header/DashboardNavBar';
+import SysAdminsNavBar from '../common/header/SysAdminsNavBar';
 import SysAdminsPage from '../pages/SysAdmins';
-import AgentsPage from '../pages/Agents';
 import AdminActivity from '../pages/AdminActivity';
+
+import ProfileOverviewPage from './admin/ProfileOverview';
+import AccountsPage from './accounts/Accounts';
+import AgentsPage from './agents/Agents';
 
 const Wrapper = styled('div', {
 	display: 'grid',
 	gridTemplateRows: '90px 80px 1fr',
-	fontFamily: 'Montserrat',
 	height: '100vh'
 });
 
 const PagesWrapper = styled('div', ({ $theme: { baseWidth } }) => ({
-	marginTop: '2.5em',
+	marginTop: '40px',
 	width: '100%',
 	maxWidth: baseWidth,
 	paddingLeft: '20px',
@@ -74,12 +73,24 @@ class BaseLayout extends React.Component<
 
 				{/* BODY */}
 				<PagesWrapper className="pages-wrapper">
-					<Route path={`${path}/accounts`} component={AccountsPage} />
-					<Route path={`${path}/agents`} component={AgentsPage} />
-					<Route path={`${path}/sysadmins`} component={SysAdminsPage} />
-					<Route path={`${path}/:id/info`} component={ProfileOverviewPage} />
-					<Route path={`${path}/:id/edit`} component={ProfileOverviewPage} />
-					<Route path={`${path}/:id/activity`} component={AdminActivity} />
+					<Route exact path={`${path}/accounts`} component={AccountsPage} />
+					<Route exact path={`${path}/agents`} component={AgentsPage} />
+					<Route exact path={`${path}/sysadmins`} component={SysAdminsPage} />
+					<Route
+						exact
+						path={`${path}/:id/info`}
+						component={ProfileOverviewPage}
+					/>
+					<Route
+						exact
+						path={`${path}/:id/edit`}
+						component={ProfileOverviewPage}
+					/>
+					<Route
+						exact
+						path={`${path}/:id/activity`}
+						component={AdminActivity}
+					/>
 				</PagesWrapper>
 			</Wrapper>
 		);

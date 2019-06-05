@@ -1,14 +1,41 @@
+//Fonts
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700,800&display=swap);
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
-@import 'theme';
 
-body {
-	margin: 0px;
-	font-family: $theme-font;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	h1,
-	h2 {
-		color: $themeColor-Light;
+//CSS normalizer
+@import 'normalize/variables', 'normalize/vertical-rhythm', 'normalize/normalize-mixins';
+
+//Variables, mixins
+@import 'utilities/variables';
+@import 'utilities/mixins';
+
+//Components
+@import 'components/button';
+@import 'components/table';
+
+//Layouts
+@import 'layout/dashboard';
+
+//Pages
+@import 'pages/login';
+@import 'pages/accounts';
+
+
+
+
+
+
+
+
+
+.company-title {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: end;
+	.title {
+		@include sys_font(400, 24px, 1, -1px);
+	}
+	.sub-title {
+		@include sys_font(900, 9px, 2, 2px);
 	}
 }

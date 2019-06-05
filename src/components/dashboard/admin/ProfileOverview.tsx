@@ -2,9 +2,10 @@ import * as React from 'react';
 import { styled } from 'baseui';
 import { Link } from 'react-router-dom';
 
-import Button from '../elements/Button';
-import ProfileInfo from '../admin/ProfileInfo';
-import EditProfile from '../admin/ProfileEdit';
+import Button from '../../elements/Button';
+
+import ProfileInfo from './components/ProfileInfo';
+import EditProfile from './components/ProfileEdit';
 
 const actionsBtn = {
 	background: '#4fc79d',
@@ -12,7 +13,7 @@ const actionsBtn = {
 };
 
 const cancelEditBtn = {
-	background: 'white',
+	background: '#ffffff',
 	border: '1px solid #00579b',
 	color: '#00579b',
 	marginRight: '20px'

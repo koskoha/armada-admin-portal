@@ -24,7 +24,10 @@ const inputStyles = {
 			paddingLeft: '0px',
 			paddingRight: '0px',
 			fontSize: '19px',
-			lineHeight: '0px'
+			lineHeight: '0px',
+			'::placeholder': {
+				color: '#CCCDDD'
+			}
 		}
 	}
 };
@@ -51,7 +54,7 @@ export default class FormInput extends React.Component<{
 	render() {
 		const { label, placeholder, type, style, value } = this.props;
 		return (
-			<FormInputBlock>
+			<FormInputBlock className="input-container">
 				<Label> {label} </Label>
 				<StatefulInput
 					value={value}

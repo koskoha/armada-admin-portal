@@ -1,36 +1,6 @@
 import * as React from 'react';
-import { styled } from 'baseui';
 
-import addIcon from '../../images/plus.png';
-
-const Button = styled('button', {
-	fontFamily: 'Lato',
-	background: '#dc176c',
-	border: 'none',
-	borderRadius: '19px',
-	color: '#ffffff',
-	maxHeight: '41px',
-	cursor: 'pointer',
-	padding: '11px 23px',
-	fontSize: '16px',
-	fontWeight: '500',
-	display: 'inline-flex',
-	textDecoration: 'none',
-	':hover': {
-		background: '#f968a7'
-	}
-});
-
-const PlusIcon = styled('div', {
-	marginRight: '10px',
-	display: 'flex',
-	marginTop: '2px'
-});
-
-const ButtonLabel = styled('span', {
-	marginLeft: 'auto',
-	marginRight: 'auto'
-});
+import plusIcon from '../../images/plus.png';
 
 class ProfileOverview extends React.Component<{
 	title: string;
@@ -41,14 +11,14 @@ class ProfileOverview extends React.Component<{
 	render() {
 		const { title, onClick, icon, style } = this.props;
 		return (
-			<Button style={style} onClick={onClick}>
+			<button className="button" style={style} onClick={onClick}>
 				{icon && (
-					<PlusIcon>
-						<img src={addIcon} />
-					</PlusIcon>
+					<div className="btn-icon">
+						<img src={plusIcon} />
+					</div>
 				)}
-				<ButtonLabel>{title}</ButtonLabel>
-			</Button>
+				<span className="btn-label">{title}</span>
+			</button>
 		);
 	}
 }

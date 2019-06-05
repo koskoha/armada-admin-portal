@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { styled } from 'baseui';
 
-import RemoveButton from '../elements/Button';
+import RemoveButton from '../../../elements/Button';
 
 const InfoWrapper = styled('div', {
 	display: 'grid'

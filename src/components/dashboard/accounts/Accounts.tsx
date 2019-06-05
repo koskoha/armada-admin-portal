@@ -1,42 +1,18 @@
 import * as React from 'react';
-import { styled } from 'baseui';
 import { Button, KIND } from 'baseui/button';
 import { Table } from 'baseui/table';
 import { Pagination } from 'baseui/pagination';
-import { Block } from 'baseui/block';
 import { StatefulPopover, PLACEMENT } from 'baseui/popover';
 import { StatefulMenu } from 'baseui/menu';
 import TriangleDown from 'baseui/icon/triangle-down';
 
-import SearchDropdown from '../elements/SearchDropdown';
-import SyncButton from '../elements/Button';
+import SearchDropdown from '../../elements/SearchDropdown';
 
-const TableHeader = styled('div', {
-	display: 'flex',
-	justifyContent: 'space-between',
-	margin: '1rem 0'
-});
-
-const ActionBtn = styled('div', {
-	border: 'none',
-	background: 'none',
-	paddingLeft: '5px',
-	paddingRight: '5px',
-	fontSize: '15px',
-	fontWeight: 'bold',
-	cursor: 'pointer'
-});
-
-const ActionBtnsContainer = styled('div', {
-	display: 'flex',
-	flexDirection: 'row',
-	color: '#dc176c'
-});
-
-const ActionsBtns: React.FC = () => (
-	<ActionBtnsContainer>
-		<ActionBtn>View</ActionBtn>/<ActionBtn>Edit</ActionBtn>
-	</ActionBtnsContainer>
+const ActionBtns: React.FC = () => (
+	<div className="action-btn-container">
+		<button className="action-btn">View</button>/
+		<button className="action-btn">Edit</button>
+	</div>
 );
 
 const DATA = [
@@ -45,42 +21,42 @@ const DATA = [
 		<span key="2">test@email.com</span>,
 		<span key="3">(410) 123-1524</span>,
 		<span key="4">Active</span>,
-		<ActionsBtns key="sdfads" />
+		<ActionBtns key="sdfads" />
 	],
 	[
 		<span key="1">Sarah Brown</span>,
 		<span key="2">test@email.com</span>,
 		<span key="3">(410) 123-1524</span>,
 		<span key="4">Active</span>,
-		<ActionsBtns key="sdfads" />
+		<ActionBtns key="sdfads" />
 	],
 	[
 		<span key="1">Sarah Brown</span>,
 		<span key="2">test@email.com</span>,
 		<span key="3">(410) 123-1524</span>,
 		<span key="4">Active</span>,
-		<ActionsBtns key="sdfads" />
+		<ActionBtns key="sdfads" />
 	],
 	[
 		<span key="1">Sarah Brown</span>,
 		<span key="2">test@email.com</span>,
 		<span key="3">(410) 123-1524</span>,
 		<span key="4">Active</span>,
-		<ActionsBtns key="sdfads" />
+		<ActionBtns key="sdfads" />
 	],
 	[
 		<span key="1">Sarah Brown</span>,
 		<span key="2">test@email.com</span>,
 		<span key="3">(410) 123-1524</span>,
 		<span key="4">Active</span>,
-		<ActionsBtns key="sdfads" />
+		<ActionBtns key="sdfads" />
 	],
 	[
 		<span key="1">Sarah Brown</span>,
 		<span key="2">test@email.com</span>,
 		<span key="3">(410) 123-1524</span>,
 		<span key="4">Active</span>,
-		<ActionsBtns key="sdfads" />
+		<ActionBtns key="sdfads" />
 	]
 ];
 
@@ -104,7 +80,7 @@ class Accounts extends React.Component<
 		const { page, limit } = this.state;
 		return (
 			<div>
-				<TableHeader className="search-block">
+				<div className="search-block">
 					<SearchDropdown
 						placeholder="Search Accounts..."
 						options={[
@@ -114,17 +90,10 @@ class Accounts extends React.Component<
 							{ id: 'Armada User', value: 'armadaUser' }
 						]}
 					/>
-					<SyncButton title="Sync Accounts" onClick={() => {}} />
-				</TableHeader>
+					<button className="button">Sync Accounts</button>
+				</div>
 				<Table columns={COLUMNS} data={DATA} className="table" />
-				<Block height="20px" />
-				<Block
-					className="table-pagination"
-					paddingTop="scale200"
-					paddingBottom="scale600"
-					display="flex"
-					justifyContent="space-between"
-				>
+				<div className="table-footer">
 					<StatefulPopover
 						content={() => (
 							<StatefulMenu
@@ -147,7 +116,7 @@ class Accounts extends React.Component<
 						currentPage={page}
 						onPageChange={({ nextPage }) => this.setState({ page: nextPage })}
 					/>
-				</Block>
+				</div>
 			</div>
 		);
 	}

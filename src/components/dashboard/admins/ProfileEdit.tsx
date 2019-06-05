@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { styled } from 'baseui';
 
-import RemoveButton from '../elements/Button';
-import Input from '../elements/Input';
-import AdminTypeCheckbox from '../elements/CheckBox';
+import RemoveButton from '../../elements/Button';
+import Input from '../../elements/Input';
+import AdminTypeCheckbox from '../../elements/CheckBox';
 
 const InfoWrapper = styled('div', {
 	display: 'grid'

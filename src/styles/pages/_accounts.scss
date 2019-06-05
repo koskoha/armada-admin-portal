@@ -1,0 +1,20 @@
+.search-block {
+	display: flex;
+	justify-content: space-between;
+	margin: 1rem 0;
+
+	[data-baseweb='icon'] {
+		color: $red;
+	}
+
+	[role='option'] {
+		[aria-selected='true'] {
+			background-color: $red;
+		}
+	}
+}
+.table-footer {
+	margin-top: 26px;
+	display: flex;
+	justify-content: space-between;
+}

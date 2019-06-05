@@ -4,7 +4,6 @@ import { Button, KIND } from 'baseui/button';
 import { Link as RouterLink } from 'react-router-dom';
 import { Table } from 'baseui/table';
 import { Pagination } from 'baseui/pagination';
-import { Block } from 'baseui/block';
 import { StatefulPopover, PLACEMENT } from 'baseui/popover';
 import { StatefulMenu } from 'baseui/menu';
 import TriangleDown from 'baseui/icon/triangle-down';
@@ -13,13 +12,21 @@ import * as PropTypes from 'prop-types';
 import AddAdminButton from '../elements/Button';
 import SearchDropdown from '../elements/SearchDropdown';
 import Modal from '../elements/Modal';
-import AddAdminForm from '../admin/AddAdminForm';
+import AddAdminForm from '../dashboard/admin/components/AddAdminForm';
 import removeIcon from '../../images/trashcan.png';
 
 const TableHeader = styled('div', {
 	display: 'flex',
 	justifyContent: 'space-between',
 	margin: '1rem 0'
+});
+
+const TableFooter = styled('div', {
+	paddingTop: '6px',
+	marginTop: '20px',
+	paddingBottom: '16px',
+	display: 'flex',
+	justifyContent: 'space-between'
 });
 
 const ActionBtn = styled('div', {
@@ -220,14 +227,7 @@ class Accounts extends React.Component<
 					/>
 				</TableHeader>
 				<Table columns={COLUMNS} data={DATA} className="table" />
-				<Block height="20px" />
-				<Block
-					className="table-pagination"
-					paddingTop="scale200"
-					paddingBottom="scale600"
-					display="flex"
-					justifyContent="space-between"
-				>
+				<TableFooter className="table-footer">
 					<StatefulPopover
 						content={() => (
 							<StatefulMenu
@@ -250,7 +250,7 @@ class Accounts extends React.Component<
 						currentPage={page}
 						onPageChange={({ nextPage }) => this.setState({ page: nextPage })}
 					/>
-				</Block>
+				</TableFooter>
 			</div>
 		);
 	}

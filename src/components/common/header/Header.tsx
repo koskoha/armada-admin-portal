@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styled } from 'baseui';
 import { Link } from 'react-router-dom';
 
-import logoIcon from '../../images/logo.png';
+import logoIcon from '../../../images/logo.png';
 
 const HeaderWrapper = styled('div', {
 	marginLeft: 'auto',

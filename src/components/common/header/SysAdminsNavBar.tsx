@@ -4,7 +4,8 @@ import { StatefulTabs, Tab } from 'baseui/tabs';
 import { Block } from 'baseui/block';
 import ChevronRight from 'baseui/icon/chevron-right';
 
-import homeIcon from '../../images/home.png';
+// const homeIcon = require('../../images/home.png');
+import homeIcon from '../../../images/home.png';
 
 const HomeNav = styled('div', {
 	marginTop: '3px'

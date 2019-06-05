@@ -4,10 +4,9 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 
 import UserContext from '../context/UserContext';
 
-import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
-import BaseLayout from './layouts/DashboardLayout';
-import PageNotFound from './pages/NotFoundPage';
+import Login from './login/Login';
+import BaseLayout from './dashboard/DashboardLayout';
+import PageNotFound from './common/NotFoundPage';
 
 interface PrivateRouteProps {
 	component: React.ComponentType;
@@ -43,7 +42,8 @@ const Routes: React.FC = () => {
 	return (
 		<div>
 			<Switch>
-				<PrivateRoute path="/" exact component={Dashboard} />
+				{/* TODO: update protected routes */}
+				{/* <PrivateRoute path="/" exact component={Dashboard} /> */}
 				<Route path="/login" exact component={Login} />
 				<Route path="/dashboard" component={BaseLayout} />
 				<Route component={PageNotFound} />

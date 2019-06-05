@@ -1,0 +1,43 @@
+.button {
+	font-family: $lato-font;
+	background: $red;
+	border: none;
+	border-radius: 19px;
+	color: $white;
+	max-height: 41px;
+	cursor: pointer;
+	padding: 11px 23px;
+	font-size: 1em;
+	font-weight: 500;
+	// display: inline-flex;
+	text-decoration: none;
+	text-align: center;
+	&:hover {
+		background: $pink;
+	}
+	.btn-icon {
+		margin-right: 10px;
+		display: flex;
+		margin-top: 2px;
+	}
+	//TODO: remove class after refactoring all buttnos code
+	// .btn-label {
+	// 	margin-left: auto;
+	// 	margin-right: auto;
+	// }
+}
+
+.action-btn-container {
+	display: flex;
+	flex-direction: row;
+	color: $red;
+	.action-btn {
+		border: none;
+		background: none;
+		color: $red;
+		padding: 0px 5px;
+		font-size: 1.1em;
+		font-weight: 700;
+		cursor: pointer;
+	}
+}

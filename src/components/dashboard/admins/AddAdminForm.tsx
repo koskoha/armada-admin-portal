@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { styled } from 'baseui';
 
-import Input from '../elements/Input';
-import AdminTypeCheckbox from '../elements/CheckBox';
+import Input from '../../elements/Input';
+import AdminTypeCheckbox from '../../elements/CheckBox';
 
 const Form = styled('div', {
 	display: 'grid',

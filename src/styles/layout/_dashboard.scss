@@ -1,11 +1,12 @@
-@import '../../styles/theme';
-
-@mixin sys_font($weight: 700, $size: 10px, $line: 1.1, $spacing: 1px) {
-	font-weight: $weight;
-	font-style: normal;
-	font-size: $size;
-	line-height: $line;
-	letter-spacing: $spacing;
+body {
+	margin: 0px;
+	font-family: $theme-font;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	h1,
+	h2 {
+		color: $themeColor-Light;
+	}
 }
 
 .wrapper {
@@ -50,35 +51,18 @@
 			[role='tab'] {
 				@include sys_font(600, 22px, 50px, 0px);
 				margin-right: 1.5em;
-				color: $red-dark;
+				color: $red;
 			}
 			[aria-selected='true'] {
 				border-left: 0px solid white;
 				font-weight: 700;
-				border-bottom: 3px solid $red-dark;
-			}
-		}
-	}
-
-	.search-block {
-		[data-baseweb='select']:first-child {
-			border-radius: 6px;
-			border: 1px solid rgba(206, 212, 218, 1);
-			background-color: #fff;
-		}
-		[data-baseweb='icon'] {
-			color: $red-dark;
-		}
-
-		[role='option'] {
-			[aria-selected='true'] {
-				background-color: $red-dark;
+				border-bottom: 3px solid $red;
 			}
 		}
 	}
 
 	.pages-wrapper {
-		.table-pagination {
+		.table-footer {
 			[aria-label='pagination'] {
 				[data-baseweb='button'] {
 					color: rgba(0, 87, 155, 1);
@@ -89,21 +73,5 @@
 				}
 			}
 		}
-	}
-}
-
-.login-page {
-	background-image: url('../../images/formpage-bg.png');
-}
-
-.company-title {
-	display: grid;
-	grid-template-columns: 1fr;
-	justify-items: end;
-	.title {
-		@include sys_font(400, 24px, 1, -1px);
-	}
-	.sub-title {
-		@include sys_font(900, 9px, 2, 2px);
 	}
 }
