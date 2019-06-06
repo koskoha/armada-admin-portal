@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 import Header from '../common/Header';
 import NavBar from '../common/NavBar';
@@ -61,4 +61,4 @@ class DashboardLayout extends React.Component<
 	}
 }
 
-export default DashboardLayout;
+export default withRouter(DashboardLayout);

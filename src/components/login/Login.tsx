@@ -1,11 +1,25 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { graphql } from 'react-apollo';
+import { gql } from 'apollo-boost';
 
+import { AUTH_TOKEN } from '../../config/constant';
 import Input from '../elements/Input';
 import logoIcon from '../../images/logo.png';
 
-export default class Login extends React.Component {
+interface LoginState {
+	email: string;
+	password: string;
+}
+
+class Login extends React.Component<{}, LoginState> {
+	state = {
+		email: '',
+		password: ''
+	};
+
 	render() {
+		const { email, password } = this.state;
 		return (
 			<div className="login-page">
 				<div className="login-wrapper">
@@ -23,19 +37,23 @@ export default class Login extends React.Component {
 					{/* BODY FORM */}
 					<div className="login-form-wrapper">
 						<span className="form-title">Sign in to the Admin Portal</span>
-						<form className="login-form">
+						<div className="login-form">
 							<Input
+								value={email}
+								onChange={e => this.setState({ email: e.target.value })}
 								label="Email Address"
 								placeholder="Email Address"
 								style={{ color: '#ffff' }}
 							/>
 							<Input
+								value={password}
+								onChange={e => this.setState({ password: e.target.value })}
 								label="Password"
 								placeholder="Password"
 								type="password"
 								style={{ color: '#ffff' }}
 							/>
-						</form>
+						</div>
 						{/* FOOTER FORM */}
 						<div className="login-footer">
 							Forgot password?
@@ -43,12 +61,56 @@ export default class Login extends React.Component {
 								Click here.
 							</Link>
 						</div>
-						<button className="button" type="submit" style={{ width: '100%' }}>
-							Login
-						</button>
+
+						{email && password && (
+							<button
+								onClick={this.loginUser}
+								className="button"
+								style={{ width: '100%' }}
+							>
+								Login
+							</button>
+						)}
 					</div>
 				</div>
 			</div>
 		);
 	}
+
+	loginUser = async () => {
+		const { email, password } = this.state;
+		const { refreshTokenFn, history } = this.props;
+		this.props
+			.login({
+				variables: {
+					input: {
+						email,
+						password
+					}
+				}
+			})
+			.then(result => {
+				const token = result.data.login.accessToken;
+				refreshTokenFn({
+					[AUTH_TOKEN]: token
+				});
+				history.replace('/');
+				window.location.reload();
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	};
 }
+
+const LOGIN_USER_MUTATION = gql`
+	mutation Login($input: LoginInput!) {
+		login(input: $input) {
+			accessToken
+		}
+	}
+`;
+
+export default graphql(LOGIN_USER_MUTATION, { name: 'login' })(
+	withRouter(Login)
+);
