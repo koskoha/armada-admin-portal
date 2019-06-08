@@ -11,7 +11,7 @@ module.exports = {
 		historyApiFallback: true
 	},
 	devtool: 'inline-source-map',
-	entry: './src/index.tsx',
+	entry: ['@babel/polyfill', './src/index.tsx'],
 	module: {
 		rules: [
 			{
