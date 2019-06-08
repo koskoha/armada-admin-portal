@@ -16,7 +16,7 @@ import Base from './components/Base';
 import './styles/index.scss';
 
 const httpLink = createHttpLink({
-	uri: 'http://localhost:11100/graphql'
+	uri: 'http://localhost:3000/graphql'
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -30,7 +30,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const wsLink = new WebSocketLink({
-	uri: `ws://localhost:11100/graphql`,
+	uri: `ws://localhost:3000/graphql`,
 	options: {
 		timeout: 60000,
 		reconnect: true,

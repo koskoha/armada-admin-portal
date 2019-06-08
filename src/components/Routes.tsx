@@ -10,7 +10,6 @@ import PageNotFound from './common/NotFoundPage';
 
 interface PrivateRouteProps {
 	component: React.ComponentType;
-	exact: boolean;
 	path: string;
 }
 
@@ -42,14 +41,18 @@ const Routes: React.FC = () => (
 				<div>
 					<Switch>
 						{/* TODO: update protected routes */}
-						<PrivateRoute path="/" exact component={DashboardLayout} />
+						<Route
+							path="/"
+							exact
+							render={() => <Redirect to="/dashboard/accounts" />}
+						/>
 						<Route
 							token={context.token}
 							path="/login"
 							exact
 							render={() => <Login refreshTokenFn={context.refreshTokenFn} />}
 						/>
-						<Route path="/dashboard" component={DashboardLayout} />
+						<PrivateRoute path="/dashboard" component={DashboardLayout} />
 						<Route component={PageNotFound} />
 					</Switch>
 				</div>

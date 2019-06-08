@@ -68,6 +68,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 
 	validateSubmit = (): void => {
 		const { password, email } = this.state;
+		this.setState({ serverErrors: undefined });
 		const passwordError = this.validatePassword(password);
 		const emailError = this.validateEmail(email);
 		if (passwordError === '' && emailError === '') {
@@ -159,7 +160,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 				refreshTokenFn({
 					[AUTH_TOKEN]: token
 				});
-				history.replace('/');
+				history.replace('/dashboard/accounts');
 				window.location.reload();
 			})
 			.catch(({ graphQLErrors }) => {
