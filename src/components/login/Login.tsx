@@ -18,6 +18,7 @@ interface LoginState {
 interface LoginProps {
 	refreshTokenFn: ({ [AUTH_TOKEN]: string }) => void;
 	history: { replace };
+	logout: () => void;
 }
 
 class Login extends React.Component<LoginProps, LoginState> {
@@ -31,6 +32,10 @@ class Login extends React.Component<LoginProps, LoginState> {
 			passwordError: ''
 		};
 	}
+
+	componentDidMount = () => {
+		this.props.logout();
+	};
 
 	renderErrors = errors => (
 		<div className="error-wrapper">
@@ -161,7 +166,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 					[AUTH_TOKEN]: token
 				});
 				history.replace('/dashboard/accounts');
-				window.location.reload();
+				// window.location.reload();
 			})
 			.catch(({ graphQLErrors }) => {
 				this.setState({ serverErrors: graphQLErrors });

@@ -3,14 +3,16 @@ import * as React from 'react';
 import { AUTH_TOKEN } from '../config/constant';
 import { isTokenExpired } from '../helper/jwtHelper';
 
-interface UserProviderInterface {
-	token: string | undefined;
-	authenticated: boolean;
+interface UserContextInterface {
+	token: string | undefined | null;
+	logout: () => void;
+	refreshTokenFn: () => void;
 }
 
-export const UserContext = React.createContext<UserProviderInterface>({
+export const UserContext = React.createContext<UserContextInterface>({
 	token: undefined,
-	authenticated: false
+	logout: () => {},
+	refreshTokenFn: () => {}
 });
 
 interface UserProviderProps {
@@ -18,15 +20,18 @@ interface UserProviderProps {
 	token: string | null;
 }
 
+interface UserProviderInterProps {
+	token: string | undefined | null;
+}
+
 export class UserProvider extends React.Component<
 	UserProviderProps,
-	UserProviderInterface
+	UserProviderInterProps
 > {
 	constructor(props) {
 		super(props);
 		this.state = {
-			token: props.token,
-			authenticated: props.token
+			token: props.token
 		};
 	}
 
@@ -39,13 +44,18 @@ export class UserProvider extends React.Component<
 					this.setState({ token });
 				} else {
 					localStorage.removeItem(AUTH_TOKEN);
-					this.setState({ token: null });
+					this.setState({ token: undefined });
 				}
 			}
 		} catch (e) {
 			console.log(e);
 		}
 	}
+
+	logout = () => {
+		localStorage.removeItem(AUTH_TOKEN);
+		this.setState({ token: undefined });
+	};
 
 	// verify localStorage check
 	componentDidMount() {
@@ -73,6 +83,7 @@ export class UserProvider extends React.Component<
 			<UserContext.Provider
 				value={{
 					token,
+					logout: this.logout,
 					refreshTokenFn: this.refreshTokenFn
 				}}
 			>
