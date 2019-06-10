@@ -42,15 +42,25 @@ export default class FormInput extends React.Component<{
 	style?: {};
 	value?: string;
 	onChange: (e) => void;
+	name: string;
 }> {
 	render() {
-		const { label, placeholder, type, style, value, onChange } = this.props;
+		const {
+			label,
+			placeholder,
+			type,
+			style,
+			value,
+			onChange,
+			name
+		} = this.props;
 		return (
 			<div className="input-wrapper">
 				<p className="input-label"> {label} </p>
 				<StatefulInput
+					name={name}
 					value={value}
-					type={type}
+					type={type || 'text'}
 					onChange={e => onChange(e)}
 					overrides={{
 						InputContainer: { component: InputContainerOverrides },

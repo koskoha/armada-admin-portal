@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
@@ -104,6 +104,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 						{serverErrors && this.renderErrors(serverErrors)}
 						<div className="login-form">
 							<Input
+								name="email"
 								value={email}
 								onChange={this.handleEmailChange}
 								label="Email Address"
@@ -112,6 +113,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 							/>
 							<span className="error">{emailError}</span>
 							<Input
+								name="password"
 								value={password}
 								onChange={this.handlePasswordChange}
 								label="Password"
@@ -177,6 +179,5 @@ const LOGIN_USER_MUTATION = gql`
 	}
 `;
 
-export default graphql(LOGIN_USER_MUTATION, { name: 'login' })(
-	withRouter(Login)
-);
+export default graphql(LOGIN_USER_MUTATION, { name: 'login' })(Login);
+export { LOGIN_USER_MUTATION };

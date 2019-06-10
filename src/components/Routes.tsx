@@ -50,7 +50,9 @@ const Routes: React.FC = () => (
 							token={context.token}
 							path="/login"
 							exact
-							render={() => <Login refreshTokenFn={context.refreshTokenFn} />}
+							render={props => (
+								<Login {...props} refreshTokenFn={context.refreshTokenFn} />
+							)}
 						/>
 						<PrivateRoute path="/dashboard" component={DashboardLayout} />
 						<Route component={PageNotFound} />

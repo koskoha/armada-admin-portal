@@ -1,0 +1,9 @@
+extends:
+  - 'plugin:jest/recommended'
+  - 'plugin:jest/style'
+env:
+  jest: true
+rules:
+  '@typescript-eslint/no-non-null-assertion': 'off'
+  '@typescript-eslint/explicit-function-return-type': 'off'
+  '@typescript-eslint/no-explicit-any': 'off'
