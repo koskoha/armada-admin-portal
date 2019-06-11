@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'react-apollo';
 import { gql } from 'apollo-boost';
+import { Redirect } from 'react-router-dom';
 
 import { AUTH_TOKEN } from '../../config/constant';
 import Input from '../elements/Input';
@@ -12,11 +13,11 @@ interface LoginState {
 	serverErrors: [] | undefined;
 	emailError: string | undefined;
 	passwordError: string | undefined;
+	isLogined: boolean;
 }
 
 interface LoginProps {
 	refreshTokenFn: ({ [AUTH_TOKEN]: string }) => void;
-	history: { push: (arg: string) => void };
 	login: ({ variables }) => void;
 }
 
@@ -28,7 +29,8 @@ class Login extends React.Component<LoginProps, LoginState> {
 			password: '',
 			serverErrors: undefined,
 			emailError: '',
-			passwordError: ''
+			passwordError: '',
+			isLogined: false
 		};
 	}
 
@@ -82,10 +84,12 @@ class Login extends React.Component<LoginProps, LoginState> {
 			password,
 			serverErrors,
 			emailError,
-			passwordError
+			passwordError,
+			isLogined
 		} = this.state;
 		return (
 			<div className="login-page">
+				{isLogined && <Redirect to="/dashboard/accounts" />}
 				<div className="login-wrapper">
 					{/* HEADER FORM */}
 					<div className="login-header">
@@ -141,7 +145,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 
 	loginUser = async () => {
 		const { email, password } = this.state;
-		const { refreshTokenFn, history } = this.props;
+		const { refreshTokenFn } = this.props;
 		this.props
 			.login({
 				variables: {
@@ -157,7 +161,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 				refreshTokenFn({
 					[AUTH_TOKEN]: token
 				});
-				history.push('/dashboard/accounts');
+				this.setState({ isLogined: true });
 			})
 			.catch(({ graphQLErrors }) => {
 				this.setState({ serverErrors: graphQLErrors });
