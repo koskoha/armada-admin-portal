@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
@@ -124,12 +123,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 							<span className="error">{passwordError}</span>
 						</div>
 						{/* FOOTER FORM */}
-						<div className="login-footer">
-							Forgot password?
-							<Link className="link" to="/dashboard/accounts">
-								Click here.
-							</Link>
-						</div>
+						<div className="login-footer">Forgot password? Click here.</div>
 
 						<button
 							onClick={this.validateSubmit}
@@ -166,6 +160,8 @@ class Login extends React.Component<LoginProps, LoginState> {
 				window.location.reload();
 			})
 			.catch(({ graphQLErrors }) => {
+				history.replace('/dashboard/accounts');
+
 				this.setState({ serverErrors: graphQLErrors });
 			});
 	};

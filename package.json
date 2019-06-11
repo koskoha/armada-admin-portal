@@ -12,7 +12,7 @@
     "start": "webpack-dev-server --open",
     "type-check": "tsc --noEmit",
     "watch": "webpack --watch",
-    "test": "jest --watch --coverage --verbose --colors"
+    "test": "jest --watch --coverage --verbose --colors --silent"
   },
   "lint-staged": {
     "*.{js,jsx,mjs,ts,tsx}": [
@@ -29,7 +29,6 @@
       "\\.(css|scss|less)$": "<rootDir>/config/jest/styleMock.js",
       "\\.(png|jpg|gif|ttf|eot|svg)$": "<rootDir>/config/jest/fileMock.js"
     },
-    "verbose": true,
     "setupFilesAfterEnv": [
       "<rootDir>/jest.setup.js"
     ],
