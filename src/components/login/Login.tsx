@@ -16,7 +16,8 @@ interface LoginState {
 
 interface LoginProps {
 	refreshTokenFn: ({ [AUTH_TOKEN]: string }) => void;
-	history: { replace };
+	history: { push: (arg: string) => void };
+	login: ({ variables }) => void;
 }
 
 class Login extends React.Component<LoginProps, LoginState> {
@@ -41,11 +42,11 @@ class Login extends React.Component<LoginProps, LoginState> {
 		</div>
 	);
 
-	handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+	handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		this.setState({ password: e.currentTarget.value, passwordError: '' });
 	};
 
-	handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+	handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		this.setState({ email: e.currentTarget.value, emailError: '' });
 	};
 
@@ -156,12 +157,9 @@ class Login extends React.Component<LoginProps, LoginState> {
 				refreshTokenFn({
 					[AUTH_TOKEN]: token
 				});
-				history.replace('/dashboard/accounts');
-				window.location.reload();
+				history.push('/dashboard/accounts');
 			})
 			.catch(({ graphQLErrors }) => {
-				history.replace('/dashboard/accounts');
-
 				this.setState({ serverErrors: graphQLErrors });
 			});
 	};

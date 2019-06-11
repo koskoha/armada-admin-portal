@@ -62,22 +62,5 @@ const Routes: React.FC = () => (
 		}}
 	</UserContext.Consumer>
 );
-// return (
-// 	<div>
-// 		<Switch>
-// 			{/* TODO: update protected routes */}
-// 			<PrivateRoute path="/" exact component={DashboardLayout} />
-// 			<Route
-// 			token={this.state.token}
-// 				path="/login"
-// 				exact
-// 				render={() => <Login refreshTokenFn={this.refreshTokenFn} />}
-// 			/>
-// 			<Route path="/dashboard" component={DashboardLayout} />
-// 			<Route component={PageNotFound} />
-// 		</Switch>
-// 	</div>
-// );
-// };
 
 export default Routes;

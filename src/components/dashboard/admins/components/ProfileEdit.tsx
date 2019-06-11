@@ -19,7 +19,7 @@ class ProfileEdit extends React.Component {
 
 				<p className="title">email@test.com</p>
 
-				<AdminTypeCheckbox style={{ marginTop: '40px' }} />
+				<AdminTypeCheckbox style="wrapper-checkbox" />
 
 				<p className="details-title">Password</p>
 				<form className="form">

@@ -7,6 +7,7 @@ import { StatefulPopover, PLACEMENT } from 'baseui/popover';
 import { StatefulMenu } from 'baseui/menu';
 import TriangleDown from 'baseui/icon/triangle-down';
 import * as PropTypes from 'prop-types';
+import uuid from 'uuid';
 
 import SearchDropdown from '../../elements/SearchDropdown';
 import Modal from '../../elements/Modal';
@@ -61,34 +62,6 @@ class AdminsList extends React.Component<
 		removeAdminModalIsOpen: false
 	};
 
-	toggleAddAdmin = (open = !this.state.addAdminModalIsOpen) => {
-		this.setState({
-			addAdminModalIsOpen: !!open
-		});
-	};
-
-	toggleRemoveAdmin = (open = !this.state.removeAdminModalIsOpen) => {
-		this.setState({
-			removeAdminModalIsOpen: !!open
-		});
-	};
-
-	openAddAdminModal = () => {
-		this.toggleAddAdmin(true);
-	};
-
-	closeAddAdminModal = () => {
-		this.toggleAddAdmin(false);
-	};
-
-	openRemoveAdminModal = () => {
-		this.toggleRemoveAdmin(true);
-	};
-
-	closeRemoveAdminModal = () => {
-		this.toggleRemoveAdmin(false);
-	};
-
 	render() {
 		const {
 			page,
@@ -99,36 +72,42 @@ class AdminsList extends React.Component<
 
 		const DATA = [
 			[
-				<span key="1">First Name, LastName</span>,
-				<span key="2">test@email.com</span>,
-				<span key="3">Implementation</span>,
-				<span key="4">05-13-2019</span>,
-				<ActionsBtns key="sdfads" />,
+				<span key={uuid()}>First Name, LastName</span>,
+				<span key={uuid()}>test@email.com</span>,
+				<span key={uuid()}>Implementation</span>,
+				<span key={uuid()}>05-13-2019</span>,
+				<ActionsBtns key={uuid()} />,
 				<RemoveBtn
-					onClick={() => this.openRemoveAdminModal(true)}
-					key="sdfaddsfsadf"
+					onClick={() => {
+						this.setState({ removeAdminModalIsOpen: true });
+					}}
+					key={uuid()}
 				/>
 			],
 			[
-				<span key="1">First Name, LastName</span>,
-				<span key="2">test@email.com</span>,
-				<span key="3">Implementation</span>,
-				<span key="4">05-13-2019</span>,
-				<ActionsBtns key="sdfads" />,
+				<span key={uuid()}>First Name, LastName</span>,
+				<span key={uuid()}>test@email.com</span>,
+				<span key={uuid()}>Implementation</span>,
+				<span key={uuid()}>05-13-2019</span>,
+				<ActionsBtns key={uuid()} />,
 				<RemoveBtn
-					onClick={() => this.openRemoveAdminModal(true)}
-					key="sdfaddsfsadf"
+					onClick={() => {
+						this.setState({ removeAdminModalIsOpen: true });
+					}}
+					key={uuid()}
 				/>
 			],
 			[
-				<span key="1">First Name, LastName</span>,
-				<span key="2">test@email.com</span>,
-				<span key="3">Implementation</span>,
-				<span key="4">05-13-2019</span>,
-				<ActionsBtns key="sdfads" />,
+				<span key={uuid()}>First Name, LastName</span>,
+				<span key={uuid()}>test@email.com</span>,
+				<span key={uuid()}>Implementation</span>,
+				<span key={uuid()}>05-13-2019</span>,
+				<ActionsBtns key={uuid()} />,
 				<RemoveBtn
-					onClick={() => this.openRemoveAdminModal(true)}
-					key="sdfaddsfsadf"
+					onClick={() => {
+						this.setState({ removeAdminModalIsOpen: true });
+					}}
+					key={uuid()}
 				/>
 			]
 		];
@@ -145,7 +124,11 @@ class AdminsList extends React.Component<
 		return (
 			<div>
 				<Modal
-					close={this.closeAddAdminModal}
+					close={() => {
+						this.setState({
+							addAdminModalIsOpen: false
+						});
+					}}
 					isOpen={addAdminModalIsOpen}
 					title="Add New Admin"
 					buttonLabel="Add Admin"
@@ -153,7 +136,11 @@ class AdminsList extends React.Component<
 					<AddAdminForm />
 				</Modal>
 				<Modal
-					close={this.closeRemoveAdminModal}
+					close={() => {
+						this.setState({
+							removeAdminModalIsOpen: false
+						});
+					}}
 					isOpen={removeAdminModalIsOpen}
 					title="Remove Admin"
 					buttonLabel="Remove"
@@ -173,7 +160,9 @@ class AdminsList extends React.Component<
 						]}
 					/>
 					<button
-						onClick={() => this.openAddAdminModal(true)}
+						onClick={() => {
+							this.setState({ addAdminModalIsOpen: true });
+						}}
 						className="button"
 					>
 						Add New Admin
