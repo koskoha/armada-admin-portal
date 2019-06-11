@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Link, withRouter } from 'react-router-dom';
 import { graphql } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
@@ -104,6 +103,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 						{serverErrors && this.renderErrors(serverErrors)}
 						<div className="login-form">
 							<Input
+								name="email"
 								value={email}
 								onChange={this.handleEmailChange}
 								label="Email Address"
@@ -112,6 +112,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 							/>
 							<span className="error">{emailError}</span>
 							<Input
+								name="password"
 								value={password}
 								onChange={this.handlePasswordChange}
 								label="Password"
@@ -122,12 +123,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 							<span className="error">{passwordError}</span>
 						</div>
 						{/* FOOTER FORM */}
-						<div className="login-footer">
-							Forgot password?
-							<Link className="link" to="/dashboard/accounts">
-								Click here.
-							</Link>
-						</div>
+						<div className="login-footer">Forgot password? Click here.</div>
 
 						<button
 							onClick={this.validateSubmit}
@@ -164,6 +160,8 @@ class Login extends React.Component<LoginProps, LoginState> {
 				window.location.reload();
 			})
 			.catch(({ graphQLErrors }) => {
+				history.replace('/dashboard/accounts');
+
 				this.setState({ serverErrors: graphQLErrors });
 			});
 	};
@@ -177,6 +175,5 @@ const LOGIN_USER_MUTATION = gql`
 	}
 `;
 
-export default graphql(LOGIN_USER_MUTATION, { name: 'login' })(
-	withRouter(Login)
-);
+export default graphql(LOGIN_USER_MUTATION, { name: 'login' })(Login);
+export { LOGIN_USER_MUTATION };
