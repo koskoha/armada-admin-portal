@@ -13,7 +13,7 @@ import SearchDropdown from '../../elements/SearchDropdown';
 import Modal from '../../elements/Modal';
 import removeIcon from '../../../images/trashcan.png';
 
-// import AddAdminForm from './components/AddAdminForm';
+import AddAdminForm from './components/AddAdminForm';
 
 const ActionsBtns: React.FC = () => (
 	<div className="action-btn-container">
@@ -133,7 +133,7 @@ class AdminsList extends React.Component<
 					title="Add New Admin"
 					buttonLabel="Add Admin"
 				>
-					{/* <AddAdminForm /> */}
+					<AddAdminForm />
 				</Modal>
 				<Modal
 					close={() => {

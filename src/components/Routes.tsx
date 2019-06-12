@@ -51,7 +51,7 @@ const Routes: React.FC = () => {
 						<Login logout={logout} refreshTokenFn={refreshTokenFn} />
 					)}
 				/>
-				<PrivateRoute path="/dashboard" component={DashboardLayout} />
+				<Route path="/dashboard" component={DashboardLayout} />
 				<Route component={PageNotFound} />
 			</Switch>
 		</div>
