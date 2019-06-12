@@ -10,11 +10,11 @@ const checkBoxOverrides = {
 	Label: { style: { fontSize: '14px', color: '##37373c' } }
 };
 
-class CheckBox extends React.Component<{ style?: {} }> {
+class CheckBox extends React.Component<{ style?: string }> {
 	render() {
 		const { style } = this.props;
 		return (
-			<div style={style}>
+			<div className={style || ''}>
 				<FormControl overrides={formControlOverrides} label="ADMIN TYPE">
 					<StatefulRadioGroup
 						onChange={() => {}}
