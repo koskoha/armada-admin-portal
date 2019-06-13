@@ -4,24 +4,32 @@
 	box-shadow: $base-shadow;
 	.nav-bar-wrapper {
 		max-width: $base-width;
-		padding: 0px 20px;
-		margin-left: auto;
-		margin-right: auto;
+		box-sizing: border-box;
+		padding: 0 20px;
+		margin: 0 auto;
 		[role='tablist'] {
 			height: 80px;
+			display: flex;
 			[role='tab'] {
 				@include sys_font(600, 22px, 50px, 0px);
-				margin-right: 1.5em;
+				margin-right: 2.5em;
 				color: $red;
-			}
-			[aria-selected='true'] {
-				border-left: 0px solid white;
-				font-weight: 700;
-				border-bottom: 3px solid $red;
+				text-decoration: none;
+				line-height: 80px;
+				.nav-title {
+					display: flex;
+					.nav-icon {
+						padding-top: 10px;
+					}
+				}
 			}
 		}
+		.selected {
+			font-weight: 700;
+			border-bottom: 4px solid $red;
+		}
 	}
-	.nav-icon {
+	.nav-icon-home {
 		margin-top: 3px;
 	}
 }
