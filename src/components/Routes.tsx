@@ -34,7 +34,7 @@ PrivateRoute.propTypes = {
 };
 
 const Routes: React.FC = () => {
-	const { logout, refreshTokenFn, token } = React.useContext(UserContext);
+	const { refreshTokenFn, token } = React.useContext(UserContext);
 	return (
 		<div>
 			<Switch>
@@ -47,11 +47,9 @@ const Routes: React.FC = () => {
 					token={token}
 					path="/login"
 					exact
-					render={() => (
-						<Login logout={logout} refreshTokenFn={refreshTokenFn} />
-					)}
+					render={() => <Login refreshTokenFn={refreshTokenFn} />}
 				/>
-				<Route path="/dashboard" component={DashboardLayout} />
+				<PrivateRoute path="/dashboard" component={DashboardLayout} />
 				<Route component={PageNotFound} />
 			</Switch>
 		</div>

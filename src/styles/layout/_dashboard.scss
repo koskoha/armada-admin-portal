@@ -1,6 +1,6 @@
 .wrapper {
 	display: grid;
-	grid-template-rows: 90px 80px 1fr;
+	grid-template-rows: 90px 80px auto;
 	height: 100vh;
 	.pages-wrapper {
 		margin-top: 10px;
@@ -10,5 +10,6 @@
 		margin-left: auto;
 		margin-right: auto;
 		box-sizing: border-box;
+		margin-bottom: 20px;
 	}
 }

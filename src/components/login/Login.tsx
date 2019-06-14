@@ -34,10 +34,6 @@ class Login extends React.Component<LoginProps, LoginState> {
 		};
 	}
 
-	componentDidMount = () => {
-		this.props.logout();
-	};
-
 	renderErrors = errors => (
 		<div className="error-wrapper">
 			<ul>

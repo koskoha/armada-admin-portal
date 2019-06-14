@@ -2,8 +2,10 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 import logoIcon from '../../images/logo.png';
+import { UserContext } from '../../context/UserContext';
 
 const Header: React.FC = () => {
+	const { logout } = React.useContext(UserContext);
 	return (
 		<div className="header">
 			<div className="header-wrapper">
@@ -19,9 +21,11 @@ const Header: React.FC = () => {
 				<div>
 					<p className="admin-name">FirstName LastName</p>
 					<div className="user-menu">
-						<Link className="menu-link" to="/login">
+						{/* <Link className="menu-link" to="/login"> */}
+						<button className="menu-link menu-btn" onClick={() => logout()}>
 							Log Out
-						</Link>
+						</button>
+						{/* </Link> */}
 						<Link className="menu-link" to="#">
 							My Profile
 						</Link>
