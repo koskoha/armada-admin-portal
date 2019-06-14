@@ -21,11 +21,9 @@ const Header: React.FC = () => {
 				<div>
 					<p className="admin-name">FirstName LastName</p>
 					<div className="user-menu">
-						{/* <Link className="menu-link" to="/login"> */}
 						<button className="menu-link menu-btn" onClick={() => logout()}>
 							Log Out
 						</button>
-						{/* </Link> */}
 						<Link className="menu-link" to="#">
 							My Profile
 						</Link>
