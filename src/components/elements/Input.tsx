@@ -55,7 +55,7 @@ export default class FormInput extends React.Component<{
 			name
 		} = this.props;
 		return (
-			<div className="input-wrapper">
+			<div>
 				<p className="input-label"> {label} </p>
 				<StatefulInput
 					name={name}

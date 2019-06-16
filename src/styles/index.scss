@@ -19,6 +19,8 @@
 @import 'components/modal';
 @import 'components/input';
 @import 'components/checkbox';
+@import 'components/searchInput';
+@import 'components/bullet';
 
 //Layouts
 @import 'layout/header';
@@ -29,6 +31,7 @@
 @import 'pages/login';
 @import 'pages/accounts';
 @import 'pages/admin';
+@import 'pages/agents';
 
 body {
 	margin: 0px;

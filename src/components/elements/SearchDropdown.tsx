@@ -16,9 +16,10 @@ class SearchDropdown extends React.Component<{
 		return (
 			<SearchBlock>
 				<StatefulSelect
+					className="search"
 					options={options}
-					labelKey="id"
-					valueKey="value"
+					labelKey="name"
+					valueKey="id"
 					placeholder={placeholder}
 					maxDropdownHeight="300px"
 					type={TYPE.search}

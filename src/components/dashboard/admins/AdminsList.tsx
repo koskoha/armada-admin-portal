@@ -123,7 +123,6 @@ class AdminsList extends React.Component<
 
 		return (
 			<div>
-				{console.log(DATA)}
 				<Modal
 					close={() => {
 						this.setState({

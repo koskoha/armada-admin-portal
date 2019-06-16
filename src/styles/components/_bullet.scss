@@ -1,0 +1,14 @@
+.bullet {
+	height: 8px;
+	width: 8px;
+	border-radius: 8px;
+	margin: 7px 5px 0 0;
+}
+
+.active {
+	background-color: $green;
+}
+
+.inactive {
+	background-color: $brown;
+}

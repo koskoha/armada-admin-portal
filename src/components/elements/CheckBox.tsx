@@ -10,22 +10,35 @@ const checkBoxOverrides = {
 	Label: { style: { fontSize: '14px', color: '##37373c' } }
 };
 
-class CheckBox extends React.Component<{ style?: string }> {
+interface RadioBtn {
+	label: string;
+	value: string;
+}
+
+class CheckBox extends React.Component<{
+	style?: string;
+	label: string;
+	buttons: RadioBtn[];
+	onChange: (event: {}) => void;
+}> {
 	render() {
-		const { style } = this.props;
+		const { style, label, buttons, onChange } = this.props;
 		return (
 			<div className={style || ''}>
-				<FormControl overrides={formControlOverrides} label="ADMIN TYPE">
+				<FormControl overrides={formControlOverrides} label={label}>
 					<StatefulRadioGroup
-						onChange={() => {}}
+						onChange={onChange}
 						initialState={{ value: 'implementation' }}
 					>
-						<Radio overrides={checkBoxOverrides} value="implementation">
-							Implementation
-						</Radio>
-						<Radio overrides={checkBoxOverrides} value="superAdmin">
-							Super Admin
-						</Radio>
+						{buttons.map(elem => (
+							<Radio
+								key={elem.value}
+								overrides={checkBoxOverrides}
+								value={elem.value}
+							>
+								{elem.label}
+							</Radio>
+						))}
 					</StatefulRadioGroup>
 				</FormControl>
 			</div>

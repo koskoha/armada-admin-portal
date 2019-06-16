@@ -19,7 +19,14 @@ class ProfileEdit extends React.Component {
 
 				<p className="title">email@test.com</p>
 
-				<AdminTypeCheckbox style="wrapper-checkbox" />
+				<AdminTypeCheckbox
+					style="wrapper-checkbox"
+					label="ADMIN TYPE"
+					buttons={[
+						{ value: 'implementation', label: 'Implementation' },
+						{ value: 'superAdmin', label: 'Super Admin' }
+					]}
+				/>
 
 				<p className="details-title">Password</p>
 				<form className="form">

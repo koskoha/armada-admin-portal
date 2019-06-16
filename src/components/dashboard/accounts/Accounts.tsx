@@ -3,6 +3,7 @@ import uuid from 'uuid';
 import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
 import { Spinner } from 'baseui/spinner';
+import classNames from 'classnames';
 
 import SearchDropdown from '../../elements/SearchDropdown';
 import PaginatedTable from '../../elements/PaginatedTable';
@@ -19,7 +20,7 @@ const placeholderDATA = [...new Array(100)].map((_, i) => ({
 	name: `Full Name ${i}`,
 	email: 'test@email.com',
 	phone: '222-333-4444',
-	status: 'active'
+	status: i % 2 === 0 ? 'active' : 'inactive'
 }));
 
 const COLUMNS = ['Account Name', 'Email Address', 'Phone Number', 'Status', ''];
@@ -41,7 +42,16 @@ class Accounts extends React.Component<{}, AccountsState> {
 					<span key={account.id}>{account.name}</span>,
 					<span key={account.id}>{account.email}</span>,
 					<span key={account.id}>{account.phone}</span>,
-					<span key={account.id}>{account.status}</span>,
+					<div className="cell-icon" key={account.id}>
+						<div
+							className={classNames({
+								bullet: true,
+								active: account.status === 'active',
+								inactive: account.status === 'inactive'
+							})}
+						/>
+						{account.status}
+					</div>,
 					<ActionBtns key={account.id} />
 			  ])
 			: undefined;
@@ -53,17 +63,9 @@ class Accounts extends React.Component<{}, AccountsState> {
 		);
 	};
 
-	renderSearchBlock = () => (
+	renderSearchBlock = accounts => (
 		<div className="search-block">
-			<SearchDropdown
-				placeholder="Search Accounts..."
-				options={[
-					{ id: 'Healthy Company', value: 'healthyCompany' },
-					{ id: 'Armada Health', value: 'armadaHealth' },
-					{ id: 'Armada Admin', value: 'armadaAdmin' },
-					{ id: 'Armada User', value: 'armadaUser' }
-				]}
-			/>
+			<SearchDropdown placeholder="Search Accounts..." options={accounts} />
 			<button className="button">Sync Accounts</button>
 		</div>
 	);
@@ -80,7 +82,7 @@ class Accounts extends React.Component<{}, AccountsState> {
 		}
 		return (
 			<div>
-				{this.renderSearchBlock()}
+				{this.renderSearchBlock(accounts)}
 				{loading ? (
 					<div className="center">
 						<Spinner size={96} />
@@ -98,6 +100,9 @@ const GET_ACCOUNTS = gql`
 		accounts {
 			uuid
 			name
+			email
+			phone
+			status
 		}
 	}
 `;

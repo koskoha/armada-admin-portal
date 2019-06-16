@@ -1,0 +1,23 @@
+.search-block {
+	display: flex;
+	justify-content: space-between;
+	margin: 1rem 0;
+
+	[data-baseweb='select']:first-child {
+		border-radius: 6px;
+		border: 1px solid #ced4da;
+		background-color: $white;
+	}
+
+	[data-baseweb='icon'] {
+		color: $red;
+		width: 25px;
+		height: 25px;
+	}
+
+	[role='option'] {
+		[aria-selected='true'] {
+			background-color: $red;
+		}
+	}
+}
