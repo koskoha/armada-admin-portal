@@ -3,7 +3,6 @@ import uuid from 'uuid';
 import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
 import { Spinner } from 'baseui/spinner';
-import classNames from 'classnames';
 
 import SearchDropdown from '../../elements/SearchDropdown';
 import PaginatedTable from '../../elements/PaginatedTable';
@@ -20,7 +19,7 @@ const placeholderDATA = [...new Array(100)].map((_, i) => ({
 	name: `Full Name ${i}`,
 	email: 'test@email.com',
 	phone: '222-333-4444',
-	status: i % 2 === 0 ? 'active' : 'inactive'
+	status: 'active'
 }));
 
 const COLUMNS = ['Account Name', 'Email Address', 'Phone Number', 'Status', ''];
@@ -42,16 +41,7 @@ class Accounts extends React.Component<{}, AccountsState> {
 					<span key={account.id}>{account.name}</span>,
 					<span key={account.id}>{account.email}</span>,
 					<span key={account.id}>{account.phone}</span>,
-					<div className="cell-icon" key={account.id}>
-						<div
-							className={classNames({
-								bullet: true,
-								active: account.status === 'active',
-								inactive: account.status === 'inactive'
-							})}
-						/>
-						{account.status}
-					</div>,
+					<span key={account.id}>{account.status}</span>,
 					<ActionBtns key={account.id} />
 			  ])
 			: undefined;
@@ -63,9 +53,17 @@ class Accounts extends React.Component<{}, AccountsState> {
 		);
 	};
 
-	renderSearchBlock = accounts => (
+	renderSearchBlock = () => (
 		<div className="search-block">
-			<SearchDropdown placeholder="Search Accounts..." options={accounts} />
+			<SearchDropdown
+				placeholder="Search Accounts..."
+				options={[
+					{ id: 'Healthy Company', value: 'healthyCompany' },
+					{ id: 'Armada Health', value: 'armadaHealth' },
+					{ id: 'Armada Admin', value: 'armadaAdmin' },
+					{ id: 'Armada User', value: 'armadaUser' }
+				]}
+			/>
 			<button className="button">Sync Accounts</button>
 		</div>
 	);
@@ -82,7 +80,7 @@ class Accounts extends React.Component<{}, AccountsState> {
 		}
 		return (
 			<div>
-				{this.renderSearchBlock(accounts)}
+				{this.renderSearchBlock()}
 				{loading ? (
 					<div className="center">
 						<Spinner size={96} />
