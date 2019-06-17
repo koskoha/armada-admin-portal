@@ -64,6 +64,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.16.0",
     "graphql": "^14.3.0",
+    "casual": "^1.6.2",
     "jwt-decode": "^2.2.0",
     "prettier": "^1.17.1",
     "prop-types": "^15.7.2",

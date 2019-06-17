@@ -1,5 +1,4 @@
 import * as React from 'react';
-import uuid from 'uuid';
 import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
 import { Spinner } from 'baseui/spinner';
@@ -18,14 +17,14 @@ const ActionBtns: React.FC = () => (
 	</div>
 );
 
-const placeholderDATA = [...new Array(100)].map((_, i) => ({
-	id: uuid(),
-	name: `Full Name ${i}`,
-	email: 'test@email.com',
-	account: 'Account Name',
-	lastActive: '2019-05-13',
-	status: i % 2 === 0 ? 'active' : 'inactive'
-}));
+// const placeholderDATA = [...new Array(50)].map((_, i) => ({
+// 	id: 12345 + i,
+// 	name: `Full Name ${i}`,
+// 	email: 'test@email.com',
+// 	account: 'Account Name',
+// 	lastActive: '2019-05-13',
+// 	status: i % 2 === 0 ? 'active' : 'inactive'
+// }));
 
 const COLUMNS = [
 	'Agent Name',
@@ -92,15 +91,15 @@ class Agents extends React.Component<{}, AgentsState> {
 	);
 
 	render() {
-		let { agents } = this.props.data;
+		const { agents } = this.props.data;
 		const { loading, error } = this.props;
 		const { addAgentModalIsOpen } = this.state;
 
 		// Remove this line to use server agents data and uncomment code.
-		agents = placeholderDATA;
+		// agents = placeholderDATA;
 
 		if (error) {
-			// return (<div className='error center'>{error.message}</div>)
+			return <div className="error center">{error.message}</div>;
 		}
 		return (
 			<div>
@@ -143,3 +142,4 @@ const GET_AGENTS = gql`
 `;
 
 export default graphql(GET_AGENTS)(Agents);
+export { GET_AGENTS };
