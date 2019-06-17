@@ -1,5 +1,4 @@
 import * as React from 'react';
-import uuid from 'uuid';
 import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
 import { Spinner } from 'baseui/spinner';
@@ -14,13 +13,13 @@ const ActionBtns: React.FC = () => (
 	</div>
 );
 
-const placeholderDATA = [...new Array(100)].map((_, i) => ({
-	id: uuid(),
-	name: `Full Name ${i}`,
-	email: 'test@email.com',
-	phone: '222-333-4444',
-	status: 'active'
-}));
+// const placeholderDATA = [...new Array(100)].map((_, i) => ({
+// 	id: uuid(),
+// 	name: `Full Name ${i}`,
+// 	email: 'test@email.com',
+// 	phone: '222-333-4444',
+// 	status: 'active'
+// }));
 
 const COLUMNS = ['Account Name', 'Email Address', 'Phone Number', 'Status', ''];
 
@@ -69,14 +68,14 @@ class Accounts extends React.Component<{}, AccountsState> {
 	);
 
 	render() {
-		let { accounts } = this.props.data;
-		const { loading, error } = this.props;
+		const { accounts, loading, error } = this.props.data;
 
 		// Remove this line to use server accounts data and uncomment code.
-		accounts = placeholderDATA;
+		// accounts = placeholderDATA;
 
+		// comment this block for placeholder data
 		if (error) {
-			// return (<div className='error center'>{error.message}</div>)
+			return <div className="error center">{error.message}</div>;
 		}
 		return (
 			<div>
@@ -93,11 +92,14 @@ class Accounts extends React.Component<{}, AccountsState> {
 	}
 }
 
-const GET_ACCOUNTS = gql`
+export const GET_ACCOUNTS = gql`
 	query {
 		accounts {
 			uuid
 			name
+			email
+			phone
+			status
 		}
 	}
 `;
