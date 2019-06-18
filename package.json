@@ -12,7 +12,7 @@
     "start": "webpack-dev-server --open",
     "type-check": "tsc --noEmit",
     "watch": "webpack --watch",
-    "test": "jest --watch --coverage --verbose --colors --silent"
+    "test": "jest --watch --coverage --verbose --colors "
   },
   "lint-staged": {
     "*.{js,jsx,mjs,ts,tsx}": [
@@ -72,6 +72,7 @@
     "react-apollo": "^2.5.5",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
+    "react-test-renderer": "^16.8.6",
     "styletron-engine-atomic": "^1.1.2",
     "styletron-react": "^5.0.1",
     "subscriptions-transport-ws": "^0.9.16",
