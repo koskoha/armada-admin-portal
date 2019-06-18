@@ -10,14 +10,14 @@ import logoIcon from '../../images/logo.png';
 interface LoginState {
 	email: string;
 	password: string;
-	serverErrors: [] | undefined;
+	serverErrors: string[] | undefined | string;
 	emailError: string | undefined;
 	passwordError: string | undefined;
 	isLogined: boolean;
 }
 
 interface LoginProps {
-	refreshTokenFn: ({ [AUTH_TOKEN]: string }) => void;
+	refreshTokenFn: (arg) => void;
 	login: ({ variables }) => void;
 }
 
@@ -53,7 +53,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 	};
 
 	validatePassword = (value: string): string => {
-		const error = value ? '' : 'Password can not be empty!';
+		const error = value ? '' : 'Please enter a password.';
 		this.setState({ passwordError: error });
 		return error;
 	};
@@ -63,7 +63,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 			value
 		)
 			? ''
-			: 'You must enter a valid email address';
+			: 'Please enter a valid email address.';
 		this.setState({ emailError: error });
 		return error;
 	};
@@ -108,16 +108,16 @@ class Login extends React.Component<LoginProps, LoginState> {
 						{serverErrors && this.renderErrors(serverErrors)}
 						<div className="login-form">
 							<Input
-								name="email"
 								value={email}
 								onChange={this.handleEmailChange}
 								label="Email Address"
 								placeholder="Email Address"
 								style={{ color: '#ffff' }}
+								type="text"
 							/>
 							<span className="error">{emailError}</span>
 							<Input
-								name="password"
+								password
 								value={password}
 								onChange={this.handlePasswordChange}
 								label="Password"

@@ -27,15 +27,15 @@ describe('Tests for <Login /> component', () => {
 
 	it('user can input email ', () => {
 		const value = 'test@email.com';
-		wrapper.find('input[name="email"]').simulate('change', { target: { value } });
+		wrapper.find('input[type="text"]').simulate('change', { target: { value } });
 		wrapper.update();
-		expect(wrapper.find('input[name="email"]').prop('value')).toEqual(value);
+		expect(wrapper.find('input[type="text"]').prop('value')).toEqual(value);
 	});
 
 	it('user can input password ', () => {
-		wrapper.find('input[name="password"]').simulate('change', { target: { value: '123456' } });
+		wrapper.find('input[type="password"]').simulate('change', { target: { value: '123456' } });
 		wrapper.update();
-		expect(wrapper.find('input[name="password"]').prop('value')).toEqual('123456');
+		expect(wrapper.find('input[type="password"]').prop('value')).toEqual('123456');
 	});
 
 	it('should set email and password state on valid input', async () => {
@@ -62,8 +62,8 @@ describe('Tests for <Login /> component', () => {
 		component.validatePassword(password);
 		wrapper.update();
 		expect(toJSON(wrapper)).toMatchSnapshot();
-		expect(component.state.emailError).toEqual('You must enter a valid email address');
-		expect(component.state.passwordError).toEqual('Password can not be empty!');
+		expect(component.state.emailError).toEqual('Please enter a valid email address.');
+		expect(component.state.passwordError).toEqual('Please enter a password.');
 	});
 
 	it('login user with valid data', async () => {

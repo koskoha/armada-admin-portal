@@ -3,3 +3,12 @@
 	font-weight: 600;
 	margin: 10px 0;
 }
+.visibility-btn{
+	border: none;
+	background: none;
+	cursor: pointer;
+	.icon{
+		height: 16px;
+		width: 17px;
+	}
+}

@@ -12,7 +12,7 @@
     "start": "webpack-dev-server --open",
     "type-check": "tsc --noEmit",
     "watch": "webpack --watch",
-    "test": "jest --watch --coverage --verbose --colors "
+    "test": "jest --watch --coverage --verbose --colors --silent"
   },
   "lint-staged": {
     "*.{js,jsx,mjs,ts,tsx}": [

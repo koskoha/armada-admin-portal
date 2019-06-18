@@ -363,7 +363,6 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                 >
                   <FormInput
                     label="Email Address"
-                    name="email"
                     onChange={[Function]}
                     placeholder="Email Address"
                     style={
@@ -371,6 +370,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                         "color": "#ffff",
                       }
                     }
+                    type="text"
                     value=""
                   >
                     <div>
@@ -382,10 +382,10 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                          
                       </p>
                       <StatefulInput
-                        name="email"
                         onChange={[Function]}
                         overrides={
                           Object {
+                            "After": undefined,
                             "Input": Object {
                               "style": Object {
                                 "::placeholder": Object {
@@ -412,10 +412,10 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                       >
                         <StatefulContainer
                           initialState={Object {}}
-                          name="email"
                           onChange={[Function]}
                           overrides={
                             Object {
+                              "After": undefined,
                               "Input": Object {
                                 "style": Object {
                                   "::placeholder": Object {
@@ -447,12 +447,13 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                             disabled={false}
                             endEnhancer={null}
                             error={false}
-                            name="email"
+                            name=""
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
                             overrides={
                               Object {
+                                "After": undefined,
                                 "Input": Object {
                                   "style": Object {
                                     "::placeholder": Object {
@@ -1001,14 +1002,14 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                           aria-required="false"
                                           autocomplete="on"
                                           class=""
-                                          name="password"
+                                          name=""
                                           placeholder="Password"
                                           type="password"
                                           value=""
                                         />,
                                       }
                                     }
-                                    name="email"
+                                    name=""
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
@@ -1017,6 +1018,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                     onKeyUp={[Function]}
                                     overrides={
                                       Object {
+                                        "After": undefined,
                                         "Input": Object {
                                           "style": Object {
                                             "::placeholder": Object {
@@ -1570,7 +1572,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                                   aria-required="false"
                                                   autocomplete="on"
                                                   class=""
-                                                  name="password"
+                                                  name=""
                                                   placeholder="Password"
                                                   type="password"
                                                   value=""
@@ -1601,7 +1603,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                             aria-required={false}
                                             autoComplete="on"
                                             disabled={false}
-                                            name="email"
+                                            name=""
                                             onBlur={[Function]}
                                             onChange={[Function]}
                                             onFocus={[Function]}
@@ -1624,7 +1626,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                                     aria-required="false"
                                                     autocomplete="on"
                                                     class=""
-                                                    name="password"
+                                                    name=""
                                                     placeholder="Password"
                                                     type="password"
                                                     value=""
@@ -2140,7 +2142,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                               aria-required={false}
                                               autoComplete="on"
                                               disabled={false}
-                                              name="email"
+                                              name=""
                                               onBlur={[Function]}
                                               onChange={[Function]}
                                               onFocus={[Function]}
@@ -2160,7 +2162,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                                 autoComplete="on"
                                                 className=""
                                                 disabled={false}
-                                                name="email"
+                                                name=""
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 onFocus={[Function]}
@@ -2198,8 +2200,8 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                   />
                   <FormInput
                     label="Password"
-                    name="password"
                     onChange={[Function]}
+                    password={true}
                     placeholder="Password"
                     style={
                       Object {
@@ -2218,10 +2220,10 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                          
                       </p>
                       <StatefulInput
-                        name="password"
                         onChange={[Function]}
                         overrides={
                           Object {
+                            "After": [Function],
                             "Input": Object {
                               "style": Object {
                                 "::placeholder": Object {
@@ -2248,10 +2250,10 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                       >
                         <StatefulContainer
                           initialState={Object {}}
-                          name="password"
                           onChange={[Function]}
                           overrides={
                             Object {
+                              "After": [Function],
                               "Input": Object {
                                 "style": Object {
                                   "::placeholder": Object {
@@ -2283,12 +2285,13 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                             disabled={false}
                             endEnhancer={null}
                             error={false}
-                            name="password"
+                            name=""
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
                             overrides={
                               Object {
+                                "After": [Function],
                                 "Input": Object {
                                   "style": Object {
                                     "::placeholder": Object {
@@ -2837,14 +2840,14 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                           aria-required="false"
                                           autocomplete="on"
                                           class=""
-                                          name="password"
+                                          name=""
                                           placeholder="Password"
                                           type="password"
                                           value=""
                                         />,
                                       }
                                     }
-                                    name="password"
+                                    name=""
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
@@ -2853,6 +2856,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                     onKeyUp={[Function]}
                                     overrides={
                                       Object {
+                                        "After": [Function],
                                         "Input": Object {
                                           "style": Object {
                                             "::placeholder": Object {
@@ -3406,7 +3410,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                                   aria-required="false"
                                                   autocomplete="on"
                                                   class=""
-                                                  name="password"
+                                                  name=""
                                                   placeholder="Password"
                                                   type="password"
                                                   value=""
@@ -3437,7 +3441,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                             aria-required={false}
                                             autoComplete="on"
                                             disabled={false}
-                                            name="password"
+                                            name=""
                                             onBlur={[Function]}
                                             onChange={[Function]}
                                             onFocus={[Function]}
@@ -3460,7 +3464,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                                     aria-required="false"
                                                     autocomplete="on"
                                                     class=""
-                                                    name="password"
+                                                    name=""
                                                     placeholder="Password"
                                                     type="password"
                                                     value=""
@@ -3976,7 +3980,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                               aria-required={false}
                                               autoComplete="on"
                                               disabled={false}
-                                              name="password"
+                                              name=""
                                               onBlur={[Function]}
                                               onChange={[Function]}
                                               onFocus={[Function]}
@@ -3996,7 +4000,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                                 autoComplete="on"
                                                 className=""
                                                 disabled={false}
-                                                name="password"
+                                                name=""
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 onFocus={[Function]}
@@ -4009,14 +4013,24 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                                               />
                                             </ForwardRef>
                                           </Input>
-                                          <NullComponent
+                                          <Component
                                             $adjoined="none"
                                             $disabled={false}
                                             $error={false}
                                             $isFocused={false}
                                             $required={false}
                                             $size="default"
-                                          />
+                                          >
+                                            <button
+                                              className="visibility-btn"
+                                              onClick={[Function]}
+                                            >
+                                              <img
+                                                className="icon"
+                                                src="test-file-stub"
+                                              />
+                                            </button>
+                                          </Component>
                                         </div>
                                       </ForwardRef>
                                     </Styled(div)>
@@ -4422,7 +4436,6 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                 >
                   <FormInput
                     label="Email Address"
-                    name="email"
                     onChange={[Function]}
                     placeholder="Email Address"
                     style={
@@ -4430,6 +4443,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                         "color": "#ffff",
                       }
                     }
+                    type="text"
                     value=""
                   >
                     <div>
@@ -4441,10 +4455,10 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                          
                       </p>
                       <StatefulInput
-                        name="email"
                         onChange={[Function]}
                         overrides={
                           Object {
+                            "After": undefined,
                             "Input": Object {
                               "style": Object {
                                 "::placeholder": Object {
@@ -4471,10 +4485,10 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                       >
                         <StatefulContainer
                           initialState={Object {}}
-                          name="email"
                           onChange={[Function]}
                           overrides={
                             Object {
+                              "After": undefined,
                               "Input": Object {
                                 "style": Object {
                                   "::placeholder": Object {
@@ -4506,12 +4520,13 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                             disabled={false}
                             endEnhancer={null}
                             error={false}
-                            name="email"
+                            name=""
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
                             overrides={
                               Object {
+                                "After": undefined,
                                 "Input": Object {
                                   "style": Object {
                                     "::placeholder": Object {
@@ -5060,14 +5075,14 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                           aria-required="false"
                                           autocomplete="on"
                                           class=""
-                                          name="password"
+                                          name=""
                                           placeholder="Password"
                                           type="password"
                                           value=""
                                         />,
                                       }
                                     }
-                                    name="email"
+                                    name=""
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
@@ -5076,6 +5091,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                     onKeyUp={[Function]}
                                     overrides={
                                       Object {
+                                        "After": undefined,
                                         "Input": Object {
                                           "style": Object {
                                             "::placeholder": Object {
@@ -5629,7 +5645,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                                   aria-required="false"
                                                   autocomplete="on"
                                                   class=""
-                                                  name="password"
+                                                  name=""
                                                   placeholder="Password"
                                                   type="password"
                                                   value=""
@@ -5660,7 +5676,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                             aria-required={false}
                                             autoComplete="on"
                                             disabled={false}
-                                            name="email"
+                                            name=""
                                             onBlur={[Function]}
                                             onChange={[Function]}
                                             onFocus={[Function]}
@@ -5683,7 +5699,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                                     aria-required="false"
                                                     autocomplete="on"
                                                     class=""
-                                                    name="password"
+                                                    name=""
                                                     placeholder="Password"
                                                     type="password"
                                                     value=""
@@ -6199,7 +6215,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                               aria-required={false}
                                               autoComplete="on"
                                               disabled={false}
-                                              name="email"
+                                              name=""
                                               onBlur={[Function]}
                                               onChange={[Function]}
                                               onFocus={[Function]}
@@ -6219,7 +6235,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                                 autoComplete="on"
                                                 className=""
                                                 disabled={false}
-                                                name="email"
+                                                name=""
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 onFocus={[Function]}
@@ -6257,8 +6273,8 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                   />
                   <FormInput
                     label="Password"
-                    name="password"
                     onChange={[Function]}
+                    password={true}
                     placeholder="Password"
                     style={
                       Object {
@@ -6277,10 +6293,10 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                          
                       </p>
                       <StatefulInput
-                        name="password"
                         onChange={[Function]}
                         overrides={
                           Object {
+                            "After": [Function],
                             "Input": Object {
                               "style": Object {
                                 "::placeholder": Object {
@@ -6307,10 +6323,10 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                       >
                         <StatefulContainer
                           initialState={Object {}}
-                          name="password"
                           onChange={[Function]}
                           overrides={
                             Object {
+                              "After": [Function],
                               "Input": Object {
                                 "style": Object {
                                   "::placeholder": Object {
@@ -6342,12 +6358,13 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                             disabled={false}
                             endEnhancer={null}
                             error={false}
-                            name="password"
+                            name=""
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
                             overrides={
                               Object {
+                                "After": [Function],
                                 "Input": Object {
                                   "style": Object {
                                     "::placeholder": Object {
@@ -6896,14 +6913,14 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                           aria-required="false"
                                           autocomplete="on"
                                           class=""
-                                          name="password"
+                                          name=""
                                           placeholder="Password"
                                           type="password"
                                           value=""
                                         />,
                                       }
                                     }
-                                    name="password"
+                                    name=""
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
@@ -6912,6 +6929,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                     onKeyUp={[Function]}
                                     overrides={
                                       Object {
+                                        "After": [Function],
                                         "Input": Object {
                                           "style": Object {
                                             "::placeholder": Object {
@@ -7465,7 +7483,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                                   aria-required="false"
                                                   autocomplete="on"
                                                   class=""
-                                                  name="password"
+                                                  name=""
                                                   placeholder="Password"
                                                   type="password"
                                                   value=""
@@ -7496,7 +7514,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                             aria-required={false}
                                             autoComplete="on"
                                             disabled={false}
-                                            name="password"
+                                            name=""
                                             onBlur={[Function]}
                                             onChange={[Function]}
                                             onFocus={[Function]}
@@ -7519,7 +7537,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                                     aria-required="false"
                                                     autocomplete="on"
                                                     class=""
-                                                    name="password"
+                                                    name=""
                                                     placeholder="Password"
                                                     type="password"
                                                     value=""
@@ -8035,7 +8053,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                               aria-required={false}
                                               autoComplete="on"
                                               disabled={false}
-                                              name="password"
+                                              name=""
                                               onBlur={[Function]}
                                               onChange={[Function]}
                                               onFocus={[Function]}
@@ -8055,7 +8073,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                                 autoComplete="on"
                                                 className=""
                                                 disabled={false}
-                                                name="password"
+                                                name=""
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 onFocus={[Function]}
@@ -8068,14 +8086,24 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                               />
                                             </ForwardRef>
                                           </Input>
-                                          <NullComponent
+                                          <Component
                                             $adjoined="none"
                                             $disabled={false}
                                             $error={false}
                                             $isFocused={false}
                                             $required={false}
                                             $size="default"
-                                          />
+                                          >
+                                            <button
+                                              className="visibility-btn"
+                                              onClick={[Function]}
+                                            >
+                                              <img
+                                                className="icon"
+                                                src="test-file-stub"
+                                              />
+                                            </button>
+                                          </Component>
                                         </div>
                                       </ForwardRef>
                                     </Styled(div)>
@@ -8481,7 +8509,6 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                 >
                   <FormInput
                     label="Email Address"
-                    name="email"
                     onChange={[Function]}
                     placeholder="Email Address"
                     style={
@@ -8489,6 +8516,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                         "color": "#ffff",
                       }
                     }
+                    type="text"
                     value=""
                   >
                     <div>
@@ -8500,10 +8528,10 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                          
                       </p>
                       <StatefulInput
-                        name="email"
                         onChange={[Function]}
                         overrides={
                           Object {
+                            "After": undefined,
                             "Input": Object {
                               "style": Object {
                                 "::placeholder": Object {
@@ -8530,10 +8558,10 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                       >
                         <StatefulContainer
                           initialState={Object {}}
-                          name="email"
                           onChange={[Function]}
                           overrides={
                             Object {
+                              "After": undefined,
                               "Input": Object {
                                 "style": Object {
                                   "::placeholder": Object {
@@ -8565,12 +8593,13 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                             disabled={false}
                             endEnhancer={null}
                             error={false}
-                            name="email"
+                            name=""
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
                             overrides={
                               Object {
+                                "After": undefined,
                                 "Input": Object {
                                   "style": Object {
                                     "::placeholder": Object {
@@ -9119,14 +9148,14 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                           aria-required="false"
                                           autocomplete="on"
                                           class=""
-                                          name="password"
+                                          name=""
                                           placeholder="Password"
                                           type="password"
                                           value=""
                                         />,
                                       }
                                     }
-                                    name="email"
+                                    name=""
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
@@ -9135,6 +9164,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                     onKeyUp={[Function]}
                                     overrides={
                                       Object {
+                                        "After": undefined,
                                         "Input": Object {
                                           "style": Object {
                                             "::placeholder": Object {
@@ -9688,7 +9718,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                                   aria-required="false"
                                                   autocomplete="on"
                                                   class=""
-                                                  name="password"
+                                                  name=""
                                                   placeholder="Password"
                                                   type="password"
                                                   value=""
@@ -9719,7 +9749,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                             aria-required={false}
                                             autoComplete="on"
                                             disabled={false}
-                                            name="email"
+                                            name=""
                                             onBlur={[Function]}
                                             onChange={[Function]}
                                             onFocus={[Function]}
@@ -9742,7 +9772,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                                     aria-required="false"
                                                     autocomplete="on"
                                                     class=""
-                                                    name="password"
+                                                    name=""
                                                     placeholder="Password"
                                                     type="password"
                                                     value=""
@@ -10258,7 +10288,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                               aria-required={false}
                                               autoComplete="on"
                                               disabled={false}
-                                              name="email"
+                                              name=""
                                               onBlur={[Function]}
                                               onChange={[Function]}
                                               onFocus={[Function]}
@@ -10278,7 +10308,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                                 autoComplete="on"
                                                 className=""
                                                 disabled={false}
-                                                name="email"
+                                                name=""
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 onFocus={[Function]}
@@ -10314,12 +10344,12 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                   <span
                     className="error"
                   >
-                    You must enter a valid email address
+                    Please enter a valid email address.
                   </span>
                   <FormInput
                     label="Password"
-                    name="password"
                     onChange={[Function]}
+                    password={true}
                     placeholder="Password"
                     style={
                       Object {
@@ -10338,10 +10368,10 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                          
                       </p>
                       <StatefulInput
-                        name="password"
                         onChange={[Function]}
                         overrides={
                           Object {
+                            "After": [Function],
                             "Input": Object {
                               "style": Object {
                                 "::placeholder": Object {
@@ -10368,10 +10398,10 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                       >
                         <StatefulContainer
                           initialState={Object {}}
-                          name="password"
                           onChange={[Function]}
                           overrides={
                             Object {
+                              "After": [Function],
                               "Input": Object {
                                 "style": Object {
                                   "::placeholder": Object {
@@ -10403,12 +10433,13 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                             disabled={false}
                             endEnhancer={null}
                             error={false}
-                            name="password"
+                            name=""
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
                             overrides={
                               Object {
+                                "After": [Function],
                                 "Input": Object {
                                   "style": Object {
                                     "::placeholder": Object {
@@ -10957,14 +10988,14 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                           aria-required="false"
                                           autocomplete="on"
                                           class=""
-                                          name="password"
+                                          name=""
                                           placeholder="Password"
                                           type="password"
                                           value=""
                                         />,
                                       }
                                     }
-                                    name="password"
+                                    name=""
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
@@ -10973,6 +11004,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                     onKeyUp={[Function]}
                                     overrides={
                                       Object {
+                                        "After": [Function],
                                         "Input": Object {
                                           "style": Object {
                                             "::placeholder": Object {
@@ -11526,7 +11558,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                                   aria-required="false"
                                                   autocomplete="on"
                                                   class=""
-                                                  name="password"
+                                                  name=""
                                                   placeholder="Password"
                                                   type="password"
                                                   value=""
@@ -11557,7 +11589,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                             aria-required={false}
                                             autoComplete="on"
                                             disabled={false}
-                                            name="password"
+                                            name=""
                                             onBlur={[Function]}
                                             onChange={[Function]}
                                             onFocus={[Function]}
@@ -11580,7 +11612,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                                     aria-required="false"
                                                     autocomplete="on"
                                                     class=""
-                                                    name="password"
+                                                    name=""
                                                     placeholder="Password"
                                                     type="password"
                                                     value=""
@@ -12096,7 +12128,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                               aria-required={false}
                                               autoComplete="on"
                                               disabled={false}
-                                              name="password"
+                                              name=""
                                               onBlur={[Function]}
                                               onChange={[Function]}
                                               onFocus={[Function]}
@@ -12116,7 +12148,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                                 autoComplete="on"
                                                 className=""
                                                 disabled={false}
-                                                name="password"
+                                                name=""
                                                 onBlur={[Function]}
                                                 onChange={[Function]}
                                                 onFocus={[Function]}
@@ -12129,14 +12161,24 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                                               />
                                             </ForwardRef>
                                           </Input>
-                                          <NullComponent
+                                          <Component
                                             $adjoined="none"
                                             $disabled={false}
                                             $error={false}
                                             $isFocused={false}
                                             $required={false}
                                             $size="default"
-                                          />
+                                          >
+                                            <button
+                                              className="visibility-btn"
+                                              onClick={[Function]}
+                                            >
+                                              <img
+                                                className="icon"
+                                                src="test-file-stub"
+                                              />
+                                            </button>
+                                          </Component>
                                         </div>
                                       </ForwardRef>
                                     </Styled(div)>
@@ -12152,7 +12194,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                   <span
                     className="error"
                   >
-                    Password can not be empty!
+                    Please enter a password.
                   </span>
                 </div>
                 <div

@@ -14,7 +14,7 @@ const ActionBtns: React.FC = () => (
 );
 
 // const placeholderDATA = [...new Array(100)].map((_, i) => ({
-// 	id: uuid(),
+// 	id: '1234567',
 // 	name: `Full Name ${i}`,
 // 	email: 'test@email.com',
 // 	phone: '222-333-4444',
@@ -37,10 +37,11 @@ class Accounts extends React.Component<{}, AccountsState> {
 	renderTableData = accounts => {
 		const accountsData = accounts
 			? accounts.map(account => [
-					<span key={account.id}>{account.name}</span>,
-					<span key={account.id}>{account.email}</span>,
-					<span key={account.id}>{account.phone}</span>,
-					<span key={account.id}>{account.status}</span>,
+					<span key={account.uuid}>{account.name}</span>,
+					<span key={account.uuid}>{account.name}</span>,
+					<span key={account.uuid}>{account.email}</span>,
+					<span key={account.uuid}>{account.phone}</span>,
+					<span key={account.uuid}>{account.status}</span>,
 					<ActionBtns key={account.id} />
 			  ])
 			: undefined;
