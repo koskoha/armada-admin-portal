@@ -36,6 +36,11 @@
 				font-weight: 700;
 				text-decoration: none;
 			}
+			.menu-btn {
+				border: none;
+				background: none;
+				cursor: pointer;
+			}
 		}
 		.admin-name {
 			font-family: $font-lato;

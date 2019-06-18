@@ -1,12 +1,10 @@
 import * as React from 'react';
-import { Button, KIND } from 'baseui/button';
-import { Table } from 'baseui/table';
-import { Pagination } from 'baseui/pagination';
-import { StatefulPopover, PLACEMENT } from 'baseui/popover';
-import { StatefulMenu } from 'baseui/menu';
-import TriangleDown from 'baseui/icon/triangle-down';
+import { gql } from 'apollo-boost';
+import { graphql } from 'react-apollo';
+import { Spinner } from 'baseui/spinner';
 
 import SearchDropdown from '../../elements/SearchDropdown';
+import PaginatedTable from '../../elements/PaginatedTable';
 
 const ActionBtns: React.FC = () => (
 	<div className="action-btn-container">
@@ -15,111 +13,95 @@ const ActionBtns: React.FC = () => (
 	</div>
 );
 
-const DATA = [
-	[
-		<span key="1">Sarah Brown</span>,
-		<span key="2">test@email.com</span>,
-		<span key="3">(410) 123-1524</span>,
-		<span key="4">Active</span>,
-		<ActionBtns key="sdfads" />
-	],
-	[
-		<span key="1">Sarah Brown</span>,
-		<span key="2">test@email.com</span>,
-		<span key="3">(410) 123-1524</span>,
-		<span key="4">Active</span>,
-		<ActionBtns key="sdfads" />
-	],
-	[
-		<span key="1">Sarah Brown</span>,
-		<span key="2">test@email.com</span>,
-		<span key="3">(410) 123-1524</span>,
-		<span key="4">Active</span>,
-		<ActionBtns key="sdfads" />
-	],
-	[
-		<span key="1">Sarah Brown</span>,
-		<span key="2">test@email.com</span>,
-		<span key="3">(410) 123-1524</span>,
-		<span key="4">Active</span>,
-		<ActionBtns key="sdfads" />
-	],
-	[
-		<span key="1">Sarah Brown</span>,
-		<span key="2">test@email.com</span>,
-		<span key="3">(410) 123-1524</span>,
-		<span key="4">Active</span>,
-		<ActionBtns key="sdfads" />
-	],
-	[
-		<span key="1">Sarah Brown</span>,
-		<span key="2">test@email.com</span>,
-		<span key="3">(410) 123-1524</span>,
-		<span key="4">Active</span>,
-		<ActionBtns key="sdfads" />
-	]
-];
+// const placeholderDATA = [...new Array(100)].map((_, i) => ({
+// 	id: uuid(),
+// 	name: `Full Name ${i}`,
+// 	email: 'test@email.com',
+// 	phone: '222-333-4444',
+// 	status: 'active'
+// }));
 
 const COLUMNS = ['Account Name', 'Email Address', 'Phone Number', 'Status', ''];
 
-class Accounts extends React.Component<
-	any,
-	{
-		search: string;
-		page: number;
-		limit: number;
-	}
-> {
+interface AccountsState {
+	search: string;
+	error: string;
+}
+
+class Accounts extends React.Component<{}, AccountsState> {
 	state = {
 		search: '',
-		page: 1,
-		limit: 12
+		error: ''
 	};
 
+	renderTableData = accounts => {
+		const accountsData = accounts
+			? accounts.map(account => [
+					<span key={account.id}>{account.name}</span>,
+					<span key={account.id}>{account.email}</span>,
+					<span key={account.id}>{account.phone}</span>,
+					<span key={account.id}>{account.status}</span>,
+					<ActionBtns key={account.id} />
+			  ])
+			: undefined;
+
+		return accountsData ? (
+			<PaginatedTable columns={COLUMNS} data={accountsData} />
+		) : (
+			<div className="center"> No Account Data Available.</div>
+		);
+	};
+
+	renderSearchBlock = () => (
+		<div className="search-block">
+			<SearchDropdown
+				placeholder="Search Accounts..."
+				options={[
+					{ id: 'Healthy Company', value: 'healthyCompany' },
+					{ id: 'Armada Health', value: 'armadaHealth' },
+					{ id: 'Armada Admin', value: 'armadaAdmin' },
+					{ id: 'Armada User', value: 'armadaUser' }
+				]}
+			/>
+			<button className="button">Sync Accounts</button>
+		</div>
+	);
+
 	render() {
-		const { page, limit } = this.state;
+		const { accounts, loading, error } = this.props.data;
+
+		// Remove this line to use server accounts data and uncomment code.
+		// accounts = placeholderDATA;
+
+		// comment this block for placeholder data
+		if (error) {
+			return <div className="error center">{error.message}</div>;
+		}
 		return (
 			<div>
-				<div className="search-block">
-					<SearchDropdown
-						placeholder="Search Accounts..."
-						options={[
-							{ id: 'Healthy Company', value: 'healthyCompany' },
-							{ id: 'Armada Health', value: 'armadaHealth' },
-							{ id: 'Armada Admin', value: 'armadaAdmin' },
-							{ id: 'Armada User', value: 'armadaUser' }
-						]}
-					/>
-					<button className="button">Sync Accounts</button>
-				</div>
-				<Table columns={COLUMNS} data={DATA} className="table" />
-				<div className="table-footer">
-					<StatefulPopover
-						content={() => (
-							<StatefulMenu
-								items={[...new Array(100)].map((_, i) => ({ label: i + 1 }))}
-								onItemSelect={() => {}}
-								overrides={{
-									List: { style: { height: '150px', width: '100px' } }
-								}}
-							/>
-						)}
-						placement={PLACEMENT.bottom}
-					>
-						<Button kind={KIND.tertiary} endEnhancer={TriangleDown}>
-							{`${limit} Rows`}
-						</Button>
-					</StatefulPopover>
-
-					<Pagination
-						numPages={2}
-						currentPage={page}
-						onPageChange={({ nextPage }) => this.setState({ page: nextPage })}
-					/>
-				</div>
+				{this.renderSearchBlock()}
+				{loading ? (
+					<div className="center">
+						<Spinner size={96} />
+					</div>
+				) : (
+					this.renderTableData(accounts)
+				)}
 			</div>
 		);
 	}
 }
 
-export default Accounts;
+export const GET_ACCOUNTS = gql`
+	query {
+		accounts {
+			uuid
+			name
+			email
+			phone
+			status
+		}
+	}
+`;
+
+export default graphql(GET_ACCOUNTS)(Accounts);

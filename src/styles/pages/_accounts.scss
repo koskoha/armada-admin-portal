@@ -19,8 +19,7 @@
 		}
 	}
 }
-.table-footer {
-	margin-top: 26px;
-	display: flex;
-	justify-content: space-between;
+
+.wrapper-table {
+	height: calc(100vh - 350px);
 }

@@ -19,7 +19,6 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
 }) => (
 	<UserContext.Consumer>
 		{({ token }) => (
-			// debugger;
 			<Route
 				{...props}
 				render={() =>
@@ -34,33 +33,27 @@ PrivateRoute.propTypes = {
 	component: PropTypes.func.isRequired
 };
 
-const Routes: React.FC = () => (
-	<UserContext.Consumer>
-		{context => {
-			return (
-				<div>
-					<Switch>
-						{/* TODO: update protected routes */}
-						<Route
-							path="/"
-							exact
-							render={() => <Redirect to="/dashboard/accounts" />}
-						/>
-						<Route
-							token={context.token}
-							path="/login"
-							exact
-							render={props => (
-								<Login {...props} refreshTokenFn={context.refreshTokenFn} />
-							)}
-						/>
-						<PrivateRoute path="/dashboard" component={DashboardLayout} />
-						<Route component={PageNotFound} />
-					</Switch>
-				</div>
-			);
-		}}
-	</UserContext.Consumer>
-);
+const Routes: React.FC = () => {
+	const { refreshTokenFn, token } = React.useContext(UserContext);
+	return (
+		<div>
+			<Switch>
+				<Route
+					path="/"
+					exact
+					render={() => <Redirect to="/dashboard/accounts" />}
+				/>
+				<Route
+					token={token}
+					path="/login"
+					exact
+					render={() => <Login refreshTokenFn={refreshTokenFn} />}
+				/>
+				<PrivateRoute path="/dashboard" component={DashboardLayout} />
+				<Route component={PageNotFound} />
+			</Switch>
+		</div>
+	);
+};
 
 export default Routes;
