@@ -1,32 +1,30 @@
 .nav-bar {
 	width: 100%;
-	background-color: #f7f7f7;
-	box-shadow: $base-shadow;
+	background-color: $blue;
 	.nav-bar-wrapper {
 		max-width: $base-width;
 		box-sizing: border-box;
 		padding: 0 20px;
 		margin: 0 auto;
 		[role='tablist'] {
-			height: 80px;
 			display: flex;
 			[role='tab'] {
 				@include sys_font(600, 22px, 50px, 0px);
 				margin-right: 2.5em;
-				color: $red;
+				color: $white;
 				text-decoration: none;
-				line-height: 80px;
+				line-height: 56px;
 				.nav-title {
 					display: flex;
 					.nav-icon {
-						padding-top: 10px;
+						padding-top: 10px 15px;
 					}
 				}
 			}
 		}
 		.selected {
 			font-weight: 700;
-			border-bottom: 4px solid $red;
+			border-bottom: 4px solid $white;
 		}
 	}
 	.nav-icon-home {

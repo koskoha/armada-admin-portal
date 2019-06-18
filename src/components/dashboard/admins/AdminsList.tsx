@@ -1,31 +1,26 @@
 import * as React from 'react';
-import { Button, KIND } from 'baseui/button';
-import { Link } from 'react-router-dom';
-import { Table } from 'baseui/table';
-import { Pagination } from 'baseui/pagination';
-import { StatefulPopover, PLACEMENT } from 'baseui/popover';
-import { StatefulMenu } from 'baseui/menu';
-import TriangleDown from 'baseui/icon/triangle-down';
 import * as PropTypes from 'prop-types';
 import uuid from 'uuid';
 
+import removeIcon from '../../../images/trashcan.png';
+import plusIcon from '../../../images/plus.png';
 import SearchDropdown from '../../elements/SearchDropdown';
 import Modal from '../../elements/Modal';
-import removeIcon from '../../../images/trashcan.png';
+import PaginatedTable from '../../elements/PaginatedTable';
 
 import AddAdminForm from './components/AddAdminForm';
 
-const ActionsBtns: React.FC = () => (
-	<div className="action-btn-container">
-		<Link to="adminid/info">
-			<button className="action-btn">View</button>
-		</Link>
-		<span>/</span>
-		<Link to="adminid/edit">
-			<button className="action-btn">Edit</button>
-		</Link>
-	</div>
-);
+// const ActionsBtns: React.FC = () => (
+//   <div className="action-btn-container">
+//     <Link to="adminid/info">
+//       <button className="action-btn">View</button>
+//     </Link>
+//     <span>/</span>
+//     <Link to="adminid/edit">
+//       <button className="action-btn">Edit</button>
+//     </Link>
+//   </div>
+// );
 
 interface RemoveBtnProps {
 	onClick: () => void;
@@ -48,27 +43,18 @@ class AdminsList extends React.Component<
 	{},
 	{
 		search: string;
-		page: number;
-		limit: number;
 		addAdminModalIsOpen: boolean;
 		removeAdminModalIsOpen: boolean;
 	}
 > {
 	state = {
 		search: '',
-		page: 1,
-		limit: 12,
 		addAdminModalIsOpen: false,
 		removeAdminModalIsOpen: false
 	};
 
 	render() {
-		const {
-			page,
-			limit,
-			addAdminModalIsOpen,
-			removeAdminModalIsOpen
-		} = this.state;
+		const { addAdminModalIsOpen, removeAdminModalIsOpen } = this.state;
 
 		const DATA = [
 			[
@@ -76,7 +62,6 @@ class AdminsList extends React.Component<
 				<span key={uuid()}>test@email.com</span>,
 				<span key={uuid()}>Implementation</span>,
 				<span key={uuid()}>05-13-2019</span>,
-				<ActionsBtns key={uuid()} />,
 				<RemoveBtn
 					onClick={() => {
 						this.setState({ removeAdminModalIsOpen: true });
@@ -89,7 +74,6 @@ class AdminsList extends React.Component<
 				<span key={uuid()}>test@email.com</span>,
 				<span key={uuid()}>Implementation</span>,
 				<span key={uuid()}>05-13-2019</span>,
-				<ActionsBtns key={uuid()} />,
 				<RemoveBtn
 					onClick={() => {
 						this.setState({ removeAdminModalIsOpen: true });
@@ -102,7 +86,6 @@ class AdminsList extends React.Component<
 				<span key={uuid()}>test@email.com</span>,
 				<span key={uuid()}>Implementation</span>,
 				<span key={uuid()}>05-13-2019</span>,
-				<ActionsBtns key={uuid()} />,
 				<RemoveBtn
 					onClick={() => {
 						this.setState({ removeAdminModalIsOpen: true });
@@ -117,7 +100,6 @@ class AdminsList extends React.Component<
 			'Email Address',
 			'Admin Type',
 			'Last Active',
-			'',
 			''
 		];
 
@@ -165,34 +147,13 @@ class AdminsList extends React.Component<
 						}}
 						className="button"
 					>
-						Add New Admin
+						<div className="add-admin-btn">
+							<img className="plus-icon" src={plusIcon} />
+							Add New Admin
+						</div>
 					</button>
 				</div>
-				<Table columns={COLUMNS} data={DATA} className="table" />
-				<div className="table-footer">
-					<StatefulPopover
-						content={() => (
-							<StatefulMenu
-								items={[...new Array(100)].map((_, i) => ({ label: i + 1 }))}
-								onItemSelect={() => {}}
-								overrides={{
-									List: { style: { height: '150px', width: '100px' } }
-								}}
-							/>
-						)}
-						placement={PLACEMENT.bottom}
-					>
-						<Button kind={KIND.tertiary} endEnhancer={TriangleDown}>
-							{`${limit} Rows`}
-						</Button>
-					</StatefulPopover>
-
-					<Pagination
-						numPages={2}
-						currentPage={page}
-						onPageChange={({ nextPage }) => this.setState({ page: nextPage })}
-					/>
-				</div>
+				<PaginatedTable columns={COLUMNS} data={DATA} />
 			</div>
 		);
 	}

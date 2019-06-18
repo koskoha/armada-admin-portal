@@ -55,3 +55,13 @@
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 30px;
 }
+
+.add-admin-btn{
+	display: inline-flex;
+	.plus-icon{
+		width: 18px;
+		height: 16px;
+		margin:3px 5px 0 0;
+		
+	}
+}

@@ -26,13 +26,17 @@
 	display: flex;
 	flex-direction: row;
 	color: $red;
+	img{
+		width: 16px;
+		height: 16px;
+	}
 	.action-btn {
 		border: none;
 		background: none;
 		color: $red;
 		padding: 0px 5px;
-		font-size: 1.1em;
-		font-weight: 700;
+		font-size: 1em;
+		font-weight: 600;
 		cursor: pointer;
 	}
 }

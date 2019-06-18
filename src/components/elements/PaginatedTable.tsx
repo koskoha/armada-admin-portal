@@ -4,7 +4,8 @@ import TriangleDown from 'baseui/icon/triangle-down';
 import { StatefulMenu } from 'baseui/menu';
 import { Pagination } from 'baseui/pagination';
 import { StatefulPopover, PLACEMENT } from 'baseui/popover';
-import { Table } from 'baseui/table';
+
+import Table from './Table';
 
 class PaginatedTable extends React.Component<any, any> {
 	state = { currentPage: 1, limit: 10 };
