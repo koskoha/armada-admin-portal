@@ -36,15 +36,11 @@ const COLUMNS = [
 ];
 
 interface AgentsState {
-	search: string;
-	error: string;
 	addAgentModalIsOpen: boolean;
 }
 
 class Agents extends React.Component<{}, AgentsState> {
 	state = {
-		search: '',
-		error: '',
 		addAgentModalIsOpen: false
 	};
 
@@ -91,8 +87,8 @@ class Agents extends React.Component<{}, AgentsState> {
 	);
 
 	render() {
-		const { agents } = this.props.data;
-		const { loading, error } = this.props;
+		const { agents, loading, error } = this.props.data;
+		console.log('agents:', agents);
 		const { addAgentModalIsOpen } = this.state;
 
 		// Remove this line to use server agents data and uncomment code.
@@ -128,7 +124,7 @@ class Agents extends React.Component<{}, AgentsState> {
 	}
 }
 
-const GET_AGENTS = gql`
+export const GET_AGENTS = gql`
 	query {
 		agents {
 			uuid
@@ -142,4 +138,3 @@ const GET_AGENTS = gql`
 `;
 
 export default graphql(GET_AGENTS)(Agents);
-export { GET_AGENTS };
