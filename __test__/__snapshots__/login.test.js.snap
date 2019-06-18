@@ -373,9 +373,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                     }
                     value=""
                   >
-                    <div
-                      className="input-wrapper"
-                    >
+                    <div>
                       <p
                         className="input-label"
                       >
@@ -2211,9 +2209,7 @@ exports[`Tests for <Login /> component renders Login component 1`] = `
                     type="password"
                     value=""
                   >
-                    <div
-                      className="input-wrapper"
-                    >
+                    <div>
                       <p
                         className="input-label"
                       >
@@ -4436,9 +4432,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                     }
                     value=""
                   >
-                    <div
-                      className="input-wrapper"
-                    >
+                    <div>
                       <p
                         className="input-label"
                       >
@@ -6274,9 +6268,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                     type="password"
                     value=""
                   >
-                    <div
-                      className="input-wrapper"
-                    >
+                    <div>
                       <p
                         className="input-label"
                       >
@@ -8499,9 +8491,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                     }
                     value=""
                   >
-                    <div
-                      className="input-wrapper"
-                    >
+                    <div>
                       <p
                         className="input-label"
                       >
@@ -10339,9 +10329,7 @@ exports[`Tests for <Login /> component should render errors on not valid email a
                     type="password"
                     value=""
                   >
-                    <div
-                      className="input-wrapper"
-                    >
+                    <div>
                       <p
                         className="input-label"
                       >
