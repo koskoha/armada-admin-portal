@@ -1,20 +1,20 @@
 @import './mixins';
 
 // Lato
-@include font('Lato-Bold', '/assets/fonts/Lato/Lato-Bold');
-@include font('Lato-BoldItalic', '/assets/fonts/Lato/Lato-BoldItalic');
-@include font('Lato-Italic', '/assets/fonts/Lato/Lato-Italic');
-@include font('Lato-Light', '/assets/fonts/Lato/Lato-Light');
-@include font('Lato-LightItalic', '/assets/fonts/Lato/Lato-LightItalic');
-@include font('Lato-Medium', '/assets/fonts/Lato/Lato-Medium');
-@include font('Lato-MediumItalic', '/assets/fonts/Lato/Lato-MediumItalic');
-@include font('Lato-Regular', '/assets/fonts/Lato/Lato-Regular');
+@include font('Lato-Bold', '../assets/fonts/Lato/Lato-Bold');
+@include font('Lato-BoldItalic', '../assets/fonts/Lato/Lato-BoldItalic');
+@include font('Lato-Italic', '../assets/fonts/Lato/Lato-Italic');
+@include font('Lato-Light', '../assets/fonts/Lato/Lato-Light');
+@include font('Lato-LightItalic', '../assets/fonts/Lato/Lato-LightItalic');
+@include font('Lato-Medium', '../assets/fonts/Lato/Lato-Medium');
+@include font('Lato-MediumItalic', '../assets/fonts/Lato/Lato-MediumItalic');
+@include font('Lato-Regular', '../assets/fonts/Lato/Lato-Regular');
 // Montserrat
-@include font('Montserrat-Bold', '/assets/fonts/Lato/Montserrat-Bold');
-@include font('Montserrat-BoldItalic', '/assets/fonts/Lato/Montserrat-BoldItalic');
-@include font('Montserrat-Italic', '/assets/fonts/Lato/Montserrat-Italic');
-@include font('Montserrat-Light', '/assets/fonts/Lato/Montserrat-Light');
-@include font('Montserrat-LightItalic', '/assets/fonts/Lato/Montserrat-LightItalic');
-@include font('Montserrat-Medium', '/assets/fonts/Lato/Montserrat-Medium');
-@include font('Montserrat-MediumItalic', '/assets/fonts/Lato/Montserrat-MediumItalic');
-@include font('Montserrat-Regular', '/assets/fonts/Lato/Montserrat-Regular');
+@include font('Montserrat-Bold', '../assets/fonts/Montserrat/Montserrat-Bold');
+@include font('Montserrat-BoldItalic', '../assets/fonts/Montserrat/Montserrat-BoldItalic');
+@include font('Montserrat-Italic', '../assets/fonts/Montserrat/Montserrat-Italic');
+@include font('Montserrat-Light', '../assets/fonts/Montserrat/Montserrat-Light');
+@include font('Montserrat-LightItalic', '../assets/fonts/Montserrat/Montserrat-LightItalic');
+@include font('Montserrat-Medium', '../assets/fonts/Montserrat/Montserrat-Medium');
+@include font('Montserrat-MediumItalic', '../assets/fonts/Montserrat/Montserrat-MediumItalic');
+@include font('Montserrat-Regular', '../assets/fonts/Montserrat/Montserrat-Regular');
