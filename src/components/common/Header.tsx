@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-import logoIcon from '../../images/logo.png';
+import logoIcon from '../../assets/images/logo.png';
 import { UserContext } from '../../context/UserContext';
 
 const Header: React.FC = () => {

@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 import { AUTH_TOKEN } from '../../config/constant';
 import Input from '../elements/Input';
-import logoIcon from '../../images/logo.png';
+import logoIcon from '../../assets/images/logo.png';
 
 interface LoginState {
 	email: string;

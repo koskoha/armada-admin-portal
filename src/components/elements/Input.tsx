@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styled } from 'baseui';
 import { StatefulInput, StyledInputContainer } from 'baseui/input';
 
-import visibilityIcon from '../../images/icon_visibility.png';
+import visibilityIcon from '../../assets/images/icon_visibility.png';
 
 const InputContainerOverrides = styled(
 	StyledInputContainer,
@@ -23,7 +23,7 @@ const InputContainerOverrides = styled(
 const inputOverrides = {
 	Input: {
 		style: {
-			fontFamily: 'Lato',
+			fontFamily: 'inherit',
 			paddingTop: '13px',
 			paddingBottom: '13px',
 			paddingLeft: '0px',

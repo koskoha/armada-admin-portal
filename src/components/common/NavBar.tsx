@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import ChevronRightIcon from 'baseui/icon/chevron-right';
 
-import homeIcon from '../../images/home.png';
+import homeIcon from '../../assets/images/home.png';
 
 interface Props {
 	history: { push: (string) => void; location: { pathname: string } };

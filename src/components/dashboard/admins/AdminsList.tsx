@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import uuid from 'uuid';
 
-import removeIcon from '../../../images/trashcan.png';
-import plusIcon from '../../../images/plus.png';
+import removeIcon from '../../../assets/images/trashcan.png';
+import plusIcon from '../../../assets/images/plus.png';
 import SearchDropdown from '../../elements/SearchDropdown';
 import Modal from '../../elements/Modal';
 import PaginatedTable from '../../elements/PaginatedTable';

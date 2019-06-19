@@ -11,7 +11,13 @@ class AddAdminForm extends React.Component {
 				<Input label="Last Name" placeholder="Last Name" />
 				<Input label="Email Address" placeholder="Email Address" />
 				<Input label="Phone Number" placeholder="Phone Number" />
-				<AdminTypeCheckbox />
+				<AdminTypeCheckbox
+					label="ADMIN TYPE"
+					buttons={[
+						{ value: 'implementation', label: 'Implementation' },
+						{ value: 'superAdmin', label: 'Super Admin' }
+					]}
+				/>
 			</form>
 		);
 	}
