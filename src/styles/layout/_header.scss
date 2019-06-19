@@ -2,9 +2,11 @@
 	width: 100%;
 	background-color: $blue;
 	color: $white;
+	font-family: $font-lato;
 	.company-title {
 		display: grid;
 		grid-template-columns: 270px;
+		font-family: $theme-font;
 		.title {
 			@include sys_font(500, 25px, 1, -1px);
 			text-align: end;
@@ -30,6 +32,7 @@
 			display: flex;
 			flex-direction: row;
 			.menu-link {
+				font-family: $font-lato;
 				margin-left: 30px;
 				color: $white;
 				font-size: 1.1em;
@@ -43,7 +46,7 @@
 			}
 		}
 		.admin-name {
-			font-family: $font-lato;
+			
 			font-size: 0.9em;
 			color: $white;
 			text-align: right;
