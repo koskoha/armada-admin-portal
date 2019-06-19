@@ -6,7 +6,7 @@ const modalOverrides = {
 	Dialog: {
 		style: {
 			minWidth: '700px',
-			padding: '30px 10px'
+			padding: '16px 10px 30px 10px'
 		}
 	}
 };
@@ -27,7 +27,12 @@ const ModalComponent: React.FC<AddAdminModalProps> = ({
 	children
 }) => (
 	<React.Fragment>
-		<Modal onClose={close} isOpen={isOpen} overrides={modalOverrides}>
+		<Modal
+			onClose={close}
+			isOpen={isOpen}
+			overrides={modalOverrides}
+			closeable={false}
+		>
 			<p className="modal-header">{title}</p>
 			<ModalBody>{children}</ModalBody>
 			<div className="modal-footer">

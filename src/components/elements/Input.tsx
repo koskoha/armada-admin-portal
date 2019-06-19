@@ -23,8 +23,7 @@ const InputContainerOverrides = styled(
 const inputOverrides = {
 	Input: {
 		style: {
-			fontFamily: 'inherit',
-			paddingTop: '13px',
+			fontFamily: 'Lato-Regular',
 			paddingBottom: '13px',
 			paddingLeft: '0px',
 			paddingRight: '0px',
