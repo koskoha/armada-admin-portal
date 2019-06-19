@@ -21,7 +21,11 @@ const Header: React.FC = () => {
 				<div>
 					<p className="admin-name">FirstName LastName</p>
 					<div className="user-menu">
-						<button className="menu-link menu-btn" onClick={() => logout()}>
+						<button
+							className="menu-link menu-btn"
+							role="logout"
+							onClick={() => logout()}
+						>
 							Log Out
 						</button>
 						<Link className="menu-link" to="#">
