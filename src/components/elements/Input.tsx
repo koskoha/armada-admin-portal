@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { styled } from 'baseui';
-import { StatefulInput, StyledInputContainer } from 'baseui/input';
+import { StatefulInput, StyledInputContainer, MaskedInput } from 'baseui/input';
+import classNames from 'classnames';
 
 import visibilityIcon from '../../assets/images/icon_visibility.png';
 
@@ -24,10 +25,12 @@ const inputOverrides = {
 	Input: {
 		style: {
 			fontFamily: 'Lato-Regular',
-			paddingBottom: '13px',
+			paddingBottom: '10px',
+			paddingTop: '23px',
+			color: '#495057',
 			paddingLeft: '0px',
 			paddingRight: '0px',
-			fontSize: '19px',
+			fontSize: '18px',
 			lineHeight: '0px',
 			'::placeholder': {
 				color: '#CCCDDD'
@@ -44,6 +47,8 @@ interface FormInputProps {
 	value?: string;
 	onChange: (e) => void;
 	password?: boolean;
+	styleClass?: string;
+	phone?: boolean;
 }
 
 interface FormInputState {
@@ -78,23 +83,60 @@ export default class FormInput extends React.Component<
 	};
 
 	render() {
-		const { label, placeholder, style, value, onChange, password } = this.props;
+		const {
+			label,
+			placeholder,
+			style,
+			value,
+			onChange,
+			password,
+			styleClass,
+			phone
+		} = this.props;
 		const { inputType } = this.state;
+		const inputClass = classNames(styleClass);
 		return (
-			<div>
+			<div className={inputClass}>
 				<p className="input-label"> {label} </p>
-				<StatefulInput
-					value={value}
-					type={inputType}
-					onChange={e => onChange(e)}
-					overrides={{
-						After: password ? this.renderVisibilitySwitch : undefined,
-						InputContainer: { component: InputContainerOverrides },
-						Input: { style: { ...inputOverrides.Input.style, ...style } }
-					}}
-					placeholder={placeholder}
-				/>
+				{!phone ? (
+					<StatefulInput
+						mask="(999) 999-9999"
+						value={value}
+						type={inputType}
+						onChange={e => onChange(e)}
+						overrides={{
+							After: password ? this.renderVisibilitySwitch : undefined,
+							InputContainer: { component: InputContainerOverrides },
+							Input: { style: { ...inputOverrides.Input.style, ...style } }
+						}}
+						placeholder={placeholder}
+					/>
+				) : (
+					<MaskedInput
+						mask="(999) 999-9999"
+						value={value}
+						type={inputType}
+						onChange={e => onChange(e)}
+						overrides={{
+							InputContainer: { component: InputContainerOverrides },
+							Input: { style: { ...inputOverrides.Input.style, ...style } }
+						}}
+						placeholder={placeholder}
+					/>
+				)}
 			</div>
 		);
 	}
 }
+
+// export const PhoneInput = ({
+// 	label,
+// 	placeholder,
+// 	style,
+// 	value,
+// 	onChange,
+// 	password,
+// 	styleClass
+// }) => {
+
+// }

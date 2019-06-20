@@ -49,7 +49,7 @@ const Routes: React.FC = () => {
 					exact
 					render={() => <Login refreshTokenFn={refreshTokenFn} />}
 				/>
-				<Route path="/dashboard" component={DashboardLayout} />
+				<PrivateRoute path="/dashboard" component={DashboardLayout} />
 				<Route component={PageNotFound} />
 			</Switch>
 		</div>

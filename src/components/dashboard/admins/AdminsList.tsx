@@ -9,6 +9,7 @@ import Modal from '../../elements/Modal';
 import PaginatedTable from '../../elements/PaginatedTable';
 
 import AddAdminForm from './components/AddAdminForm';
+import RemoveConfirm from './components/RemoveConfirm';
 
 // const ActionsBtns: React.FC = () => (
 //   <div className="action-btn-container">
@@ -63,7 +64,8 @@ class AdminsList extends React.Component<
 				<span key={uuid()}>Implementation</span>,
 				<span key={uuid()}>05-13-2019</span>,
 				<RemoveBtn
-					onClick={() => {
+					onClick={e => {
+						e.stopPropagation();
 						this.setState({ removeAdminModalIsOpen: true });
 					}}
 					key={uuid()}
@@ -75,7 +77,8 @@ class AdminsList extends React.Component<
 				<span key={uuid()}>Implementation</span>,
 				<span key={uuid()}>05-13-2019</span>,
 				<RemoveBtn
-					onClick={() => {
+					onClick={e => {
+						e.stopPropagation();
 						this.setState({ removeAdminModalIsOpen: true });
 					}}
 					key={uuid()}
@@ -87,7 +90,8 @@ class AdminsList extends React.Component<
 				<span key={uuid()}>Implementation</span>,
 				<span key={uuid()}>05-13-2019</span>,
 				<RemoveBtn
-					onClick={() => {
+					onClick={e => {
+						e.stopPropagation();
 						this.setState({ removeAdminModalIsOpen: true });
 					}}
 					key={uuid()}
@@ -127,18 +131,15 @@ class AdminsList extends React.Component<
 					title="Remove Admin"
 					buttonLabel="Remove"
 				>
-					<p className="confirm-text">
-						Are you sure you want to remove the admin FirstName LastName from
-						the system?
-					</p>
+					<RemoveConfirm />
 				</Modal>
 				<div className="search-block">
 					<SearchDropdown
 						placeholder="Search Admins..."
 						options={[
-							{ id: 'Admin Name', value: '1' },
-							{ id: 'Second Admin', value: '2' },
-							{ id: 'Third Admin', value: '3' }
+							{ name: 'Admin Name', id: '1' },
+							{ name: 'Second Admin', id: '2' },
+							{ name: 'Third Admin', id: '3' }
 						]}
 					/>
 					<button

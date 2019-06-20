@@ -1,21 +1,21 @@
 import * as React from 'react';
-import { Modal, ModalBody } from 'baseui/modal';
+import { Modal } from 'baseui/modal';
 import * as PropTypes from 'prop-types';
 
 const modalOverrides = {
 	Dialog: {
 		style: {
 			minWidth: '700px',
-			padding: '16px 10px 30px 10px'
+			padding: '16px 40px 30px 40px'
 		}
 	}
 };
 
 interface AddAdminModalProps {
-	close: () => void;
+	close?: () => void;
 	isOpen: boolean;
 	title: string;
-	buttonLabel: string;
+	buttonLabel?: string;
 	children: React.ReactNode;
 }
 
@@ -34,14 +34,11 @@ const ModalComponent: React.FC<AddAdminModalProps> = ({
 			closeable={false}
 		>
 			<p className="modal-header">{title}</p>
-			<ModalBody>{children}</ModalBody>
-			<div className="modal-footer">
-				<button className="button white-btn" onClick={close}>
-					cancel
-				</button>
-				<button className="button" onClick={close}>
-					{buttonLabel}
-				</button>
+			<div className="modal-body">
+				{React.cloneElement(children, {
+					close,
+					buttonLabel
+				})}
 			</div>
 		</Modal>
 	</React.Fragment>

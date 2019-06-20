@@ -108,6 +108,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 						{serverErrors && this.renderErrors(serverErrors)}
 						<div className="login-form">
 							<Input
+								styleClass="login-input"
 								value={email}
 								onChange={this.handleEmailChange}
 								label="Email Address"
@@ -115,8 +116,9 @@ class Login extends React.Component<LoginProps, LoginState> {
 								style={{ color: '#ffff' }}
 								type="text"
 							/>
-							<span className="error">{emailError}</span>
+							<p className="error">{emailError}</p>
 							<Input
+								styleClass="login-input"
 								password
 								value={password}
 								onChange={this.handlePasswordChange}
@@ -125,10 +127,10 @@ class Login extends React.Component<LoginProps, LoginState> {
 								type="password"
 								style={{ color: '#ffff' }}
 							/>
-							<span className="error">{passwordError}</span>
+							<p className="error">{passwordError}</p>
 						</div>
 						{/* FOOTER FORM */}
-						<div className="login-footer">Forgot password? Click here.</div>
+						<div className="login-footer">Forgot password?</div>
 
 						<button
 							onClick={this.validateSubmit}

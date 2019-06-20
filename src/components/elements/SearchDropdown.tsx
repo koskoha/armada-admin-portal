@@ -30,6 +30,16 @@ class SearchDropdown extends React.Component<{
 									? 'rgba(220, 23, 108, 0.2)'
 									: 'white'
 							})
+						},
+						Placeholder: {
+							style: {
+								color: '#ceced6'
+							}
+						},
+						ControlContainer: {
+							style: {
+								backgroundColor: '#ffffff'
+							}
 						}
 					}}
 					onChange={event => console.log(event)}

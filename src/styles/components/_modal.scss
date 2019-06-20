@@ -1,4 +1,5 @@
 .modal-header {
+	font-family: $font-lato;
 	text-align: center;
 	color: $blue;
 	font-size: 1.2em;
@@ -17,4 +18,11 @@
 	font-weight: 300;
 	text-align: center;
 	padding-bottom: 30px;
+}
+
+.blur {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	filter: blur(8px);
 }

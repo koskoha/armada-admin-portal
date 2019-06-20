@@ -11,17 +11,18 @@
 	.login-wrapper {
 		display: flex;
 		flex-direction: column;
-		width: 460px;
+		width: 430px;
 		border-radius: 10px;
 		.company-title {
 			display: grid;
 			grid-template-columns: 1fr;
 			justify-items: end;
 			.title {
-				@include sys_font(400, 24px, 1, -1px);
+				height: 9px;
+				@include sys_font(400, 22px, 1, -1px);
 			}
 			.sub-title {
-				@include sys_font(900, 9px, 2, 2px);
+				@include sys_font(900, 7px, 2, 2px);
 			}
 		}
 		.login-header {
@@ -39,23 +40,26 @@
 			flex-wrap: wrap;
 			align-items: center;
 			overflow: hidden;
-			padding: 50px 70px;
+			padding: 40px 60px;
 			.form-title {
 				font-size: 1.4em;
 				font-weight: 600;
-				margin: 20px 0px;
+				font-size: 22px;
+				margin-bottom: 10px;
 			}
 			.login-form {
 				width: 100%;
+				.login-input {
+					margin-top: 30px;
+				}
 			}
 			.login-footer {
-				font-family: Lato, sans-serif;
+				font-family: $font-lato;
 				font-weight: 600;
 				font-size: 1.1em;
 				line-height: 1;
 				letter-spacing: 0px;
-				margin-top: 15px;
-				margin-bottom: 30px;
+				margin: 30px 0;
 				.link {
 					margin-left: 5px;
 					text-decoration: none;

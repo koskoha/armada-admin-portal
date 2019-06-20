@@ -1,13 +1,17 @@
 import * as React from 'react';
-import { StatefulRadioGroup, Radio } from 'baseui/radio';
+import { RadioGroup, Radio } from 'baseui/radio';
 import { FormControl } from 'baseui/form-control';
+import classNames from 'classnames';
 
 const formControlOverrides = {
 	Label: { style: { fontSize: '14px', fontWeight: 'bold', color: '#37373c' } }
 };
 
 const checkBoxOverrides = {
-	Label: { style: { fontSize: '14px', color: '##37373c' } }
+	Label: { style: { fontSize: '14px', color: '#37373c' } },
+	RadioMarkOuter: {
+		style: ({ $checked }) => ($checked ? { backgroundColor: '#dc176c' } : {})
+	}
 };
 
 interface RadioBtn {
@@ -20,16 +24,15 @@ class CheckBox extends React.Component<{
 	label: string;
 	buttons: RadioBtn[];
 	onChange: (event: {}) => void;
+	value: string;
 }> {
 	render() {
-		const { style, label, buttons, onChange } = this.props;
+		const { style, label, buttons, onChange, value } = this.props;
+		const checkBoxClass = classNames(style);
 		return (
-			<div className={style || ''}>
+			<div className={checkBoxClass}>
 				<FormControl overrides={formControlOverrides} label={label}>
-					<StatefulRadioGroup
-						onChange={onChange}
-						initialState={{ value: 'implementation' }}
-					>
+					<RadioGroup value={value} onChange={onChange}>
 						{buttons.map(elem => (
 							<Radio
 								key={elem.value}
@@ -39,7 +42,7 @@ class CheckBox extends React.Component<{
 								{elem.label}
 							</Radio>
 						))}
-					</StatefulRadioGroup>
+					</RadioGroup>
 				</FormControl>
 			</div>
 		);
