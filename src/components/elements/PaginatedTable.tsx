@@ -36,11 +36,11 @@ class PaginatedTable extends React.Component<any, any> {
 
 	render() {
 		const { currentPage, limit } = this.state;
-		const { columns, data } = this.props;
+		const { columns, data, path } = this.props;
 		return (
 			<React.Fragment>
 				<div className="wrapper-table">
-					<Table columns={columns} data={this.formatingData()} />
+					<Table columns={columns} data={this.formatingData()} path={path} />
 				</div>
 				<div className="table-footer">
 					<StatefulPopover

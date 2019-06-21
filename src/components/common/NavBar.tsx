@@ -1,8 +1,5 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import ChevronRightIcon from 'baseui/icon/chevron-right';
-
-import homeIcon from '../../assets/images/home.png';
 
 interface Props {
 	history: { push: (string) => void; location: { pathname: string } };
@@ -23,32 +20,42 @@ class NavBar extends React.Component<Props> {
 		</div>
 	);
 
-	renderAdminNavBar = () => (
+	renderAdminNavBar = pathname => (
 		<div role="tablist">
-			<NavLink activeClassName="selected" role="tab" to="/dashboard/accounts">
-				<img className="nav-icon-home" src={homeIcon} />
-			</NavLink>
-			<NavLink role="tab" to="#">
-				<div className="nav-title">
-					<span>System Admin</span>
-					<div className="nav-icon">
-						<ChevronRightIcon size={35} />
-					</div>
-				</div>
-			</NavLink>
 			<NavLink
+				isActive={() => pathname.match(/dashboard\/admin\/.*\/overview/)}
 				activeClassName="selected"
 				role="tab"
-				to="/dashboard/adminid/info"
+				to="/dashboard/admin/adminid/overview"
 			>
-				Profile Overview
+				Overview
 			</NavLink>
 			<NavLink
 				activeClassName="selected"
 				role="tab"
-				to="/dashboard/adminid/activity"
+				to="/dashboard/admin/adminid/activity"
 			>
 				Activity
+			</NavLink>
+		</div>
+	);
+
+	renderAccountNavBar = pathname => (
+		<div role="tablist">
+			<NavLink
+				isActive={() => pathname.match(/dashboard\/account\/.*\/overview/)}
+				activeClassName="selected"
+				role="tab"
+				to="/dashboard/account/agentid/overview"
+			>
+				Overview
+			</NavLink>
+			<NavLink
+				activeClassName="selected"
+				role="tab"
+				to="/dashboard/account/agentid/agents"
+			>
+				Agents
 			</NavLink>
 		</div>
 	);
@@ -60,15 +67,27 @@ class NavBar extends React.Component<Props> {
 			}
 		} = this.props;
 		return (
-			<div className="nav-bar">
-				<div className="nav-bar-wrapper">
-					{pathname === '/dashboard/accounts' ||
-					pathname === '/dashboard/agents' ||
-					pathname === '/dashboard/sysadmins'
-						? this.renderDashboardNav()
-						: this.renderAdminNavBar()}
+			<React.Fragment>
+				<div className="nav-bar">
+					<div className="nav-bar-wrapper">{this.renderDashboardNav()}</div>
 				</div>
-			</div>
+				{pathname.match(/dashboard\/admin/) && (
+					<div className="sub-nav-bar">
+						<div className="sub-nav-bar-wrapper">
+							<p className="profile-name">ADMIN NAME</p>
+							{this.renderAdminNavBar(pathname)}
+						</div>
+					</div>
+				)}
+				{pathname.match(/dashboard\/account\//) && (
+					<div className="sub-nav-bar">
+						<div className="sub-nav-bar-wrapper">
+							<p className="profile-name">Account Name</p>
+							{this.renderAccountNavBar(pathname)}
+						</div>
+					</div>
+				)}
+			</React.Fragment>
 		);
 	}
 }

@@ -31,3 +31,45 @@
 		margin-top: 3px;
 	}
 }
+.sub-nav-bar {
+	width: 100%;
+	background-color: $ghost-white;
+	max-height: 170px;
+	box-shadow: $base-shadow;
+	.sub-nav-bar-wrapper {
+		max-width: $base-width;
+		box-sizing: border-box;
+		padding: 0 20px;
+		margin: 0 auto;
+		.profile-name {
+			font-family: $theme-font;
+			font-weight: 300;
+			color: $blue;
+			font-size: 2.5em;
+			margin: 27px 0 25px 0;
+		}
+		[role='tablist'] {
+			display: flex;
+			[role='tab'] {
+				@include sys_font(600, 22px, 50px, 0px);
+				margin-right: 2.5em;
+				color: $red;
+				text-decoration: none;
+				line-height: 56px;
+				.nav-title {
+					display: flex;
+					.nav-icon {
+						padding-top: 10px 15px;
+					}
+				}
+			}
+		}
+		.selected {
+			font-weight: 700;
+			border-bottom: 4px solid $red;
+		}
+	}
+	.nav-icon-home {
+		margin-top: 3px;
+	}
+}

@@ -13,6 +13,7 @@ interface TablePropsT {
 	columns: (string | React.Node)[];
 	data: React.Node[][];
 	horizontalScrollWidth?: string;
+	path: string;
 }
 
 export default class Table extends React.Component<TablePropsT> {
@@ -27,10 +28,15 @@ export default class Table extends React.Component<TablePropsT> {
 
 	render() {
 		const { redirectId } = this.state;
+		console.log('redirectId:', redirectId);
+		const { path } = this.props;
+		console.log('path:', path);
 
 		return (
 			<React.Fragment>
-				{redirectId && <Redirect to={`/dashboard/${redirectId}/info`} />}
+				{redirectId && (
+					<Redirect to={`/dashboard/${path}/${redirectId}/overview`} />
+				)}
 				<StyledTable
 					data-baseweb="table"
 					aria-colcount={this.props.columns.length}

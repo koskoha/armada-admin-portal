@@ -4,8 +4,8 @@ import { FormControl } from 'baseui/form-control';
 import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
 
-import Input from '../../elements/Input';
-import AgentTypeCheckbox from '../../elements/CheckBox';
+import Input from '../../../elements/Input';
+import AgentTypeCheckbox from '../../../elements/CheckBox';
 
 const ACCOUNTS = [
 	{
@@ -27,6 +27,7 @@ const ACCOUNTS = [
 interface AddAgentFormProps {
 	data: {};
 	loading: boolean;
+	close: () => void;
 }
 interface AddAgentFormState {
 	firstName: string | undefined;
@@ -62,7 +63,7 @@ class AddAgentForm extends React.Component<
 	render() {
 		// const { accounts } = this.props.data;
 		const { account } = this.state;
-		const { loading } = this.props;
+		const { loading, close } = this.props;
 		return (
 			<React.Fragment>
 				<form className="add-admin-form">
@@ -129,6 +130,14 @@ class AddAgentForm extends React.Component<
 							onChange={event => this.setState({ group: event.value[0] })}
 						/>
 					</FormControl>
+				</div>
+				<div className="modal-footer">
+					<button className="button white-btn" onClick={close}>
+						cancel
+					</button>
+					<button className="button" onClick={() => {}}>
+						Add Agent
+					</button>
 				</div>
 			</React.Fragment>
 		);

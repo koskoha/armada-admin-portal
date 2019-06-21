@@ -11,18 +11,6 @@ import PaginatedTable from '../../elements/PaginatedTable';
 import AddAdminForm from './components/AddAdminForm';
 import RemoveConfirm from './components/RemoveConfirm';
 
-// const ActionsBtns: React.FC = () => (
-//   <div className="action-btn-container">
-//     <Link to="adminid/info">
-//       <button className="action-btn">View</button>
-//     </Link>
-//     <span>/</span>
-//     <Link to="adminid/edit">
-//       <button className="action-btn">Edit</button>
-//     </Link>
-//   </div>
-// );
-
 interface RemoveBtnProps {
 	onClick: () => void;
 }
@@ -154,7 +142,7 @@ class AdminsList extends React.Component<
 						</div>
 					</button>
 				</div>
-				<PaginatedTable columns={COLUMNS} data={DATA} />
+				<PaginatedTable columns={COLUMNS} data={DATA} path="admin" />
 			</div>
 		);
 	}

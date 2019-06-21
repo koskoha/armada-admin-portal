@@ -8,15 +8,7 @@ import SearchDropdown from '../../elements/SearchDropdown';
 import PaginatedTable from '../../elements/PaginatedTable';
 import Modal from '../../elements/Modal';
 import plusIcon from '../../../assets/images/plus.png';
-
-import AddAgentForm from './components/AddAgentForm';
-
-const ActionBtns: React.FC = () => (
-	<div className="action-btn-container">
-		<button className="action-btn">View</button>/
-		<button className="action-btn">Edit</button>
-	</div>
-);
+import AddAgentForm from '../agents/components/AddAgentForm';
 
 const placeholderDATA = [...new Array(50)].map((_, i) => ({
 	id: 12345 + i,
@@ -32,15 +24,14 @@ const COLUMNS = [
 	'Email Address',
 	'Account',
 	'Last Active',
-	'Status',
-	''
+	'Status'
 ];
 
 interface AgentsState {
 	addAgentModalIsOpen: boolean;
 }
 
-class Agents extends React.Component<{}, AgentsState> {
+class AccountAgents extends React.Component<{}, AgentsState> {
 	state = {
 		addAgentModalIsOpen: false
 	};
@@ -61,8 +52,7 @@ class Agents extends React.Component<{}, AgentsState> {
 							})}
 						/>
 						{agent.status}
-					</div>,
-					<ActionBtns key={agent.id} />
+					</div>
 			  ])
 			: undefined;
 
@@ -141,4 +131,4 @@ export const GET_AGENTS = gql`
 	}
 `;
 
-export default graphql(GET_AGENTS)(Agents);
+export default graphql(GET_AGENTS)(AccountAgents);

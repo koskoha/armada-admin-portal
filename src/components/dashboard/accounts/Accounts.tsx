@@ -13,13 +13,13 @@ const ActionBtns: React.FC = () => (
 	</div>
 );
 
-// const placeholderDATA = [...new Array(100)].map((_, i) => ({
-// 	id: '1234567',
-// 	name: `Full Name ${i}`,
-// 	email: 'test@email.com',
-// 	phone: '222-333-4444',
-// 	status: 'active'
-// }));
+const placeholderDATA = [...new Array(100)].map((_, i) => ({
+	uuid: '1234567',
+	name: `Full Name ${i}`,
+	email: 'test@email.com',
+	phone: '222-333-4444',
+	status: 'active'
+}));
 
 const COLUMNS = ['Account Name', 'Email Address', 'Phone Number', 'Status', ''];
 
@@ -38,7 +38,6 @@ class Accounts extends React.Component<{}, AccountsState> {
 		const accountsData = accounts
 			? accounts.map(account => [
 					<span key={account.uuid}>{account.name}</span>,
-					<span key={account.uuid}>{account.name}</span>,
 					<span key={account.uuid}>{account.email}</span>,
 					<span key={account.uuid}>{account.phone}</span>,
 					<span key={account.uuid}>{account.status}</span>,
@@ -47,7 +46,7 @@ class Accounts extends React.Component<{}, AccountsState> {
 			: undefined;
 
 		return accountsData ? (
-			<PaginatedTable columns={COLUMNS} data={accountsData} />
+			<PaginatedTable columns={COLUMNS} data={accountsData} path="account" />
 		) : (
 			<div className="center"> No Account Data Available.</div>
 		);
@@ -69,14 +68,15 @@ class Accounts extends React.Component<{}, AccountsState> {
 	);
 
 	render() {
-		const { accounts, loading, error } = this.props.data;
+		// let { accounts, loading, error } = this.props.data;
+		const { loading, error } = this.props.data;
 
 		// Remove this line to use server accounts data and uncomment code.
-		// accounts = placeholderDATA;
+		const accounts = placeholderDATA;
 
 		// comment this block for placeholder data
 		if (error) {
-			return <div className="error center">{error.message}</div>;
+			// return <div className="error center">{error.message}</div>;
 		}
 		return (
 			<div>

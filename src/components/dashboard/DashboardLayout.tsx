@@ -9,9 +9,12 @@ import AdminActivity from './admins/AdminActivity';
 import AdminProfilePage from './admins/AdminProfile';
 import AccountsPage from './accounts/Accounts';
 import AgentsPage from './agents/Agents';
+import AgentOverview from './agents/AgentOverview';
+import AccountOverview from './accounts/AccountOverview';
+import AccountAgents from './accounts/AccountAgents';
 
 class DashboardLayout extends React.Component<
-	{},
+	any,
 	{
 		rootActivePageKey: string;
 		sysAdminActivePageKey: string;
@@ -48,12 +51,35 @@ class DashboardLayout extends React.Component<
 					<Route exact path={`${path}/accounts`} component={AccountsPage} />
 					<Route exact path={`${path}/agents`} component={AgentsPage} />
 					<Route exact path={`${path}/sysadmins`} component={SysAdminsPage} />
-					<Route exact path={`${path}/:id/info`} component={AdminProfilePage} />
-					<Route exact path={`${path}/:id/edit`} component={AdminProfilePage} />
 					<Route
 						exact
-						path={`${path}/:id/activity`}
+						path={`${path}/admin/:id/overview`}
+						component={AdminProfilePage}
+					/>
+					<Route
+						exact
+						path={`${path}/admin/:id/activity`}
 						component={AdminActivity}
+					/>
+					<Route
+						exact
+						path={`${path}/admin/:id/edit`}
+						component={AdminProfilePage}
+					/>
+					<Route
+						exact
+						path={`${path}/agent/:id/overview`}
+						component={AgentOverview}
+					/>
+					<Route
+						exact
+						path={`${path}/account/:id/overview`}
+						component={AccountOverview}
+					/>
+					<Route
+						exact
+						path={`${path}/account/:id/agents`}
+						component={AccountAgents}
 					/>
 				</div>
 			</div>
