@@ -134,7 +134,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 
 						<button
 							onClick={this.validateSubmit}
-							className="button"
+							className="button primary"
 							style={{ width: '100%' }}
 						>
 							Login

@@ -134,7 +134,7 @@ class AdminsList extends React.Component<
 						onClick={() => {
 							this.setState({ addAdminModalIsOpen: true });
 						}}
-						className="button"
+						className="button primary"
 					>
 						<div className="add-admin-btn">
 							<img className="plus-icon" src={plusIcon} />

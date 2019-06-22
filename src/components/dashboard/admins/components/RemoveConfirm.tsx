@@ -19,7 +19,7 @@ class RemoveConfirm extends React.Component<RemoveConfirmProps> {
 						cancel
 					</button>
 					<button
-						className="button"
+						className="button primary"
 						// TODO: add logic to remove admin
 						onClick={() => console.log('admin removed')}
 					>

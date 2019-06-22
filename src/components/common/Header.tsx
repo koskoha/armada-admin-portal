@@ -19,7 +19,7 @@ const Header: React.FC = () => {
 					</div>
 				</div>
 				<div>
-					<p className="admin-name">FirstName LastName</p>
+					<p className="header-admin-name">FirstName LastName</p>
 					<div className="user-menu">
 						<button
 							className="menu-link menu-btn"

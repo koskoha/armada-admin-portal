@@ -6,7 +6,7 @@ import NavBar from '../common/NavBar';
 
 import SysAdminsPage from './admins/AdminsList';
 import AdminActivity from './admins/AdminActivity';
-import AdminProfilePage from './admins/AdminProfile';
+import AdminProfilePage from './admins/AdminOverview';
 import AccountsPage from './accounts/Accounts';
 import AgentsPage from './agents/Agents';
 import AgentOverview from './agents/AgentOverview';
@@ -74,6 +74,11 @@ class DashboardLayout extends React.Component<
 					<Route
 						exact
 						path={`${path}/account/:id/overview`}
+						component={AccountOverview}
+					/>
+					<Route
+						exact
+						path={`${path}/account/:id/edit`}
 						component={AccountOverview}
 					/>
 					<Route

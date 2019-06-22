@@ -9,7 +9,7 @@ class ProfileEdit extends React.Component {
 			<div className="info-wrapper">
 				<p className="admin-name">First Name</p>
 
-				<button className="button">Remove Admin From System</button>
+				<button className="button primary">Remove Admin From System</button>
 
 				<p className="details-title">Admin Details</p>
 				<form className="form">

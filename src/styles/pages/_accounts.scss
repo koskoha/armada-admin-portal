@@ -1,1 +1,62 @@
+.details {
+	display: flex;
+	.account-info-panel {
+		font-family: Lato-Bold, sans-serif;
+		max-width: 310px;
+		letter-spacing: 0.03em;
+		line-height: 24px;
+		margin-right: 100px;
+		.inline {
+			font-family: Lato-Regular, sans-serif;
+			display: flex;
+			color: $dark-midnight-blue;
+			letter-spacing: 0;
+			margin-bottom: 43px;
+		}
+		.groups-title {
+			font-family: Montserrat-Bold, sans-serif;
+			font-size: 2em;
+			color: $outer-space;
+		}
+		li {
+			font-family: Lato-Bold, sans-serif;
+			padding-bottom: 10px;
+		}
+	}
 
+	.account-logo-panel {
+		.title {
+			font-family: Lato-Regular, sans-serif;
+			color: $old-lavender;
+			line-height: 26px;
+			margin-bottom: 20px;
+		}
+		.logo-img {
+			margin-bottom: 50px;
+			.float-right {
+				float: right;
+			}
+		}
+		.file-uploader {
+			width: 340px;
+		}
+		.brand-color-title {
+			font-size: 0.78em;
+			font-family: Lato-Bold, sans-serif;
+			margin-bottom: 5px;
+		}
+		.brand-color {
+			font-family: Lato-Bold, sans-serif;
+		}
+
+		.input-wrap {
+			margin-bottom: 30px;
+			width: 140px;
+		}
+	}
+
+	.block {
+		display: block;
+		margin-bottom: 20px;
+	}
+}

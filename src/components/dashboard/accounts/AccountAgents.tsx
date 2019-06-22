@@ -70,7 +70,7 @@ class AccountAgents extends React.Component<{}, AgentsState> {
 				onClick={() => {
 					this.setState({ addAgentModalIsOpen: true });
 				}}
-				className="button"
+				className="button primary"
 			>
 				<div className="add-admin-btn">
 					<img className="plus-icon" src={plusIcon} />

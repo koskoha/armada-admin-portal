@@ -43,17 +43,17 @@ class NavBar extends React.Component<Props> {
 	renderAccountNavBar = pathname => (
 		<div role="tablist">
 			<NavLink
-				isActive={() => pathname.match(/dashboard\/account\/.*\/overview/)}
+				isActive={() => pathname.match(/dashboard\/account\/.*\/overview|edit/)}
 				activeClassName="selected"
 				role="tab"
-				to="/dashboard/account/agentid/overview"
+				to="/dashboard/account/accountid/overview"
 			>
 				Overview
 			</NavLink>
 			<NavLink
 				activeClassName="selected"
 				role="tab"
-				to="/dashboard/account/agentid/agents"
+				to="/dashboard/account/accountid/agents"
 			>
 				Agents
 			</NavLink>

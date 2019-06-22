@@ -4,35 +4,35 @@ import { Link, Route } from 'react-router-dom';
 import ProfileInfo from './components/ProfileInfo';
 import EditProfile from './components/ProfileEdit';
 
-class ProfileOverview extends React.Component {
+class AdminOverview extends React.Component {
 	renderEditButtons = () => (
 		<div>
-			<Link to="/dashboard/adminid/info">
+			<Link to="/dashboard/admin/adminid/overview">
 				<button className="button white-btn">Cancel</button>
 			</Link>
-			<Link to="/dashboard/adminid/info">
-				<button className="button green-btn">Save Changes</button>
+			<Link to="/dashboard/admin/adminid/overview">
+				<button className="button primary">Save Changes</button>
 			</Link>
 		</div>
 	);
 
 	renderInfoButton = () => (
-		<Link to="/dashboard/adminid/edit">
-			<button className="button green-btn">Edit</button>
+		<Link to="/dashboard/admin/adminid/edit">
+			<button className="button primary">Edit</button>
 		</Link>
 	);
 
 	render() {
 		return (
 			<div className="profile-wrapper">
-				<Route path={'/dashboard/:id/edit'} component={EditProfile} />
-				<Route path={'/dashboard/:id/info'} component={ProfileInfo} />
+				<Route path={'/dashboard/admin/:id/edit'} component={EditProfile} />
+				<Route path={'/dashboard/admin/:id/overview'} component={ProfileInfo} />
 				<Route
-					path={'/dashboard/:id/edit'}
+					path={'/dashboard/admin/:id/edit'}
 					render={() => this.renderEditButtons()}
 				/>
 				<Route
-					path={'/dashboard/:id/info'}
+					path={'/dashboard/admin/:id/overview'}
 					render={() => this.renderInfoButton()}
 				/>
 			</div>
@@ -40,4 +40,4 @@ class ProfileOverview extends React.Component {
 	}
 }
 
-export default ProfileOverview;
+export default AdminOverview;

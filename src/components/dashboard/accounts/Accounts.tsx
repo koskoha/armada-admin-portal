@@ -63,7 +63,7 @@ class Accounts extends React.Component<{}, AccountsState> {
 					{ id: 'Armada User', value: 'armadaUser' }
 				]}
 			/>
-			<button className="button">Sync Accounts</button>
+			<button className="button primary">Sync Accounts</button>
 		</div>
 	);
 

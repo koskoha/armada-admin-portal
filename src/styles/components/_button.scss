@@ -1,20 +1,14 @@
 .button {
 	outline: none;
-	font-family: $font-lato;
-	background: $red;
+	font-family: Lato-Medium, sans-serif;
 	border: none;
 	border-radius: 19px;
-	color: $white;
-	max-height: 41px;
+	max-height: 38px;
 	cursor: pointer;
-	padding: 11px 23px;
-	font-size: 1em;
-	font-weight: 500;
+	padding: 9px 23px;
+	font-size: 0.885em;
 	text-decoration: none;
 	text-align: center;
-	&:hover {
-		background: $pink;
-	}
 	.btn-icon {
 		margin-right: 10px;
 		display: flex;
@@ -22,11 +16,29 @@
 	}
 }
 
+.primary {
+	background: $red;
+	color: $white;
+	&:hover {
+		background: $cerise-pink;
+	}
+}
+
+.tertiary {
+	background: none;
+	border: 1px solid $dark-midnight-blue;
+	color: $dark-midnight-blue;
+	margin-right: 30px;
+	&:hover {
+		background: $light-cyan;
+	}
+}
+
 .action-btn-container {
 	display: flex;
 	flex-direction: row;
 	color: $red;
-	img{
+	img {
 		width: 16px;
 		height: 16px;
 		margin-top: 4px;
@@ -40,23 +52,5 @@
 		font-size: 1em;
 		font-weight: 600;
 		cursor: pointer;
-	}
-}
-
-.green-btn {
-	background: $light-green;
-	color: $blue;
-	&:hover {
-		background: $green-hover;
-	}
-}
-
-.white-btn {
-	background: $white;
-	border: 1px solid $blue;
-	color: $blue;
-	margin-right: 20px;
-	&:hover {
-		background: $light-grey;
 	}
 }

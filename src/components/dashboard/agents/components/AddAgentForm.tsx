@@ -132,10 +132,10 @@ class AddAgentForm extends React.Component<
 					</FormControl>
 				</div>
 				<div className="modal-footer">
-					<button className="button white-btn" onClick={close}>
+					<button className="button tertiary" onClick={close}>
 						cancel
 					</button>
-					<button className="button" onClick={() => {}}>
+					<button className="button primary" onClick={() => {}}>
 						Add Agent
 					</button>
 				</div>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { styled } from 'baseui';
-import { StatefulInput, StyledInputContainer, MaskedInput } from 'baseui/input';
+import { Input, StyledInputContainer, MaskedInput } from 'baseui/input';
 import classNames from 'classnames';
 
 import visibilityIcon from '../../assets/images/icon_visibility.png';
@@ -99,8 +99,7 @@ export default class FormInput extends React.Component<
 			<div className={inputClass}>
 				<p className="input-label"> {label} </p>
 				{!phone ? (
-					<StatefulInput
-						mask="(999) 999-9999"
+					<Input
 						value={value}
 						type={inputType}
 						onChange={e => onChange(e)}

@@ -146,10 +146,10 @@ class AddAdminForm extends React.Component<AddAdminFormProps> {
 					/>
 				</form>
 				<div className="modal-footer">
-					<button className="button white-btn" onClick={close}>
+					<button className="button tertiary" onClick={close}>
 						cancel
 					</button>
-					<button className="button" onClick={this.validateSubmit}>
+					<button className="button primary" onClick={this.validateSubmit}>
 						{buttonLabel}
 					</button>
 				</div>
