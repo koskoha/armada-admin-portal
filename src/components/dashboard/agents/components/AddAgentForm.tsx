@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { StatefulSelect } from 'baseui/select';
-import { FormControl } from 'baseui/form-control';
 import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
 
@@ -48,7 +47,7 @@ class AddAgentForm extends React.Component<
 		lastName: undefined,
 		email: undefined,
 		phone: undefined,
-		agentType: undefined,
+		agentType: 'regular',
 		account: undefined,
 		group: undefined
 	};
@@ -61,13 +60,20 @@ class AddAgentForm extends React.Component<
 	};
 
 	render() {
-		// const { accounts } = this.props.data;
-		const { account } = this.state;
+		const {
+			account,
+			agentType,
+			phone,
+			firstName,
+			lastName,
+			email
+		} = this.state;
 		const { loading, close } = this.props;
 		return (
 			<React.Fragment>
 				<form className="add-admin-form">
 					<Input
+						value={firstName}
 						label="First Name"
 						placeholder="First Name"
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -75,6 +81,7 @@ class AddAgentForm extends React.Component<
 						}}
 					/>
 					<Input
+						value={lastName}
 						label="Last Name"
 						placeholder="Last Name"
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -82,6 +89,7 @@ class AddAgentForm extends React.Component<
 						}}
 					/>
 					<Input
+						value={email}
 						label="Email Address"
 						placeholder="Email Address"
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -89,6 +97,8 @@ class AddAgentForm extends React.Component<
 						}}
 					/>
 					<Input
+						phone
+						value={phone}
 						label="Phone Number"
 						placeholder="Phone Number"
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -96,6 +106,7 @@ class AddAgentForm extends React.Component<
 						}}
 					/>
 					<AgentTypeCheckbox
+						value={agentType}
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
 							this.setState({ agentType: event.currentTarget.value });
 						}}
@@ -110,7 +121,8 @@ class AddAgentForm extends React.Component<
 					/>
 				</form>
 				<div className="agents-select">
-					<FormControl label="Account Association">
+					<div className="select">
+						<div className="label"> Group</div>
 						<StatefulSelect
 							isLoafing={loading}
 							options={ACCOUNTS}
@@ -119,9 +131,11 @@ class AddAgentForm extends React.Component<
 							placeholder="Select Account..."
 							onChange={event => this.setState({ account: event.value[0] })}
 						/>
-					</FormControl>
-					<FormControl label="Group Association">
+					</div>
+					<div className="select margin">
+						<div className="label"> Group</div>
 						<StatefulSelect
+							multi
 							disabled={!(account && account.groups)}
 							options={account && account.groups ? account.groups : []}
 							labelKey="name"
@@ -129,7 +143,7 @@ class AddAgentForm extends React.Component<
 							placeholder="Select Group..."
 							onChange={event => this.setState({ group: event.value[0] })}
 						/>
-					</FormControl>
+					</div>
 				</div>
 				<div className="modal-footer">
 					<button className="button tertiary" onClick={close}>

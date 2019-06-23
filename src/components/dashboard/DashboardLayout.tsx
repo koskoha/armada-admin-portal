@@ -8,7 +8,7 @@ import SysAdminsPage from './admins/AdminsList';
 import AdminActivity from './admins/AdminActivity';
 import AdminProfilePage from './admins/AdminOverview';
 import AccountsPage from './accounts/Accounts';
-import AgentsPage from './agents/Agents';
+import AgentsPage from './agents/AgentsList';
 import AgentOverview from './agents/AgentOverview';
 import AccountOverview from './accounts/AccountOverview';
 import AccountAgents from './accounts/AccountAgents';

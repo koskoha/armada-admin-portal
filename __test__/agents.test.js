@@ -5,7 +5,7 @@ import wait from 'waait';
 import toJSON from 'enzyme-to-json';
 import { MockedProvider } from 'react-apollo/test-utils';
 
-import Agents, { GET_AGENTS } from '../src/components/dashboard/agents/Agents';
+import Agents, { GET_AGENTS } from '../src/components/dashboard/agents/AgentsList';
 import { fakeAgent } from '../lib/testUtils';
 
 describe('Tests for <Agents /> component', () => {
