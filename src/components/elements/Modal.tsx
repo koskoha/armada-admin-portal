@@ -11,19 +11,19 @@ const modalOverrides = {
 	}
 };
 
-interface AddAdminModalProps {
+interface ModalProps {
 	close?: () => void;
 	isOpen: boolean;
 	title: string;
 	buttonLabel?: string;
-	children: React.ReactNode;
+	children: React.ReactElement;
+	account: {};
 }
 
-const ModalComponent: React.FC<AddAdminModalProps> = ({
+const ModalComponent: React.FC<ModalProps> = ({
 	close,
 	isOpen,
 	title,
-	buttonLabel,
 	children
 }) => (
 	<React.Fragment>
@@ -36,8 +36,7 @@ const ModalComponent: React.FC<AddAdminModalProps> = ({
 			<p className="modal-header">{title}</p>
 			<div className="modal-body">
 				{React.cloneElement(children, {
-					close,
-					buttonLabel
+					close
 				})}
 			</div>
 		</Modal>

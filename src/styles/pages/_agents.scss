@@ -1,3 +1,14 @@
 .agents-select {
 	width: 50%;
 }
+
+.switcher {
+	margin-top: 20px;
+	display: flex;
+	.switcher-label {
+		margin-left: 20px;
+		font-family: Lato-Bold;
+		font-size: 1.1em;
+		letter-spacing: 0.03em;
+	}
+}

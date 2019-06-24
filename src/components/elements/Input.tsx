@@ -49,6 +49,7 @@ interface FormInputProps {
 	password?: boolean;
 	styleClass?: string;
 	phone?: boolean;
+	disabled?: boolean;
 }
 
 interface FormInputState {
@@ -91,7 +92,8 @@ export default class FormInput extends React.Component<
 			onChange,
 			password,
 			styleClass,
-			phone
+			phone,
+			disabled
 		} = this.props;
 		const { inputType } = this.state;
 		const inputClass = classNames(styleClass);
@@ -101,6 +103,7 @@ export default class FormInput extends React.Component<
 				{!phone ? (
 					<Input
 						value={value}
+						disabled={disabled}
 						type={inputType}
 						onChange={e => onChange(e)}
 						overrides={{

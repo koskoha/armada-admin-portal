@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { StatefulSelect } from 'baseui/select';
-import { gql } from 'apollo-boost';
-import { graphql } from 'react-apollo';
 
 import Input from '../../../elements/Input';
 import AgentTypeCheckbox from '../../../elements/CheckBox';
@@ -68,7 +66,7 @@ class AddAgentForm extends React.Component<
 			lastName,
 			email
 		} = this.state;
-		const { loading, close } = this.props;
+		const { close } = this.props;
 		return (
 			<React.Fragment>
 				<form className="add-admin-form">
@@ -122,9 +120,8 @@ class AddAgentForm extends React.Component<
 				</form>
 				<div className="agents-select">
 					<div className="select">
-						<div className="label"> Group</div>
+						<div className="label"> Account</div>
 						<StatefulSelect
-							isLoafing={loading}
 							options={ACCOUNTS}
 							labelKey="name"
 							valueKey="uuid"
@@ -158,17 +155,4 @@ class AddAgentForm extends React.Component<
 	}
 }
 
-const GET_ACCOUNTS = gql`
-	query {
-		accounts {
-			uuid
-			name
-			groups {
-				uuid
-				name
-			}
-		}
-	}
-`;
-
-export default graphql(GET_ACCOUNTS)(AddAgentForm);
+export default AddAgentForm;

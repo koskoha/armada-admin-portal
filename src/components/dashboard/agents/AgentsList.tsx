@@ -3,6 +3,7 @@ import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
 import { Spinner } from 'baseui/spinner';
 import classNames from 'classnames';
+import faker from 'faker';
 
 import SearchDropdown from '../../elements/SearchDropdown';
 import PaginatedTable from '../../elements/PaginatedTable';
@@ -10,21 +11,22 @@ import Modal from '../../elements/Modal';
 import plusIcon from '../../../assets/images/plus.png';
 
 import AddAgentForm from './components/AddAgentForm';
-
-const ActionBtns: React.FC = () => (
-	<div className="action-btn-container">
-		<button className="action-btn">View</button>/
-		<button className="action-btn">Edit</button>
-	</div>
-);
+import EditAgentForm from './components/EditAgentForm';
 
 const placeholderDATA = [...new Array(50)].map((_, i) => ({
 	id: 12345 + i,
-	name: `Full Name ${i}`,
+	firstName: faker.name.firstName(),
+	lastName: faker.name.firstName(),
 	email: 'test@email.com',
-	account: 'Account Name',
+	account: faker.finance.accountName(),
 	lastActive: '2019-05-13',
-	status: i % 2 === 0 ? 'active' : 'inactive'
+	phone: faker.phone.phoneNumber(),
+	status: i % 2 === 0 ? 'Active' : 'Inactive',
+	group: [
+		{ name: 'Group A', uuid: 1234 },
+		{ name: 'Group B', uuid: 4321 },
+		{ name: 'Group C', uuid: 234234 }
+	]
 }));
 
 const COLUMNS = [
@@ -38,17 +40,42 @@ const COLUMNS = [
 
 interface AgentsState {
 	addAgentModalIsOpen: boolean;
+	isEdit: boolean;
+	selectedAgent: undefined | {};
 }
 
 class Agents extends React.Component<{}, AgentsState> {
 	state = {
-		addAgentModalIsOpen: false
+		isEdit: false,
+		addAgentModalIsOpen: false,
+		selectedAgent: undefined
 	};
+
+	handleEditCondition = (e, agent) => {
+		e.stopPropagation();
+		this.setState({
+			isEdit: !this.state.isEdit,
+			addAgentModalIsOpen: true,
+			selectedAgent: agent
+		});
+	};
+
+	renderActionBtns = agent => (
+		<div className="action-btn-container">
+			<button className="action-btn">View</button>/
+			<button
+				className="action-btn"
+				onClick={e => this.handleEditCondition(e, agent)}
+			>
+				Edit
+			</button>
+		</div>
+	);
 
 	renderTableData = agents => {
 		const agentsData = agents
 			? agents.map(agent => [
-					<span key={agent.id}>{agent.name}</span>,
+					<span key={agent.id}>{`${agent.firstName} ${agent.lastName}`}</span>,
 					<span key={agent.id}>{agent.email}</span>,
 					<span key={agent.id}>{agent.account}</span>,
 					<span key={agent.id}>{agent.lastActive}</span>,
@@ -56,13 +83,13 @@ class Agents extends React.Component<{}, AgentsState> {
 						<div
 							className={classNames({
 								bullet: true,
-								active: agent.status === 'active',
-								inactive: agent.status === 'inactive'
+								active: agent.status === 'Active',
+								inactive: agent.status === 'Inactive'
 							})}
 						/>
 						{agent.status}
 					</div>,
-					<ActionBtns key={agent.id} />
+					this.renderActionBtns(agent)
 			  ])
 			: undefined;
 
@@ -93,7 +120,7 @@ class Agents extends React.Component<{}, AgentsState> {
 	render() {
 		// const { agents, loading, error } = this.props.data;
 		const { loading, error } = this.props.data;
-		const { addAgentModalIsOpen } = this.state;
+		const { addAgentModalIsOpen, isEdit, selectedAgent } = this.state;
 
 		// Remove this line to use server agents data and uncomment code.
 		const agents = placeholderDATA;
@@ -106,14 +133,14 @@ class Agents extends React.Component<{}, AgentsState> {
 				<Modal
 					close={() => {
 						this.setState({
-							addAgentModalIsOpen: false
+							addAgentModalIsOpen: false,
+							isEdit: false
 						});
 					}}
 					isOpen={addAgentModalIsOpen}
-					title="Add New Agent"
-					buttonLabel="Add Agent"
+					title={isEdit ? 'Edit Agent Details' : 'Add New Agent'}
 				>
-					<AddAgentForm />
+					{isEdit ? <EditAgentForm agent={selectedAgent} /> : <AddAgentForm />}
 				</Modal>
 				{this.renderSearchBlock(agents)}
 				{loading ? (
