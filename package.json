@@ -2,7 +2,7 @@
   "name": "armada-ui",
   "private": true,
   "version": "1.0.0",
-  "description": "Admin and Agent Portal for ArmadaHealth",
+  "description": "Admin and Agent Portal",
   "main": "dist",
   "scripts": {
     "build": "npm-run-all --parallel type-check build:js",
